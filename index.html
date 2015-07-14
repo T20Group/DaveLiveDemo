@@ -85,6 +85,51 @@ $(function() {
 			favorites
 			globally shared functions
 		-->
+			
+			<script type="text/javascript">
+			$(function() {
+				$('#heatmap-nav.hotspot').on('swipedown', function() {
+					console.log('open heatmap');
+					$('#heatmap-view').css('height', '100%');
+
+					$('#heatmap-view > .swipe').css('width', '0%');
+					$('#heatmap-view > .tap').css('width', '0%');
+
+				});
+				
+				$('#heatmap-nav.hotspot').on('swipeleft', function() {
+// 					$('#heatmap-view > .overview').css('height', '0%');
+					$('#heatmap-view > .swipe').css('width', '100%');
+					$('#heatmap-view > .tap').css('width', '0%');
+					console.log('swipeleft heatmap');
+				});
+				
+				$('#heatmap-nav.hotspot').on('swiperight', function() {
+// 					$('#heatmap-view > .overview').css('height', '0%');
+					$('#heatmap-view > .swipe').css('width', '0%');
+					$('#heatmap-view > .tap').css('width', '100%');
+					console.log('swiperight heatmap');
+				});
+				
+				
+				$('#heatmap-nav.hotspot').on('swipeup', function() {
+					$('#heatmap-view').css('height', '0%');
+					console.log('close heatmap');
+				});
+				
+			});
+			</script>
+			
+			
+			<div id="heatmap-nav" class="hotspot" style="top: 0; left: 900px; height: 200px; width: 300px; ">
+			</div>
+			<div id="heatmap-view" class="easein" style="height: 0; width: 1920px; overflow: hidden; position: absolute;">
+				<div class="overview easein" style="position: absolute; overflow: hidden; width: 1920px; height: 1080px;"><img src="images/heatmap-overview.jpg" width="1920" height="1080"></div>
+				<div class="swipe easein" style="position: absolute; overflow: hidden; width: 0; height: 1080px;"><img src="images/heatmap-swipe.jpg" width="1920" height="1080"></div>
+				<div class="tap easein" style="position: absolute; overflow: hidden; width: 0; height: 1920px;"><img src="images/heatmap-tap.jpg" width="1920" height="1080"></div>
+				
+			</div>
+		
 	</div>
 	<div id="main-navigation" class="">
 <!--
