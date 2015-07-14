@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "glyph";
+    src: url("../fonts/glyphicons-halflings-regular.woff") format('woff');
+}
+.glyphicon {
+	font-family:glyph;
+	position:relative;
+	top:4px;
+}
+a .glyphicon {
+	text-decoration:none;
+	color:inherit;
+}
+
+a {
+	text-decoration:none;
+	color:black;
+}
+
+.cleared { clear: both; }
+.hidden { display: none !important; }
+.button:hover { cursor: pointer; }
+
+html, body {
+	height: 1080px;
+	margin: 0;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+	overflow:hidden;
+	color:#666;
+	background-color:#111;
+}
+
+.container { height: 1080px; width: 1920px; overflow: hidden; }
+
+#main-container { height: 1080px; width: 1920px; overflow: hidden; background: #333; position: relative; }
+	#main-overlay 			{ z-index: 8000; }
+	#main-navigation		{ z-index: 7000; }
+	#main-view				{ z-index: 6000; }
+		#content-overlay	{ z-index: 5000; }
+		#content-nav		{ z-index: 4000; }
+		#content-view		{ z-index: 3000; height: 1080px; width: 1920px; overflow: hidden; position: absolute; left; 0; top: 0; }

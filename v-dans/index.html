@@ -1,0 +1,28 @@
+<script type="text/javascript">
+$(function() {
+/*
+	$('a').on('click', function() {
+		$('#content-view').html('<img src="dans/images/heatmap-overview.jpg" width="1920" height="1080">');
+	});
+*/	var b = 0;
+	$('.anchor').on('tapstart', function() { // investigate further for in-page analytics
+		b++;
+		console.log(b+' taps');
+	});
+	
+	$('#content-view').route('dans/:folder/:view/', function(request, folder, view) {
+		$('#targetview').attr('src', folder+'/images/heatmap-'+view+'.jpg');
+    });
+     
+});
+</script>
+
+<div id="content-overlay"></div>
+<div id="content-nav" style="position: absolute; top: 20%; left: 50%; background: rgba(255, 255, 255, 0.5);">
+	<a class="anchor" href="#dans/v-dans/overview/">Foot Traffic</a><br />
+	<a class="anchor" href="#dans/v-dans/linger/">Linger time</a><br />
+	<a class="anchor" href="#dans/v-dans/linger-staff/">Linger time: Staff</a><br />
+</div>
+<div id="content-view">
+	<img id="targetview" src="v-dans/images/heatmap-overview.jpg" width="1920" height="1080">
+</div> 
