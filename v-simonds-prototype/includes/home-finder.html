@@ -1,0 +1,423 @@
+<style type="text/css">
+@-webkit-keyframes pulse {
+	0% { -webkit-box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+	50% { -webkit-box-shadow: 0 0 10px rgba(255,255,255,0.9); }
+	100% { -webkit-box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+}
+.pulsing { -webkit-animation: pulse 2s infinite ease-in-out; }
+
+
+
+.btn_right { opacity: 0; width: 322px; height: 204px; position: absolute; bottom: -12px; left: 200px; z-index:10; }
+.btn-right-div {
+    background-image: radial-gradient(circle closest-corner at -74px 50% , rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 100px, rgba(0, 0, 0, 0) 56px, rgba(0, 0, 0, 0.5) 57px);
+    border-radius: 0 80px 80px 0;
+    color: #FFFFFF;
+    padding: 10px 25px;
+    width: 292px;
+	box-shadow: 6px 0 8px rgba(0, 0, 0, 0.3);
+	}
+/*.btn-right-div .half-circle {
+	
+    height: 136px;
+    left: -32px;
+    position: absolute;
+    top: 0;
+    width: 32px;
+}*/
+.btn-right-div .heading { font-size:30px; text-shadow: 0 2px 3px #000000; }
+.btn-right-div .leftarrow a { font-size:40px; float:left; padding:20px 10px; display:block; color:#FFF; text-shadow: 0 2px 3px #000000; }
+.btn-right-div .middletext {  float: left;
+    font-size: 55px;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 0 2px 3px #000000;
+    width: 150px; }
+.btn-right-div .rightarrow a { font-size:40px; float:right; padding:20px 10px; display:block; color:#FFF; text-shadow: 0 2px 3px #000000; }
+.btn_left { opacity: 0; width: 522px; height: 204px; position: absolute; bottom: -30px; right: 50px; z-index:10; }
+.btn_left .b_single_div, .btn_left .b_double_div  { padding:10px; background-color: rgba(0,0,0,.5); float:left; border-radius-left:50%; box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);}
+.btn_left .b_single_div { 
+	border-radius: 50px 0 0 50px;
+    margin-right: 5px;
+    padding-right: 25px; }
+.btn_left .b_double_div { 
+	border-radius: 0 50px 50px 0;
+    padding-left: 25px; }
+.btn_left a { 
+    border-radius: 40px;
+    color: #FFFFFF;
+    display: block;
+    font-size: 40px;
+    padding: 20px;
+	text-shadow: 0 2px 3px #000000; }
+.btn_left a.selected {
+	background-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+}
+#btn_finder { z-index:20; position:relative;}
+#btn_finder .graphic { height:200px; width:200px; color:rgba(255,255,255,0.90); box-shadow: 0 0 14px rgba(0, 0, 0, 0.5); background-color:rgba(0,0,0,.5); margin-bottom:20px; border-radius:50%; text-align:center; }
+#btn_finder .graphic .glyphicon { font-size: 170px;
+    left: -67px;
+    position: absolute;
+    text-shadow: 0 4px 10px #000000;
+    top: -42px;
+}
+#btn_finder .graphic .heading { font-size: 44px;
+    left: -52px;
+    position: absolute;
+    text-shadow: 0 4px 3px #000000;
+    top: 106px;}
+#btn_finder .graphic .half-circle {
+	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
+    border-radius: 80px 80px 0 0;
+    height: 40px;
+    left: -16px;
+    position: absolute;
+    top: -4px;
+    transform: rotate(74deg);
+    width: 80px;
+}
+.finder-result { opacity: 0; position: absolute; z-index: 10; width: 100%; text-align: center; bottom: 300px; display:none; }
+.easing { transition: all .5s cubic-bezier(.5, 1.8, 1, 1.5); }
+.easingB { transition: all .3s cubic-bezier(0, 0, 1, 1); }
+.opac { opacity: 1 !important; bottom: 320px !important; }
+.btn_right_ani { opacity: 1; left: 230px; }
+.btn_left_ani { opacity: 1; right: 100px; }
+#finder {
+	position: absolute; z-index: 10; bottom: 0; text-align: center; left:0; border: 0px solid white; transition:all ease 0.5s;
+}
+.lower-finder { bottom:-125px !important; }
+
+@keyframes pulse2 {
+	0% { color:#FF9; }
+	100% { color:white;}
+}
+.pulse2 { animation: pulse2 .5s ease-in-out; }
+
+
+.background-overlay { background-color: rgba(0,0,0,0.5); height: 1080px; width: 1920px; position: absolute; top:-1040px; left:-900px; }
+.hideWidth, .hideStorey { display: none; }
+
+</style>
+
+<script type="text/javascript">
+$(function() {
+	
+	
+	// GENERATE HOMES
+    
+    var $target = $('#homes-filter-container');
+    var $content = $('#content');
+    
+    $.getJSON("homes.json", function(data) {		
+		$.each(data.homes, function(name, val) {
+			// append dynamic homes
+					
+			var id = val.id;
+			var name = val.name;
+			var storey = val.floorplan[0].storey;
+			var bed = val.floorplan[0].bed;
+			var bath = val.floorplan[0].bath;
+			var car = val.floorplan[0].car;
+			var width = val.floorplan[0].block;
+			var homes = '<div id="homes'+id+'" class="homes" data-storey="'+storey+'" data-width="'+width+'" data-id="'+id+'" style="background-image: url(images/homes/'+id+'.jpg);"><div class="homesDesc hidden">W: '+width+'<br/>Bed: '+ bed +'<br/>bath: '+bath+'<br/>car: '+car+'</div><div class="homesTitle">'+name+'</div></div>';
+			
+			$target.append(homes);
+			
+		});
+	});
+	
+	// binds dynamically generated .homes filter within $target to 
+	
+	$target.on('tapstart', '.homes', function(e) {
+		
+		if (!$(this).hasClass('selected')) {
+			$('.iosSlider').iosSlider('destroy');
+			// store cookie
+			var val = $(this).attr('data-id');
+			$.cookie('homes', val);
+			
+			// update content DIV
+			$content.load('content_homes.html');
+			
+			
+			// SELECTED
+			$('.homes').removeClass('selected');
+			$(this).addClass('selected');
+		}
+		
+		
+		
+		minimizeFinder();
+		
+	});
+	
+	function hideTut() {
+		$('#tut-copy').remove();
+	}
+	
+	function moveToHomes() {
+		$('#touchme-container').css({'left': '650px', 'top': '650px'});
+	}
+	
+	$('#b_single').on('tapstart', function(e) {
+		
+		hideTut();
+		
+		$('.homes').removeClass('hidden');
+		
+		if($(this).hasClass('selected')) {
+			$('.storey').removeClass('selected');	
+			// show all
+			$('.homes').removeClass('hideStorey');
+		} else {
+			$('.storey').removeClass('selected');
+			$(this).addClass('selected');
+		
+			$('.homes').addClass('hideStorey');	
+			$('.homes').filter(function() {
+				
+				var t = $(this).attr('data-storey');
+				if (t==1) {
+					$(this).removeClass('hideStorey');	
+				}
+				
+			});
+			
+		}
+		return false;
+	});
+	
+	$('#b_double').on('tapstart', function(e) {
+		
+		hideTut();
+		
+		$('.homes').removeClass('hidden');
+		
+		if($(this).hasClass('selected')) {
+			$('.storey').removeClass('selected');	
+			// show all
+			$('.homes').removeClass('hideStorey');
+		} else {
+			$('.storey').removeClass('selected');
+			$(this).addClass('selected');
+				
+			$('.homes').addClass('hideStorey');
+			$('.homes').filter(function() {
+				
+				var t = $(this).attr('data-storey');
+				if (t==2) {
+					$(this).removeClass('hideStorey');	
+				}
+				
+			});
+		}
+		return false;
+	});
+	
+	function minimizeFinder() {
+		// minimize finder
+		$('#menu-overlay').removeClass('background-overlay');
+		$('#homes-filter-container').removeClass('opac');
+		$('#btn_right').removeClass('btn_right_ani');
+		$('#btn_left').removeClass('btn_left_ani');
+		$('.hud').removeClass('hidden');
+		$('#finder').addClass('lower-finder');
+	}
+	
+	function maximizeFinder() {
+		// minimize finder
+		$('#menu-overlay').addClass('background-overlay');
+		$('#homes-filter-container').addClass('opac');
+		$('#btn_right').addClass('btn_right_ani');
+		$('#btn_left').addClass('btn_left_ani');
+		$('.hud').addClass('hidden');
+		$('#finder').removeClass('lower-finder');
+	}
+	
+	$('#menu-overlay').tapstart(function(e) {
+		minimizeFinder();
+	});
+	
+///////////////////////////	
+///// OLD CODE BELOW //////
+///////////////////////////
+
+	$('#btn_finder').tapstart(function(e, touch) {
+		if ($('#finder').hasClass('lower-finder')) {
+			maximizeFinder();
+		} else {
+			minimizeFinder();
+		}
+		
+		$('#wishlist-nav').addClass('hidden');
+	});
+	
+	//lot width
+	var widths = [0, 12.5, 14, 15, 16]
+	var currWidth = 0;
+	
+	//lot width
+
+	var increment_val = 0.5;
+	
+	$('#b_widthUp').tapstart(function(e, touch) {
+		
+		// tut
+		hideTut();
+
+		if (currWidth < widths.length-1) {
+			currWidth++;
+			var newVal = widths[currWidth]+'m';
+		} else {
+			currWidth = 0;
+			var newVal = "all";
+		}
+		
+		findWidth(widths[currWidth]);
+		
+		$('.middletext').text(newVal);
+		
+/*
+		// get current width
+		var $currWidth = parseFloat($('.middletext').attr('data-currwidth'));
+		// add new increment
+		var newVal = ($currWidth+increment_val).toFixed(1);
+		
+		if ($currWidth<13.5) {
+			// replace current value
+			$('.middletext').attr('data-currwidth', newVal).text(newVal+'m');
+		} else {
+			var newVal = "9.5";
+			$('.middletext').attr('data-currwidth', newVal).text(newVal+'m');
+		}
+		
+		if ($currWidth==13.5) {
+			var newVal = "9";
+			$('.middletext').attr('data-currwidth', newVal).text('ALL');
+		}
+		hideWidth(newVal);
+		//console.log(newVal);
+*/
+
+	});
+	
+	function findWidth(target) {
+	 	$('.homes').removeClass('hidden');
+		
+		if(target>0) {
+			$('.homes').addClass('hideWidth');
+			$('.homes').filter(function() {
+					
+				var t = parseFloat($(this).attr('data-width'));
+				if (parseFloat(target)==t) {
+					$(this).removeClass('hideWidth');	
+				}
+				
+			});	
+		} else { 
+			$('.homes').removeClass('hideWidth');
+		}
+	}
+	
+	$('#b_widthDown').tapstart(function(e, touch) {
+		
+		//tut
+		hideTut();
+		
+		currWidth--;
+		if (currWidth > 0) {
+			
+			var newVal = widths[currWidth]+'m';
+			//console.log(currWidth);
+		} 
+		if (currWidth <= 0) {
+			//console.log(currWidth);
+			currWidth = widths.length;
+			var newVal = "all";
+		}
+		
+		findWidth(widths[currWidth]);
+		
+		$('.middletext').text(newVal)
+		
+/*
+		// get current width
+		var $currWidth = parseFloat($('.middletext').attr('data-currwidth'));
+		// add new increment
+		var newVal = ($currWidth-increment_val).toFixed(1);
+		
+		if ($currWidth>9.5) {
+			// replace current value
+			$('.middletext').attr('data-currwidth', newVal).text(newVal+'m');
+		} else {
+			var newVal = "13.5";
+			$('.middletext').attr('data-currwidth', newVal).text(newVal+'m');
+		}
+		
+		if ($currWidth==9.5) {
+			var newVal = "9";
+			$('.middletext').attr('data-currwidth', newVal).text('ALL');
+		}
+		
+	    hideWidth(newVal);
+		//console.log(newVal);
+*/
+
+	});
+	
+	function hideWidth(target) {
+	 	$('.homes').removeClass('hidden');
+		$('.homes').addClass('hideWidth');
+		
+		$('.homes').filter(function() {
+				
+			var t = parseFloat($(this).attr('data-width'));
+			if (parseFloat(target)<t) {
+				$(this).removeClass('hideWidth');	
+			}
+			
+		});	
+	}
+	
+})
+</script>
+
+<div id="menu-overlay"></div>
+
+<div id="homes-filter-container" class="easingB"> <!-- MOVE this whole DIV to reposition layers including the "cleared" DIV-->
+	<!--
+		<div id="homes01" class="homes">
+			<div class="homesImg">img here</div>
+			<div class="homesTitle">Title here</div>
+		</div>
+	-->
+</div> <!-- /homesHolder-->
+<div class="cleared"></div>
+
+<!--<img src="images/HUD/btn_finder.png" alt="btn_finder" height="300">-->
+<div id="finder" style="">
+	<a id="btn_finder" href="#">
+    <div class="graphic">
+    	<div><span class="glyphicon">&#57347;</span></div>
+        <div class="half-circle"></div>
+        <div class="heading">home finder</div>
+    </div>
+    </a>
+    <div id="btn_left" class="btn_left easing">
+        <div class="b_single_div"><a href="#" id="b_single" class="storey">single</a></div>
+        <div class="b_double_div"><a href="#" id="b_double" class="storey">double</a></div>
+       
+    </div>
+    
+    <div id="btn_right" class="btn_right easing">
+    	<div class="btn-right-div">
+        	<div class="half-circle"></div>
+        	<div class="heading">lot width</div>
+        	<div class="leftarrow"><a id="b_widthDown" href="#"><span class="glyphicon">&#57465;</span></a></div>
+            <div class="middletext" data-currwidth="9">&nbsp;</div>
+            <div class="rightarrow"><a id="b_widthUp" href="#"><span class="glyphicon">&#57472;</span></a></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div> <!-- /finder -->

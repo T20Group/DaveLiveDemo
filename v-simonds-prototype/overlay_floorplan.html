@@ -1,0 +1,278 @@
+<script type="text/javascript">
+var $thisdiv = $('#overlay-floorplan-container');
+	
+$(function(){
+	$('.close, #fp-bg').tapstart(function() {
+
+		//$thisdiv.remove();
+		$('#overlay-floorplan-container').removeClass('show');
+		$('#floorplan-container').removeClass('toplayer');
+		return false;
+	});
+	
+	// grab current view location through cookie
+	
+	$('.goto').tapstart(function() {
+		//alert('ok');
+/*
+		var posX = $(this).attr('data-pos-x');
+		var posY = $(this).attr('data-pos-y');
+	// 	alert(posX);
+		$('#map-marker').css({
+			"left" : posX+'px',
+			"top" : posY+'px'
+		});
+		
+*/
+		var slide = $(this).attr('data-slide-no');
+		$('.iosSlider').iosSlider('goToSlide', slide);
+		$('.b_view').removeClass('selected');
+		$(this).addClass('selected');
+		
+		return false;
+	});
+	
+	$('#floorplan-tabs .tab').tapstart(function() {
+		if(!$(this).hasClass('selected')) {
+			$("#floorplan-tabs .tab").removeClass('selected');
+			$(this).addClass('selected');
+			
+			$('.tab-cont').removeClass('selected');
+			$('#'+$(this).data('div')).addClass('selected');
+		}
+	});
+	
+	$('#upg_ensuite').tapstart(function() {
+		$('#upimg_ens').toggleClass('show');
+		$('#upg_ensuite .upgrade_text').toggleClass('show');
+		$('#upg_ensuite .b_upgrade').toggleClass('selected');
+	});
+	
+	$('#upg_front').tapstart(function() {
+		$('#upimg_front').toggleClass('show');
+		$('#upg_front .upgrade_text').toggleClass('show');
+		$('#upg_front .b_upgrade').toggleClass('selected');
+	});
+	
+	$('#upg_rear').tapstart(function() {
+		if($('#upimg_rear1').hasClass('show')) {
+			//option 2
+			$('#big-floorplan-container img').css({"-moz-transform":"scale(.9)"});
+			$('#upimg_rear1').toggleClass('show');
+			$('#upimg_rear2').toggleClass('show');
+			$('#upg_rear .upgrade_text').text('4 Bed & Media Room');
+		} else if($('#upimg_rear2').hasClass('show')) {
+			//back to standard
+			$('#upimg_rear2').toggleClass('show');
+			$('#upg_rear .upgrade_text').toggleClass('show');
+			$('#big-floorplan-container img').css({"-moz-transform":"scale(1)"});
+			$('#upg_rear .b_upgrade').removeClass('selected');
+		} else {
+			//option 1
+			$('#upimg_rear1').toggleClass('show');
+			$('#upg_rear .upgrade_text').toggleClass('show');
+			$('#big-floorplan-container img').css({"-moz-transform":"scale(1)"});
+			$('#upg_rear .upgrade_text').text('4 Bed & Alfresco');
+			$('#upg_rear .b_upgrade').addClass('selected');
+		}
+		
+	});
+
+	
+});
+</script>
+<style>
+#big-floorplan-container img {
+	margin:30px 130px;
+	transition:0.5s ease;
+	-khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+#big-floorplan-container .img_upgrade {
+	position:absolute;
+	left:0;
+	top:0;
+	display:none;
+}
+#big-floorplan-container .img_upgrade.show {
+	display:inherit;
+}
+#overlay-floorplan-container {
+	background-color: rgba(40, 40, 40, 0.95); 
+	height: 1000px; 
+	position: absolute; 
+	left: 2500px; 
+	top: 40px; 
+	width: 1200px;
+	transition:1s ease left;
+}
+#overlay-floorplan-container.show {
+	left: 360px; 
+}
+
+.div_b_upgrade {
+	position:absolute;
+}
+.div_b_upgrade .b_upgrade {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 1);
+    border: 2px solid #82c878;
+    border-radius: 50%;
+    box-shadow: 0 0 3px black;
+    color: #f5f5f5;
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    height: 50px;
+    line-height: 42px;
+    text-align: center;
+    text-decoration: none;
+    width: 50px;
+	opacity:0.8;
+	transition:0.3s ease;
+}
+.div_b_upgrade .b_upgrade.selected {
+	border-width: 4px;
+    margin-left: -2px;
+    margin-top: -2px;
+    opacity: 1;
+}
+.div_b_upgrade .upgrade_text {
+	color:white;
+	font-size:20px;
+	margin: 10px 15px;
+	opacity:0;
+	transition:0.3s ease;
+}
+.div_b_upgrade .upgrade_text.show {
+	opacity:1;
+}
+.div_b_upgrade .b-left {
+	float:left;
+}
+.div_b_upgrade .b-right {
+	float:right;
+}
+#floorplan-tabs {
+	left: 310px;
+    position: absolute;
+    top: 0px;
+	z-index: 1000;
+}
+#floorplan-tabs .tab {
+	background-color: black;
+    color: white;
+    display: inline-block;
+    font-size: 30px;
+    padding: 18px 0;
+    text-align: center;
+    width: 300px;
+	opacity:0.5;
+}
+#floorplan-tabs .tab.selected {
+	opacity:1;
+}
+
+.div_b_view {
+	position:absolute;
+}
+.div_b_view .b_view {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 1);
+    border: 2px solid #e9622d;
+    border-radius: 50%;
+    box-shadow: 0 0 3px black;
+    color: #f5f5f5;
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    height: 50px;
+    line-height: 42px;
+    text-align: center;
+    text-decoration: none;
+    width: 50px;
+	opacity:0.6;
+	transition:0.3s ease;
+}
+.div_b_view .b_view.selected {
+	border-width: 4px;
+    margin-left: -2px;
+    margin-top: -2px;
+    opacity: 1;
+}
+.tab-cont {
+	display:none;
+}
+.tab-cont.selected {
+	display:inherit;
+}
+#b_closefloorplan {
+	background-color: black;
+    color: white;
+    display: inline-block;
+    font-size: 30px;
+    opacity: 1;
+    padding: 18px;
+    text-align: center;
+	border-top:solid 7px white;
+	border-top: 7px solid #777;
+}
+
+</style>
+
+<div id="overlay-floorplan-container" class="show">
+    <div id="floorplan-tabs">
+    	<a id="b_roomviews" class="tab selected" data-div="floorplan-views-cont" href="#" style="border-top:solid 7px #e9622d;">Room Views</a>
+        <a id="b_upgradeoptions" class="tab" data-div="floorplan-upgrade-cont" href="#" style="border-top:solid 7px #82c878;">Upgrade Options</a>
+    </div>
+    <a id="b_closefloorplan" class="close" href="#" style="position:absolute; top:0; right:0;"><span class="glyphicon">&#xE014;</span></a>
+    <div id="big-floorplan-container">
+    	<img id="floorplan-image" src="images/floorplan/warner/floorplan_warner_base.png" height="1000" />
+        <img id="upimg_rear1" class="img_upgrade" src="images/floorplan/warner/floorplan_warner_rear4bedAlfresco.png" height="1000" />
+        <img id="upimg_rear2" class="img_upgrade" src="images/floorplan/warner/floorplan_warner_rear4bedMedia.png" height="1000" />
+        <img id="upimg_front" class="img_upgrade" src="images/floorplan/warner/floorplan_warner_16mFront.png" height="1000" />
+        <img id="upimg_ens" class="img_upgrade" src="images/floorplan/warner/floorplan_warner_ensuite.png" height="1000" />
+        
+        
+        <div id="floorplan-upgrade-cont" class="tab-cont">
+        
+            <div id="upg_ensuite" style="top:686px; left:850px;" class="div_b_upgrade">
+                <a class="b_upgrade b-left" href="#"><span class="glyphicon">&#xE031;</span></a>
+                <div class="upgrade_text b-left">Ensuite upgrade</div>
+            </div>
+            <div id="upg_rear" style="top:426px; left:850px;" class="div_b_upgrade">
+                <a class="b_upgrade b-left" href="#"><span class="glyphicon">&#xE031;</span></a>
+                <div class="upgrade_text b-left">Rear of house</div>
+            </div>
+          <div id="upg_front" style="top:830px; left:850px;" class="div_b_upgrade">
+                <a class="b_upgrade b-left" href="#"><span class="glyphicon">&#xE031;</span></a>
+                <div class="upgrade_text b-left">16m frontage</div>
+            </div>
+            
+      </div>
+            
+        <div id="floorplan-views-cont" class="tab-cont selected">
+                <div style="top:926px; left:580px;" class="div_b_view">
+                    <a id="b_view1" class="b_view goto" data-slide-no='1' href="#"><span class="glyphicon">&#xE062;</span></a>
+                </div>
+                <div style="top:297px; left:548px;" class="div_b_view">
+                    <a id="b_view2" class="b_view goto" data-slide-no='2' href="#"><span class="glyphicon">&#xE062;</span></a>
+                </div>
+                <div style="top:276px; left:708px;" class="div_b_view">
+                    <a id="b_view5" class="b_view goto" data-slide-no='5' href="#"><span class="glyphicon">&#xE062;</span></a>
+                </div>
+                <div style="top:833px; left:683px;" class="div_b_view">
+                    <a id="b_view4" class="b_view goto" data-slide-no='4' href="#"><span class="glyphicon">&#xE062;</span></a>
+                </div>
+                <div style="top:536px; left:580px;" class="div_b_view">
+                    <a id="b_view3" class="b_view goto" data-slide-no='3' href="#"><span class="glyphicon">&#xE062;</span></a>
+                </div>
+        </div>
+        
+	</div>
+	
+	<div id="fp-bg" style="background: none repeat scroll 0% 0% rgba(0, 0, 0, 0); position: absolute; width: 1920px; left: -360px; top: 0px; z-index: -100; height: 950px;">
+		
+	</div>
+</div>

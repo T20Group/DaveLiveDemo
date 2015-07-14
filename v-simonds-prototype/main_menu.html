@@ -1,0 +1,267 @@
+<script type="text/javascript">
+$(function() {
+	
+	//reset promo
+	$.cookie('promos', 0);
+
+$('.iosSlider').iosSlider({
+	snapToChildren: true,
+	desktopClickDrag: true,
+	infiniteSlider: true,
+	snapSlideCenter: true,
+	onSlideChange: slideChange,
+	onSliderLoaded:slideLoad,
+	autoSlide: true,
+	autoSlideTimer:5000,
+	autoSlideTransTimer:1200
+//	horizontalSlideLockThreshold:5,
+//	slideStartVelocityThreshold:10
+});
+
+
+function slideChange(args) {
+						
+	$('.indicators .item').removeClass('selected');
+	$('.indicators .item:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
+	
+	$('.slider .item').removeClass('selected');
+	$('.slider .item:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
+
+}
+function slideLoad(args) {
+// 	$('.slider .item:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
+}
+var first_touch = 0;
+var last_touch = 0;
+var tap_offset = 50;
+
+$('.b_promo_slider').tapstart(function(e, touch) {
+	
+	first_touch = touch.position.x;
+});
+
+$('.b_promo_slider').tapend(function(e, touch) {
+
+	last_touch = touch.position.x;
+
+
+	var diff =  Math.abs( parseInt(first_touch) - parseInt(last_touch) );
+	//alert(diff);
+	if (diff <= tap_offset) {
+		$.cookie('promos', $(this).data('promo'));
+		$('#main-menu-promo-btn').trigger('tapstart');
+	}
+});
+
+
+/*
+$('.b_promo_slider').mousedown(function(e) {
+	first_touch = e.pageX;
+	console.log(first_touch);	
+});
+$('.b_promo_slider').mouseup(function(e) {
+	last_touch = e.pageX
+	console.log(last_touch);
+	
+	var diff =  Math.abs( parseInt(first_touch) - parseInt(last_touch) );
+	//alert(diff);
+	if (diff <= tap_offset) {
+		$.cookie('promos', 2);
+		$('#main-menu-promo-btn').trigger('tapstart');
+		
+	}
+});
+*/
+
+/*
+$('.b_promo_slider').click(function() {
+	$.cookie('promos', $(this).data('promo'));
+	$('#main-menu-promo-btn').trigger('tapstart');
+});	
+*/
+});
+</script>	
+
+<style type="text/css">
+
+
+.slider .item .overlay {
+	width:1000px;
+	height:100%;
+	background:rgba(0,0,0,.6);
+	position:absolute;
+	top:0;
+	left:50px;
+	/*transition:background 0.4s ease;*/
+}
+.slider .item.selected .overlay {
+	background:rgba(0,0,0,0);
+}
+
+.slider .item .cta-btn {
+	position:absolute;
+	bottom:50px;
+	left:140px;
+	width: 300px;
+	background: rgba(0, 0, 0, 0.6);
+	position: absolute; text-align:center; padding:20px 30px; font-size:20px; color:white; border:3px solid white; box-shadow: 3px 3px 10px rgba(0,0,0, 0.6);
+}
+
+.close-btn > .glyphicon { color: #333; font-size: 50px; }
+
+.floorplan-tag { -moz-animation: hover 3s infinite; }
+
+@-moz-keyframes hover {
+	0%   { margin-top: 10px; }
+	25%  { margin-top: 5px; }
+	50%  { margin-top: 10px; }
+	75%  { margin-top: 5px; }
+	100% { margin-top: 10px; }
+	}
+	
+body {
+	width: 100%;
+	overflow: hidden;
+}
+
+.fluidHeight {
+	position: relative;
+	width: 100%;
+	height: 450px;
+}
+
+/* 
+ * below 900px, switch to percentage based responsive height.
+ * padding of 33.333% is calculated by using the 
+ * image ratio 300px/900px = .333 * 100% = 33.333% 
+ */
+@media screen and (max-width: 900px) {
+	
+	.fluidHeight {
+		height: 0;
+		padding: 0 0 33.333% 0;
+	}
+	
+}
+
+.sliderContainer {
+	position: absolute;
+	width: 1920px;
+	height: 450px;
+}
+
+.iosSlider {
+	width: 100%;
+	height: 450px;
+	overflow:visible !important;
+}
+
+.iosSlider .slider {
+	width: 100%;
+	height: 100%;
+}
+
+.iosSlider .slider .item {
+	position: relative;
+	top: 0;
+	left: 0;
+	
+	width: 1100px;
+	height: 100%;
+	text-align: center;
+	overflow:visible !important;
+}
+
+.iosSlider .slider .item img, .iosSlider .slider .item iframe {
+	box-shadow: 0px 0px 20px #000000;
+	position: relative;
+	top: 0;
+	left: 0;
+	/*width: 1250px;*/
+	margin: 0 auto;
+}
+
+.indicators {
+	position: relative;
+	top: -20px;
+	left: 0;
+	width: 45px;
+	height: 10px;
+	margin: 0 auto;
+	z-index: 10;
+	padding:10px 10px 10px 15px;
+	background-color:rgba(0,0,0,0.5);
+}
+
+.indicators .item {
+	float: left;
+	width: 8px;
+	height: 8px;
+	margin: 0 5px 0 0;
+	border: 1px solid #000;
+	background: #666;
+}
+
+.indicators .selected {
+	background: #FFF;
+}
+
+</style>
+
+
+<div class = 'responsiveHeight' style="background-image:url(images/background/splash-back-bg.jpg)">	  
+  <div style="background-color:rgba(0,0,0,.2); height:1080px">
+  	<div style="float:left; margin-top:50px; padding-left:470px; padding-right:30px; margin-right:30px; border-right:1px solid white;"><img src="images/HUD/simonds_logo_whiteshadow.png" height="90" /></div>
+   	<div style="float:left; color:white; text-align:left; padding-top:50px; text-shadow: 2px 2px 6px #000000; z-index: 1900;">
+        <span style="font-size:28px;">Welcome to Simonds Homes</span><br />
+        <span style="font-size:60px;">Lakeside Estate, Pakenham</span>
+    </div>
+<!--     <div style="background-image:url(images/background/spotlight01.png); left: 220px; top: 0; position: absolute; width: 1550px; height: 347px; "></div> -->
+    <div style="clear:both"></div>
+        
+    <div class = 'fluidHeight' style="margin-top:30px; padding-top:20px; padding-bottom:20px; background-color:rgba(0,0,0,0.5); box-shadow:5px 5px 10px #000000 inset;">
+        
+        <div class = 'sliderContainer'>
+            
+            <div class = 'iosSlider'>
+            
+                <div class = 'slider'>
+                
+                    <div class = 'item selected'>
+                        <a class="b_promo_slider" data-promo="1" href="#">
+                        	<!--<img src="images/promos/banner-unbelievable_noprice.jpg" width="1000" height="450" />
+                            <div style="color: #dd0630; font-size: 60px; font-weight: bold; position: absolute; right: 107px; text-align: center; top: 226px; width: 305px;">$99,500</div>
+                            <div style="color: #dd0630; font-size: 7px; font-weight: bold; position: absolute; right: 42px; text-align: center; top: 285px; width: 305px;">With First Home Grant</div>
+                            <div style="color: #dd0630; font-size: 60px; font-weight: bold; position: absolute; right: 107px; text-align: center; top: 342px; width: 305px;">$109,500</div>-->
+                             <iframe seamless="seamless" height="450" scrolling="no" marginheight="0" marginwidth="0" width="1000" src="http://davelive.com.au/staging/simonds-prototype/promo-iframe/index.php"></iframe> 
+<!--                             <div class="cta-btn" data-promo="1">Read more</div> -->
+                        	<div class="overlay"></div>
+                    	</a>
+                    </div>
+                    <div class = 'item'>
+                      <a class="b_promo_slider" data-promo="2" href="#"><img src="images/promos/banner-mysimonds.jpg" width="1000" height="450" />
+<!-- 	                    <div class="cta-btn" data-promo="2">Read more</div> -->
+                        <div class="overlay"></div></a>
+                    </div>
+                    <div class = 'item'>
+                        <a class="b_promo_slider" data-promo="4" href="#"><img src="images/promos/banner-5kfinance.jpg" width="1000" height="450" />
+<!-- 	                    <div class="cta-btn" data-promo="4">Read more</div> -->
+                        <div class="overlay"></div></a>
+                    </div>
+                
+                </div>
+            
+            </div>
+            
+        </div>
+    
+    </div>
+    
+    <div class = 'indicators'>
+        <div class = 'item selected'></div>
+        <div class = 'item'></div>
+        <div class = 'item'></div>
+    </div>
+   	  
+  </div>
+</div>

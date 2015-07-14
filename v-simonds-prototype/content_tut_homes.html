@@ -1,0 +1,49 @@
+<style type="text/css">
+	
+@-moz-keyframes bounce {
+	0% { top: 60px; }
+	10% { top: 50px; }
+	20% { 
+		top: 60px; left: 110px; 
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.01),
+                    0 0 10px 0 rgba(255,255,255,0.2); 
+        opacity: 1;
+		}
+	30% { top: 50px; }
+	100% { 
+		top: 70px; 
+		box-shadow: 0 0 10px 30px transparent,
+         	        0 0 1px 70px transparent;}
+	}
+	
+@-moz-keyframes slide {
+	0% { top: 40px; }
+	50% { 
+		top: 70px;
+		}
+	100% { 
+		top: 50px;
+		left: -800px;
+		opacity: .2;
+		transform: rotate(-45deg);
+	}
+}
+.touchme { color: white; position: absolute; top: 60px; left: 130px; font-size: 80px; line-height: 150px; transform: rotate(-45deg); -moz-animation: bounce 1.5s infinite; border-radius:2px; height:1px; width: 1px; opacity: 0.0; }
+.touchslider { text-shadow: 2px 2px #666; color: white; position: absolute; top: 60px; left: 130px; font-size: 80px; line-height: 150px; transform: rotate(45deg); -moz-animation: slide  2s infinite; }
+
+</style>
+
+<!--
+
+<div id="floorplan-tut" style="position: absolute; z-index: 2000; bottom: 220px; right: 400px;">
+	<div class="glyphicon touchme">&#57641;</div>
+</div>
+-->
+
+<div id="slider-tut" style="position: absolute; z-index: 800; bottom: 600px; right: 600px;">
+	<div class="glyphicon touchslider">&#57641;</div>
+</div>
+
+<div id="spec-tut" class="hidden" style="position: absolute; z-index: 800; bottom: 600px; right: 600px;">
+	<div class="glyphicon touchme">&#57641;</div>
+</div>

@@ -1,0 +1,65 @@
+<script type="text/javascript">
+$(function(){
+	
+$.cookie('current_page', 'tutorial_page');
+// get cookie
+var selectedHome = $.cookie('homes');
+
+if (selectedHome > 0) {
+	$('#content').load('content_homes.html');
+
+	
+} else {
+	
+
+// random background
+var total_img = 6;
+var img = 'images/gallery/gallery_' + Math.floor((Math.random() * total_img)+1) + '.jpg';
+$('#home-image').attr('src', img);
+
+// hide all homes
+$('.homes').addClass('hidden');
+
+$('#touchme').removeClass('hidden');
+$('#menu-overlay').removeClass('background-overlay');
+
+}; // endif
+
+// reset all filter options if required...
+	
+});
+</script>	
+
+<style type="text/css">
+
+@-moz-keyframes bounce {
+	0% { top: 60px; }
+	10% { top: 50px; }
+	20% { 
+		top: 60px; left: 110px; 
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.01),
+                    0 0 10px 0 rgba(255,255,255,0.2); 
+        opacity: 1;
+		}
+	30% { top: 50px; }
+	100% { 
+		top: 70px; 
+		box-shadow: 0 0 10px 30px transparent,
+         	        0 0 1px 70px transparent;}
+	}
+#touchme-container  { position: absolute; top: 930px; left: 450px;  z-index: 2000; } /* /430 */
+.touchme { color: white; position: absolute; top: 60px; left: 130px; font-size: 80px; line-height: 150px; transform: rotate(-45deg); -moz-animation: bounce 1.5s infinite; border-radius:2px; height:1px; width: 1px; opacity: 0.0; }
+
+</style>
+
+<img id="home-image" src="images/gallery/gallery_1.jpg" height="1080" style="position: absolute;"/>
+<div style="background-color: rgba(0,0,0,0.5); height: 1080px; width: 1920px; position: absolute;"></div>
+<div id="touchme-container">
+	<div id="touchme" class="glyphicon touchme">&#57641;</div>
+</div>
+<div id="tut-copy" style="position: absolute; font-size: 48pt; color: white; text-align: center; top: 680px; width: 1920px; margin: auto;">
+	Make a selection using the filters below:
+</div>
+
+<!-- <div class="tutblock" style="position: absolute; background: transparent; bottom: 0px; z-index: 2000; width: 250px; height: 290px; left: 870px; "></div> -->
+<!-- <div class="tutblockb" style="position: absolute; background: transparent; bottom: 50px; z-index: 2000; width: 70px; height: 100px; right: 460px; "></div> -->

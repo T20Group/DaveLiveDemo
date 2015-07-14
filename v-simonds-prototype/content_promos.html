@@ -1,0 +1,274 @@
+<script type="text/javascript">
+$(function(){
+	
+	function getPromo(id) {
+		switch(id) {
+			case 1:
+				$('#promo-container').load('content/promos/promos_unbelievable.html');
+				break;
+			case 2:
+				$('#promo-container').load('content/promos/promos_mysimonds.html');
+				break;	
+			case 3:
+				$('#promo-container').load('content/promos/promos_depositbuilder.html');
+				break;
+			case 4:
+				$('#promo-container').load('content/promos/promos_5kfinance.html');
+				break;
+			default:
+				break;
+		}
+		$('#promo-container').addClass('show');
+	}
+	
+// get cookie
+var selectedPromos = $.cookie('promos');
+
+if (selectedPromos > 0) {
+	getPromo(parseInt(selectedPromos));
+	//$('#promo-container').load('content_homes.html');
+	//alert('show selected promo');
+	
+} else { 
+	//$('#promo-container').load('overlay_floorplan.html');
+	//alert('show all promos');
+	// no cookie detected
+
+}; // endif
+
+
+$('.iosSlider').iosSlider({
+	snapToChildren: true,
+	desktopClickDrag: true,
+	infiniteSlider: true,
+	snapSlideCenter: true,
+	onSlideChange: slideChange,
+	onSliderLoaded:slideLoad,
+	autoSlide: false,
+	autoSlideTimer:5000,
+	autoSlideTransTimer:1200
+});
+	
+
+function slideChange(args) {
+						
+	$('.indicators .item').removeClass('selected');
+	$('.indicators .item:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
+	
+	$('.slider .item').removeClass('selected');
+	$('.slider .item:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
+
+}
+function slideLoad(args) {
+	//$('.slider .item:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
+}
+
+$('.b_promo').on('tapstart', function(e){
+	getPromo($(this).data('promo'));
+});
+$('.b_promo_slider').click(function() {
+	getPromo($(this).data('promo'));
+});
+	
+});
+</script>	
+
+<style type="text/css">
+
+
+.slider .item .overlay {
+	width:1000px;
+	height:100%;
+	background:rgba(0,0,0,.6);
+	position:absolute;
+	top:0;
+	left:50px;
+	/*transition:background 0.4s ease;*/
+}
+.slider .item.selected .overlay {
+	background:rgba(0,0,0,0);
+}
+
+.close-btn > .glyphicon { color: #333; font-size: 50px; }
+
+.floorplan-tag { -moz-animation: hover 3s infinite; }
+
+@-moz-keyframes hover {
+	0%   { margin-top: 10px; }
+	25%  { margin-top: 5px; }
+	50%  { margin-top: 10px; }
+	75%  { margin-top: 5px; }
+	100% { margin-top: 10px; }
+	}
+	
+body {
+	width: 100%;
+	overflow: hidden;
+}
+
+.fluidHeight {
+	position: relative;
+	width: 100%;
+	height: 450px;
+}
+
+/* 
+ * below 900px, switch to percentage based responsive height.
+ * padding of 33.333% is calculated by using the 
+ * image ratio 300px/900px = .333 * 100% = 33.333% 
+ */
+@media screen and (max-width: 900px) {
+	
+	.fluidHeight {
+		height: 0;
+		padding: 0 0 33.333% 0;
+	}
+	
+}
+
+.sliderContainer {
+	position: absolute;
+	width: 1920px;
+	height: 450px;
+}
+
+.iosSlider {
+	width: 100%;
+	height: 450px;
+	overflow:visible !important;
+}
+
+.iosSlider .slider {
+	width: 100%;
+	height: 100%;
+}
+
+.iosSlider .slider .item {
+	position: relative;
+	top: 0;
+	left: 0;
+	
+	width: 1100px;
+	height: 100%;
+	text-align: center;
+	overflow:visible !important;
+}
+
+.iosSlider .slider .item img, .iosSlider .slider .item iframe {
+	box-shadow: 0px 0px 20px #000000;
+	position: relative;
+	top: 0;
+	left: 0;
+	/*width: 1250px;*/
+	margin: 0 auto;
+}
+
+.indicators {
+	position: relative;
+	top: -20px;
+	left: 0;
+	width: 45px;
+	height: 10px;
+	margin: 0 auto;
+	z-index: 10;
+	padding:10px 10px 10px 15px;
+	background-color:rgba(0,0,0,0.7);
+	box-shadow:5px 5px 10px #000000 inset;
+}
+
+.indicators .item {
+	float: left;
+	width: 8px;
+	height: 8px;
+	margin: 0 5px 0 0;
+	border: 1px solid #000;
+	background: #666;
+}
+
+.indicators .selected {
+	background: #FFF;
+}
+
+#second-tier-promos {
+	margin: 0 auto;
+    width: 1560px;
+}
+#second-tier-promos a {
+	display:block;
+	float:left;
+	width:500px;
+	padding:10px;
+}
+#second-tier-promos a img {
+	width:100%;
+	box-shadow: 5px 5px 20px #000000;
+}
+
+#promo-container {
+	z-index:100;
+	display:none;
+}
+
+#promo-container.show {
+	display:inherit;
+}
+
+</style>
+
+
+<div class = 'responsiveHeight' style="background-image:url(images/BG/wood.jpg)">
+  <div style="background-color:rgba(0,0,0,.5); height:1080px">
+   	<div style="color:white; text-align:center; padding-top:50px; text-shadow: 2px 2px 6px #000000;">
+        <!--<span style="font-size:28px;">Welcome to Simonds Homes</span><br />-->
+        <span style="font-size:60px;">Latest Promotions</span><br />
+        <span style="font-size:28px;">Get huge savings with one of our latest offers</span>
+    </div>
+        
+    <div class = 'fluidHeight' style="margin-top:30px; padding-top:20px; padding-bottom:20px; background-color:rgba(0,0,0,0.5); box-shadow:5px 5px 10px #000000 inset; ">
+        
+        <div class = 'sliderContainer'>
+            
+            <div class = 'iosSlider'>
+            
+                <div class = 'slider'>
+                
+                    <div class = 'item selected'>
+                        <a class="b_promo_slider" data-promo="1" href="#" >
+                        <!--<img src="images/promos/banner-unbelievable.jpg" width="1000" height="450" />-->
+                        <iframe seamless="seamless" height="450" scrolling="no" marginheight="0" marginwidth="0" width="1000" src="http://davelive.com.au/staging/simonds-prototype/promo-iframe/index.php"></iframe>
+                        <div class="overlay"></div></a>
+                    </div>
+                    <div class = 'item'>
+                        <a class="b_promo_slider" data-promo="2" href="#" ><img src="images/promos/banner-mysimonds.jpg" width="1000" height="450" />
+                        <div class="overlay"></div></a>
+                    </div>
+                    <div class = 'item'>
+                        <a class="b_promo_slider" data-promo="3" href="#" ><img src="images/promos/banner-depositbuilder.jpg" width="1000" height="450" />
+                        <div class="overlay"></div></a>
+                    </div>
+                
+                </div>
+            
+            </div>
+            
+        </div>
+    
+    </div>
+    
+    <div class = 'indicators'>
+        <div class = 'item selected'></div>
+        <div class = 'item'></div>
+        <div class = 'item'></div>
+    </div>
+  
+  	<div id="second-tier-promos">
+        <a class="b_promo" data-promo="3" href="#" ><img src="images/promos/banner-depositbuilder.jpg" /></a>
+        <a class="b_promo" data-promo="4" href="#"><img src="images/promos/banner-5kfinance.jpg" /></a>
+        <a class="b_promo" data-promo="2" href="#"><img src="images/promos/banner-mysimonds.jpg" /></a>
+    </div>
+  </div>
+</div>
+
+<div id="promo-container" class='responsiveHeight'>
+	
+</div>

@@ -1,0 +1,175 @@
+{
+    "homes": [
+    {
+       "id":"1",
+       "name":"Sierra",
+       "floorplan": [
+	       {
+		    "id": "1",
+		    "storey": "1",
+			"bed": "4",
+			"bath": "2",
+			"car":"2",
+			"width":"11.1",
+			"depth":"20.51",
+			"sqm": "204.7",
+			"block":"12.5"
+	       }
+       ]
+    },
+	 {
+       "id":"2",
+       "name":"Stamford",
+       "floorplan": [
+	       {
+		    "id": "1",
+		    "storey": "1",
+			"bed": "3",
+			"bath": "2",
+			"car":"2",
+			"width":"11.1",
+			"depth":"17.79",
+			"sqm": "176.02",
+			"block":"12.5"
+	       }
+       ]
+    },
+	 {
+       "id":"3",
+       "name":"Cambridge",
+       "floorplan": [
+	       {
+		    "id": "1",
+		    "storey": "1",
+			"bed": "4",
+			"bath": "2",
+			"car":"2",
+			"width":"12.51",
+			"depth":"23.75",
+			"sqm": "270.97",
+			"block":"14"
+	       }
+       ]
+    },
+	{
+       "id":"4",
+       "name":"Flinders",
+       "floorplan": [
+	       {
+		    "id": "1",
+		    "storey": "1",
+			"bed": "4",
+			"bath": "2",
+			"car":"2",
+			"width":"12.2",
+			"depth":"22.56",
+			"sqm": "233.72",
+			"block":"14"
+	       }
+       ]
+    },
+	{
+       "id":"5",
+       "name":"Valencia",
+       "floorplan": [
+	       {
+		    "id": "1",
+		    "storey": "1",
+			"bed": "4",
+			"bath": "2",
+			"car":"2",
+			"width":"12.51",
+			"depth":"20.95",
+			"sqm": "221.74",
+			"block":"14"
+	       }
+       ]
+    },
+	{
+       "id":"6",
+       "name":"Livorno",
+       "floorplan": [
+	       {
+		    "id": "1",
+		    "storey": "1",
+			"bed": "4",
+			"bath": "2",
+			"car":"2",
+			"width":"14.55",
+			"depth":"23.87",
+			"sqm": "291.39",
+			"block":"16"
+	       }
+       ]
+    },
+	{
+       "id":"7",
+       "name":"Cleo",
+       "floorplan": [
+	       {
+		    "id": "1",
+		    "storey": "2",
+			"bed": "4",
+			"bath": "2",
+			"car":"2",
+			"width":"12",
+			"depth":"18.84",
+			"sqm": "318.96",
+			"block":"14"
+	       }
+       ]
+    },
+	{
+       "id":"8",
+       "name":"Oxford",
+       "floorplan": [
+	       {
+		    "id": "1",
+		    "storey": "2",
+			"bed": "4",
+			"bath": "2",
+			"car":"2",
+			"width":"11.99",
+			"depth":"17.25",
+			"sqm": "310.23",
+			"block":"14"
+	       }
+       ]
+    },
+	{
+       "id":"9",
+       "name":"Torino",
+       "floorplan": [
+	       {
+		    "id": "1",
+		    "storey": "2",
+			"bed": "3",
+			"bath": "2",
+			"car":"2",
+			"width":"11.99",
+			"depth":"18.21",
+			"sqm": "320.85",
+			"block":"14"
+	       }
+       ]
+    },
+	{
+       "id":"10",
+       "name":"Villa Grande",
+       "floorplan": [
+	       {
+		    "id": "1",
+		    "storey": "2",
+			"bed": "4",
+			"bath": "2",
+			"car":"2",
+			"width":"12.98",
+			"depth":"20.39",
+			"sqm": "418.51",
+			"block":"15"
+	       }
+       ]
+    }
+    ]
+}
+

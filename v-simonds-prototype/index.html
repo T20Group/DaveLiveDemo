@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Simonds Prototype</title>
+<meta name = "viewport" content ="width=device-width, minimum-scale=1, maximum-scale=1">
+
+<!-- META -->
+<meta charset = "utf-8">
+
+<!-- CSS -->
+<link rel = "stylesheet" href = "css/reset.css" />
+<link rel = "stylesheet" href = "css/slide-default.css" />
+<link rel = "stylesheet" media = "screen" href = "css/slide-common.css" />
+<link rel = "stylesheet" href = "css/styles.css" />
+
+<!-- JS -->
+<script src = "js/jquery-1.8.2.min.js"></script>
+<script src = "js/jquery.easing-1.3.js"></script>
+<script src = "js/jquery.cookie.js"></script>
+<script src = "js/jquery.mobile-events.min.js"></script>
+<script src = "js/jquery.iosslider.js"></script>
+
+<script src="js/script.js"></script>
+	
+<script type="text/javascript">
+$(function() {
+	
+	// LAYER VARiABLES
+	var $overlay = $('#overlay');
+	var $content = $('#content');
+	
+	// RESET COOKIES
+	function resetCookie() {
+		$.cookie('homes', 0);
+		$.cookie('tut', 0);
+		$.cookie('promos', 0);	
+		$.cookie('wishlist_homes', JSON.stringify([]) );
+		$.cookie('current_page', 'main_menu');
+	}
+	
+	// INITIALIZE
+	resetCookie();
+	
+	// 	/127.0.0.1:8080/repo/e9d805fa771f047f60fedcd96a2947d4930bdb6b/
+	
+	$('.delcookie').click(function() {
+		// issues deleting cookie on DL 
+		$.removeCookie('homes', { path: '/' });
+		return false;
+	})
+	
+	
+	// GET JSON file
+	$.getJSON("homes.json", function(data) {		
+//		console.log(data.homes[1].floorplan.length);
+	}).error(function(xhr) {
+        alert(xhr.responseText);
+    });
+    
+    
+    
+    
+    $('#call-main-menu').on('tapstart', function(e) {
+	    
+	    $.cookie('current_page', 'main_menu');
+	    
+		$('.iosSlider').iosSlider('destroy');
+		$content.load('main_menu.html');
+		
+		$('.nav').addClass('hidden');
+		$('#main-menu-nav').removeClass('hidden');
+		$('#wishlist-nav').addClass('hidden');
+		// reset cookie
+		//resetCookie();
+		
+		// close windows
+		closeFloorplan();
+		
+		return false;
+    });
+    
+    $('#call-finder, #main-menu-home-finder-btn').on('tapstart', function(e) {
+	    
+	    $.cookie('current_page', 'homes_page');
+	    
+		$('.iosSlider').iosSlider('destroy');
+		$content.load('content_tutorial.html');
+		$('.nav').addClass('hidden');
+		$('#finder-nav').removeClass('hidden');
+	   
+	   
+		// show finder	   
+		$('#menu-overlay').addClass('background-overlay');
+		$('#homes-filter-container').addClass('opac');
+		$('#btn_right').addClass('btn_right_ani');
+		$('#btn_left').addClass('btn_left_ani');
+		$('#finder').removeClass('lower-finder');
+		$('#wishlist-nav').addClass('hidden');
+	   
+		// close windows
+		closeFloorplan();
+	   
+	   return false;
+    });
+    
+    $('#main-menu-promo-btn').on('tapstart', function(e){
+		$.cookie('current_page', 'promo_page');
+		
+		$('.iosSlider').iosSlider('lock');
+		$('.iosSlider').iosSlider('destroy');
+		$content.load('content_promos.html');
+		$('.nav').addClass('hidden');
+		$('#wishlist-nav').addClass('hidden');
+		return false;
+    });
+    
+    $('#call-wishlist-menu').on('tapstart', function(e) {
+	    $('#share-nav').addClass('hidden');
+		$('#wishlist-nav').toggleClass('hidden');
+		
+		// check current page
+		if ($.cookie('current_page') == 'homes_page'){
+			
+			// check for duplicate fav
+			var dupe = 0;
+			var wishlist = JSON.parse($.cookie('wishlist_homes'))
+			
+			for(var i=1; i<wishlist.length; i++) {
+			   if(wishlist[i]==$.cookie('homes')) {
+				 	//alert('found dupe');
+				  dupe++;
+			   }
+			}
+			if(dupe>0) {
+			   $('#add-wishlist-btn').addClass('hidden');
+			   $('#remove-wishlist-btn').removeClass('hidden');
+			} else {
+			   $('#add-wishlist-btn').removeClass('hidden');
+			   $('#remove-wishlist-btn').addClass('hidden');
+			}
+			//alert(wishlist.length);
+			// 	   alert(wishlist);
+			
+			// close windows
+			closeFloorplan();
+			
+			// close finder
+			$('#menu-overlay').removeClass('background-overlay');
+			$('#homes-filter-container').removeClass('opac');
+			$('#btn_right').removeClass('btn_right_ani');
+			$('#btn_left').removeClass('btn_left_ani');
+			$('.hud').removeClass('hidden');
+			$('#finder').addClass('lower-finder');
+		
+		} else {
+			$('#add-wishlist-btn, #remove-wishlist-btn').addClass('hidden');
+		}
+		
+		// $('#call-wishlist-menuX').show().fadeOut(600);
+		return false; 
+    });
+    
+    $('#call-share-menu').on('tapstart', function() {
+		$('#wishlist-nav').addClass('hidden');
+		$('#share-nav').toggleClass('hidden');
+		
+		
+		$('#shareResult').addClass('hidden');
+		$('#share-cont').removeClass('hidden'); 
+		
+		// close windows
+		closeFloorplan();
+    });
+    
+    
+/*
+    $('#call-wishlist-menuB').on('tapstart', function() {
+		//alert('ok');
+		$('#call-wishlist-menuX').show().fadeOut(600);
+		return false;
+		
+	});
+*/
+	
+	// CLOSE WINDOWS FUNCTION
+	
+	function closeFloorplan() {
+		$('#overlay-floorplan-container').removeClass('show');
+		$('#floorplan-container').removeClass('toplayer');
+	}
+	
+	
+});
+</script>
+
+</head>
+
+<body>
+
+<div id="main-container">
+
+<div id="overlay" class="container">
+	
+    <!-- 
+	Overlay contents ONLY
+	Contents with single CLOSE functionality that's all 
+	
+	CONTENTS
+	- show tutorial page
+	- show share page
+	
+	-->
+
+</div> <!-- /overlay -->
+
+<div id="navigation" class="container">
+    <!-- 
+	Navigation layer, Interface layer
+	Controls overall page navigation and Content DIV
+	
+	All controls here
+
+	- Navigational control
+	- Favorite control
+	- Promo control
+	- Floorplan control
+	- Live mini floorplan
+	- Gallery Control
+	-->
+    
+    <div id="main-nav">
+	    <div id="call-main-menu">
+		    	<span class="glyphicon-neo glyphicon">&#xE055;</span> 
+		    	<span class="menu-title">Menu</span>
+		    	<span class="cleared"></span>
+		</div>
+<!-- 	    <a id="call-main-menu" href="#"><span class="glyphicon">&#xE021;</span> Main Menu</a> -->
+<!-- 	    <a id="call-finder" href="#">FINDER</a> -->
+	    <div id="call-wishlist-menu"><span class="glyphicon-neo glyphicon">&#xE005;</span> <span class="menu-title">Wishlist</span></div>
+<!--
+	    <a id="call-wishlist-menuB" href="#" class="loveit"><span class="glyphicon">&#xE005;</span></a>-->
+	    <a id="call-wishlist-menuX" style="color: red; position: absolute; left: 102px; border-color: transparent; display: none; transform: scale(1.5)"><span class="glyphicon">&#xE005;</span></a>
+
+        <div id="call-share-menu"><span class="glyphicon-neo glyphicon">&#x2709;</span> <span class="menu-title">Share</span></div>
+	</div> <!-- /main-control -->
+	
+	<div id="main-menu-nav" class="nav" style="position: absolute; top: 700px; left: 0px;">
+    	<a style="position: absolute; left: 300px; width:500px; background-color:rgba(0,0,0,0.5); text-align:center; padding:50px; font-size:50px; color:white; border:5px solid white; box-shadow: 5px 5px 20px #000000;" href="#" id="main-menu-home-finder-btn">
+	    	<div class="graphic" style="">
+		    	<div><span class="glyphicon" style="font-size: 170px; left: -17px; position: absolute; text-shadow: 0 4px 10px #000000; top: -12px;">&#57347;</span></div>
+		        <div class="half-circle" style="background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5); border-radius: 80px 80px 0 0; height: 40px; left: 36px; position: absolute; top: 24px; transform: rotate(74deg); width: 80px;"></div>
+		    </div>
+		    Home Finder
+		</a>
+        <a style="position: absolute; left: 1008px; width:500px; background-color:rgba(0,0,0,0.5); text-align:center; padding:50px; font-size:50px; color:white; border:5px solid white; box-shadow: 5px 5px 20px #000000;" href="#" id="main-menu-promo-btn">Promotions</a>
+	</div>
+	
+	<div id="finder-nav" class="nav hidden"></div>
+	<script>
+		$( "#finder-nav" ).load( "includes/home-finder.html" );
+	</script>
+	
+	
+	<!-- wishlist navigation -->
+	<div id="wishlist-nav" class="nav hidden"></div>
+	<script>
+		$( "#wishlist-nav" ).load( "includes/wishlist.html" );
+	</script>
+	
+	<div id="share-nav" class="nav hidden"></div>
+	<script>
+		$( "#share-nav" ).load( "includes/share.html" );
+	</script>
+	
+    
+    	
+	
+</div> <!-- /navigation -->
+
+<div id="content">
+	<!--
+	Shows only content, NO navigational, NO triggers here.
+	
+	- show floorplans, show floorplan options
+	- show gallery images
+	- show homes images
+	- show promo video/poster
+	- show favorite
+	
+	- MAY contain relative navigation
+	
+	-->
+	<script>
+		$( "#content" ).load( "main_menu.html" );
+	</script>
+	
+</div> <!-- /content -->
+		
+</div> <!-- /main-container -->		
+	
+</body>
+
+</html>
