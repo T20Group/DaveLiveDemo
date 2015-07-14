@@ -28,16 +28,16 @@ $(function() {
         }).route('home/', function(request) {
 	        target_view.load('v-home/index.html');
 	        $('.iosSlider').iosSlider('destroy'); // any page that contains iosSlider must be destroyed to work...
-        }).route('home2/', function(request) {
-	        target_view.load('v-home/home2.html');
+        }).route('demo2/', function(request) {
 	        $('.iosSlider').iosSlider('destroy'); // any page that contains iosSlider must be destroyed to work...
-        }).route('home3/', function(request) {
-	        //target_view.load('v-home/home3.html');
-	        target_view.html('<iframe src="file:///Users/honshio/Sites/GIT/Simonds-Prototype/index.html" height="1080px" width="1920px"></iframe>');
+	        target_view.html('<iframe src="v-generic/index.html" height="1080px" width="1920px"></iframe>');
+        }).route('demo3/', function(request) {
 	        $('.iosSlider').iosSlider('destroy'); // any page that contains iosSlider must be destroyed to work...
-        }).route('dans/', function(request) {
+	        target_view.html('<iframe src="v-Simonds-Prototype/index.html" height="1080px" width="1920px"></iframe>');
+       
+	    }).route('dans/', function(request) {
+		    $('.iosSlider').iosSlider('destroy'); // any page that contains iosSlider must be destroyed to work...
 	        target_view.load('v-dans/index.html');
-	        $('.iosSlider').iosSlider('destroy'); // any page that contains iosSlider must be destroyed to work...
         });
         
 
