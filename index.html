@@ -41,11 +41,11 @@ $(function() {
 		console.log(a);
 	});
 	
-	$('#main-navigation').on('swiperight', function() {
+	$('#main-navigation > .hotspot').on('swiperight', function() {
 		console.log('open');
 		$('#link-holder').addClass('show');
 	});
-	$('#main-navigation').on('swipeleft', function() {
+	$('#main-navigation > .hotspot').on('swipeleft', function() {
 		$('#link-holder').removeClass('show');
 		console.log('close');
 	});
@@ -65,24 +65,12 @@ $(function() {
     -ms-user-select: none;
     user-select: none;
 }
-	
-.element{
-  /* four vertices (looks like rectangle) */
-  background: pink;
-    width: 300px;
-  height: 300px;
-  shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  transition: shape-outside 1s;
-}
-
-.element:hover{
-  /* four vertices, but second and third overlap (looks like triangle) */
-  shape-outside: polygon(0 0, 100% 50%, 100% 50%, 0 100%);
-}
 
 #link-holder { position: absolute; left: -500px; }
 #link-holder.show { left: 0 !important; }
 .easein { -moz-transition: all 500ms cubic-bezier(0.420, 0.000, 0.580, 1.000); }
+
+.hotspot { z-index: 9000; position: absolute; border: 1px solid rgba(0, 255, 0, 1); background: rgba(0, 255, 0, 0.3); }
 </style>
 
 </head>
@@ -90,7 +78,7 @@ $(function() {
 <body>
 	
 <div id="main-container">
-	<div id="main-overlay" class="">
+	<div id="main-overlay">
 		<!--
 			overlay images for data etc
 			alerts
@@ -98,7 +86,7 @@ $(function() {
 			globally shared functions
 		-->
 	</div>
-	<div id="main-navigation" class="noselect" style="width: 100px; height: 100%; background: rgba(255, 255, 255, 0.2); padding: 20px; position: absolute; left: 0; top: 0; border: 0px solid white; color: white;">
+	<div id="main-navigation" class="">
 <!--
 		<h3>Static paths</h3>
 	    <a href="#test/?redirect">Test</a><br />
@@ -116,36 +104,18 @@ $(function() {
 	    <a href="#book/1/?title=HelpMe">Book1</a><br />
 	    <a id="Testb" href="#book/3/note/1/?body=LOL">Note1</a><br />
 	    <hr />
--->
-		<div id="link-holder" class="show easein">
+-->		
+		<div class="hotspot" style="height: 15%; width: 200px;"></div>
+		<div id="link-holder" class="show noselect easein" style="border: 1px solid rgba(0, 255, 255, 1); background: rgba(0, 255, 255, 0.3); padding: 20px; position: absolute; border: 0px solid white; color: white; z-index: 9000;" >
+		<h3>Prototypes</h3>
 	    <a href="#home/">Home</a><br />
-	    <a href="#home2/">Home2</a><br />
-	    <a href="#home3/">Home3</a><br />
-	    <a href="#dans/">Dan Murphy</a><br />
+	    <a href="#demo2/">Tap House</a><br />
+	    <a href="#demo3/">Real Estate</a><br />
+<!-- 	    <a href="#dans/">Dan Murphy</a><br /> -->
 		</div>
-<!--
-	    <a href="#content/?view=testpage">Testpage</a><br />
-	    <a id="tester" href="#content/?view=testpage2">Testpage2</a><br />
-	    
-	    <hr />
-	    <h3>Output</h3>
--->
-<!-- 	    <div class="element">asada</div> -->
-<!--
-	     <svg height="550" width="500">
-		  <polygon points="220,10 300,210 170,250 123,234" style="fill:lime;stroke:purple;stroke-width:0" >
-		  	<animate attributeName="points" dur="5000ms" to="0,1000 300,110 170,150 123,134" repeatCount="indefinite"/>
-		  	<animate attributeName="points" dur="5000ms" to="220,10 300,210 170,250 123,234"  repeatCount="indefinite"/>
-		  </polygon>
-		</svg> 
--->
+		
 	</div>
 	<div id="main-view" class="container">
-		<script type="text/javascript">
-		$(function(){
-			$('#main-view').load('v-home/index.html');
-		});
-		</script>
 		<!-- all view calls here -->
 		<div id="content-overlay"></div>
 		<div id="content-nav"></div>
