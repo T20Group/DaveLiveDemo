@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/* Taphouse Stylesheet */
+
+@font-face {
+    font-family: 'loveloblack';
+    src: url('../fonts/lovelo_black-webfont.eot');
+    src: url('../fonts/lovelo_black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lovelo_black-webfont.woff2') format('woff2'),
+         url('../fonts/lovelo_black-webfont.woff') format('woff'),
+         url('../fonts/lovelo_black-webfont.ttf') format('truetype'),
+         url('../fonts/lovelo_black-webfont.svg#loveloblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* UTILTY */
+
+:not(.DisableSelectingForEverything) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.canselect {
+	-webkit-touch-callout: default;
+    -webkit-user-select: all;
+    -khtml-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+}
+
+/* STYLES */
+
+#header {
+	height:133px;
+	background:url(../images/top-bar.jpg);
+	text-align:center;
+	z-index:1000;
+	position:relative;
+}
+
+#taphouse-mainmenu ul {
+	list-style:none;
+}
+
+#taphouse-mainmenu ul li {
+	float:left;
+	/*opacity:.5;*/
+	transition:ease 0.5s;
+	position:relative;
+	width:480px;
+	overflow:hidden;
+}
+
+#taphouse-mainmenu ul img{
+	transition:ease 0.7s;
+	opacity:.7;
+}
+
+#taphouse-mainmenu ul .active img {
+	opacity:1;
+	transform:scale(1.07,1.07);
+}
+
+#taphouse-mainmenu .panel-border {
+	position:absolute;
+	bottom:120px;
+	left:34px;
+	width:400px;
+	height:140px;
+	border:solid 3px black;
+	padding:3px;
+}
+
+#taphouse-mainmenu .panel {
+	background-color:black;
+	height:100%;
+	opacity:.9;
+}
+
+#taphouse-mainmenu .panel h1 {
+	font-family:loveloblack;
+	color:white;
+	text-align:center;
+	font-size: 30px;
+    padding-top: 52px;
+}
