@@ -33,7 +33,7 @@ $(function() {
 	        target_view.html('<iframe src="v-taphouse/index.html" height="1080px" width="1920px"></iframe>');
         }).route('demo3/', function(request) {
 	        $('.iosSlider').iosSlider('destroy'); // any page that contains iosSlider must be destroyed to work...
-	        target_view.html('<iframe src="v-Simonds-Prototype/index.html" height="1080px" width="1920px"></iframe>');
+	        target_view.html('<iframe src="v-simonds-prototype/index.html" height="1080px" width="1920px"></iframe>');
        
 	    }).route('dans/', function(request) {
 		    $('.iosSlider').iosSlider('destroy'); // any page that contains iosSlider must be destroyed to work...

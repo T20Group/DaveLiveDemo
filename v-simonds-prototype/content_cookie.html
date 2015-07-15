@@ -1,0 +1,57 @@
+
+<script type="text/javascript">
+
+// cookies variables
+var $selectedHome = $.cookie('homes');
+
+// selector variables
+var $thisdiv = $('#content-gallery');
+
+
+// display variables
+var $hid = $('#home-id');
+var $hname = $('#home-name');
+var $fp = $('#floorplan-count');
+
+	
+$(function(){
+	$('.close').tapstart(function() {
+
+		$thisdiv.remove();
+		return false;
+	});
+	
+	$thisdiv.append($.cookie('homes')); 
+	
+	
+	$('.overlay').tapstart(function() {
+		$('#overlay').append('oomg omg omg');
+		return false;
+	});
+	
+	$.getJSON("homes.json", function(data) {		
+		
+		$.each(data.homes, function(name, val) {
+			if(val.id == $selectedHome) { // search for id
+				$hid.text(val.id);
+				$hname.text(val.name);
+				$fp.text(val.floorplan.length);
+			}
+		});
+
+		
+	})
+	
+});
+</script>
+
+<div id="content-gallery" style=" height: 300px; width: 300px; background: pink;">
+
+	<span id="home-id"></span>
+	<span id="home-name"></span>
+	<span id="floorplan-count"></span>
+
+<a href="#" class="close">close</a>
+<a href="#" class="overlay">change overlay</a>
+
+</div>

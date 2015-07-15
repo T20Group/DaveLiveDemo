@@ -1,0 +1,343 @@
+<script type="text/javascript">
+$(function(){
+
+
+// set page
+$.cookie('current_page', 'homes_page');
+
+// set tutorial count
+var tutCount = parseInt($.cookie('tut'));
+	
+// get cookie
+var selectedHome = $.cookie('homes');
+
+// target objects
+var $hid = $('#home-id');
+var $bed = $('#home-bed');
+var $bath = $('#home-bath');
+var $car = $('#home-car');
+var $hname = $('#home-name');
+var $hblock = $('#home-block');
+var $hwidth = $('#home-width');
+var $hdepth = $('#home-depth');
+var $hsqm = $('#home-sqm');
+var $hsq = $('#home-sq');
+var $fp = $('#floorplan-count');
+var $target_overlay = $('#overlay');
+
+// place image
+$('#home-image').attr('src', 'images/homes/'+selectedHome+'.jpg');
+
+// get details
+$.getJSON("homes.json", function(data) {				
+	$.each(data.homes, function(name, val) {
+		if(val.id == selectedHome) { // search for id
+			$hid.text(val.id);
+			$hname.text(val.name);
+			$bed.text(val.floorplan[0].bed);
+			$bath.text(val.floorplan[0].bath);
+			$car.text(val.floorplan[0].car);
+			$hblock.text(val.floorplan[0].block);
+			$hwidth.text(val.floorplan[0].width);
+			$hdepth.text(val.floorplan[0].depth);
+			$hsqm.text(val.floorplan[0].sqm);
+			$hsq.text(Math.round( val.floorplan[0].sqm/9.29 ));
+			$fp.text(val.floorplan.length); // count total fp
+		}
+	});	
+});
+
+$('#floorplan-container').tapstart(function(e, touch) {
+	//check if floorplan is loaded
+	if (document.getElementById('overlay-floorplan-container')) {
+		//check if floorplan is visible
+		if ($('#overlay-floorplan-container').hasClass('show')) {
+			//plan is showing, make invisible
+			$('#overlay-floorplan-container').removeClass('show');
+			$('#floorplan-container').removeClass('toplayer');
+		} else {
+			//no plan, make visible
+			$('#overlay-floorplan-container').addClass('show');
+			$('#floorplan-container').addClass('toplayer');
+		}
+	} else {
+		$target_overlay.load('overlay_floorplan.html');
+		$('#floorplan-container').addClass('toplayer');
+	}
+	
+});
+
+	
+/*
+$('#floorplan-container').tapstart(function(e, touch) {
+	$('.iosSlider').iosSlider('nextSlide', 0);
+});
+*/
+
+$('.iosSlider').iosSlider({
+	autoSlide:false,
+	autoSlideTimer:10000,
+	autoSlideTransTimer:100,
+	snapToChildren: true,
+	onSlideChange: slideChange,
+	desktopClickDrag: true,
+	infiniteSlider: true,
+	snapSlideCenter: true,
+	elasticPullResistance:0.3,
+	frictionCoefficient:0.3,
+	snapFrictionCoefficient:0.95,
+	elasticFrictionCoefficient:0.8
+});
+
+
+$pin = $('#map-marker');
+
+function slideChange(args) {
+	var $this = $('.slider > .item:eq(' + (args.currentSlideNumber - 1) + ')');
+	var x = $('.slider > .item:eq(' + (args.currentSlideNumber - 1) + ')').children('img').attr('src');
+	var posX = $this.attr('data-pos-x');
+	var posY = $this.attr('data-pos-y');
+// 	alert(posX);
+	$pin.css({
+		"left" : posX+'px',
+		"top" : posY+'px'
+	})
+	
+
+	if(args.currentSlideNumber==2) {
+		$('#slider-tut').remove();
+		$('#spec-tut').removeClass('hidden');
+		$('.floorplan-tag').fadeIn();
+	} else {
+		$('#spec-tut').addClass('hidden');
+		$('.floorplan-tag').hide();
+	}
+	//console.log(args.currentSlideNumber);
+
+	if (document.getElementById('overlay-floorplan-container')) {
+		$('#overlay-floorplan-container .b_view').removeClass('selected');
+		$('#overlay-floorplan-container #b_view'+(args.currentSlideNumber)).addClass('selected');
+	};
+	
+
+//	alert(x);
+};
+
+
+$('.floorplan-tag').tapstart(function() {
+	$(this).children('img').toggleClass('hidden');
+	$('#spec-tut').remove();
+	
+	// add tut count
+	addTutCount();
+});
+
+function addTutCount() {
+	var tutCount = parseInt($.cookie('tut'));
+	tutCount++;
+	$.cookie('tut', tutCount);
+}
+
+});
+</script>	
+
+<style type="text/css">
+
+.item > a { position: absolute; display: block; padding: 10px 20px; background: rgba(255, 255, 255, 0.7); color: #333; font-size: 12pt; width: ; text-align: center; }
+.item a .arrow { border-left: 15px solid transparent;
+		border-right: 15px solid transparent;
+		border-top: 15px solid rgba(255, 255, 255, .7);
+		bottom:-15px;
+		left:47px;
+		position: absolute;
+		width: 0; 
+		height: 0; 
+		}
+
+
+.close-btn > .glyphicon { color: #333; font-size: 50px; }
+
+.floorplan-tag { -moz-animation: hover 3s infinite; }
+
+@-moz-keyframes hover {
+	0%   { margin-top: 10px; }
+	25%  { margin-top: 5px; }
+	50%  { margin-top: 10px; }
+	75%  { margin-top: 5px; }
+	100% { margin-top: 10px; }
+	}
+	
+#floorplan-container { -moz-animation: hoverplan 3s infinite; }
+
+@-moz-keyframes hoverplan {
+	0%   { margin-bottom: 10px; }
+	25%  { margin-bottom: 15px; margin-left: 3px; }
+	50%  { margin-bottom: 10px; }
+	75%  { margin-bottom: 15px; margin-right: 3px; }
+	100% { margin-bottom: 10px; }
+	}
+
+#floorplan-container{
+	position: absolute; 
+	right: 50px; 
+	bottom: 50px; 
+	background: rgba(0, 0, 0, 0.0); 
+	padding: 20px; 
+	z-index: 700;
+}
+	
+#floorplan-container.toplayer {
+	z-index:2000;
+}
+
+.house-info {
+	position: absolute;
+    right: 0;
+    text-align: right;
+    z-index: 10;
+	width:700px;
+}
+
+.house-info .house-name {
+	color: #fff;
+    font-size: 80pt;
+    padding: 20px 30px 10px 10px;
+    text-align: right;
+    text-shadow: 2px 2px #666;
+}
+
+.house-info .house-icons .number {
+	display: block;
+    float: left;
+    font-size: 22pt;
+    margin-right: 8px;
+    margin-top: 8px;
+}
+
+.house-info .house-size {
+    background-color: #EA1C24;
+    height:50px;
+	float:left;
+	color:white;
+	font-size:18px;
+	padding: 10px 20px 0;
+	font-size:35px;
+}
+.house-info .house-icons {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 0 0 30px;
+    width: 305px;
+	height:50px;
+	float:left;
+}
+
+.house-info .house-bar {
+	position: absolute;
+    right: 0;
+    padding: 10px 0 10px 30px;
+    position: absolute;
+    right: 0;
+}
+
+.house-info .house-icons .icon {
+    display: block;
+    float: left;
+    margin-right: 30px;
+}
+
+
+.easingPin { transition: all .3s cubic-bezier(0.5, .5, 1, 1); }
+
+</style>
+
+<div id="floorplan-info" style="background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    bottom: 116px;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 14px 120px;
+    position: absolute;
+    right: -92px;
+    text-align: right;
+    z-index: 699;">Width: <span id="home-width"></span>m<br />Depth: <span id="home-depth"></span>m<br /><span style="font-size:19px; line-height:30px;">Suits <span id="home-block"></span>m blocks</span></div>
+	
+<div id="floorplan-container">
+	
+	<img id="floorplan-show" class="button" src="images/floorplan/3d_plan_shadow.png" width="370" />
+    <div id="map-marker" class="easingPin" style="left: 70px; position: absolute; top: 180px;"><img src="images/floorplan/map-marker-red.png" height="45" /></div>
+
+
+<!--
+	<span id="home-id"></span>
+	<span id="home-name"></span>
+	<span id="floorplan-count"></span>
+-->
+    
+</div>
+
+
+
+<!-- Home image + gallery images -->
+<div class = 'responsiveHeight'>
+<div class = 'inner'>
+<div class = 'iosSlider'>
+    <div class = 'slider' style="width: 1920px; height: 1080px;">
+        <div class = 'item' data-pos-x='70' data-pos-y='180' data-loc='facade' data-slide-no='1'>
+            <img id="home-image" src="images/homes/homes.jpg" height="1080" />
+        </div>
+        <div class = 'item' data-pos-x='252' data-pos-y='30' data-loc='kitchen' data-slide-no='2'>
+	        <a class="floorplan-tag" href="#" style="bottom: 330px; left: 400px; display: none;"><img class="imgToggle" src="images/brand_logo/miele-logo-immer-besser.png" alt="miele-logo-immer-besser" width="142" height="50" /><img class="imgToggle hidden" src="images/brand_upgrades/miele-oven.png" alt="miele-oven" width="202" height="308" /><span class="arrow"></span></a>
+	        <a class="floorplan-tag" href="#" style="bottom: 500px; left: 1320px; display: none;"><img class="imgToggle" src="images/brand_logo/westinghouse.png" alt="westinghouse" width="227" height="59" /><img class="imgToggle hidden" src="images/brand_upgrades/westinghouse-dishwasher.png" alt="westinghouse-dishwasher" width="202" height="315" /><span class="arrow"></span></a>
+	        <a class="floorplan-tag" href="#" style="bottom: 500px; left: 720px; display: none;"><img class="imgToggle" src="images/brand_logo/samsung.png" alt="samsung" width="175" height="50" /><img class="imgToggle hidden" src="images/brand_upgrades/samsung-microwave.png" alt="samsung-microwave" width="202" height="308" /><span class="arrow"></span></a>
+            <img src = 'images/gallery/gallery_1.jpg' />
+        </div>
+
+        <!--<div class = 'item' data-pos-x='343' data-pos-y='63' data-loc='alfresco' data-slide-no='3'>
+            <img src = 'images/gallery/gallery_2.jpg' />
+        </div>
+        <div class = 'item' data-pos-x='150' data-pos-y='20' data-loc='outdoor' data-slide-no='4'>
+            <img src = 'images/gallery/gallery_3.jpg' />
+        </div>-->
+        <div class = 'item' data-pos-x='180' data-pos-y='70' data-loc='living' data-slide-no='5'>
+            <img src = 'images/gallery/gallery_4.jpg' />
+        </div>
+        <div class = 'item' data-pos-x='130' data-pos-y='160' data-loc='bed' data-slide-no='6'>
+            <img src = 'images/gallery/gallery_5.jpg' />
+        </div>
+        <div class = 'item' data-pos-x='310' data-pos-y='60' data-loc='family' data-slide-no='7'>
+            <img src = 'images/gallery/gallery_6.jpg' />
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="house-info hud">
+    <div class="house-name"><span id="home-name" class="houseName_txt"> &nbsp; </span></div>
+    <div class="house-bar">
+    	<div class="house-size"><span id="home-sq"></span>sq</div>
+    	<div class="house-icons">
+        	<span class="number"><span id="home-bed" class="houseBeds_txt"></span></span>
+            <img class="icon" src="images/HUD/bed.png" width="45" height="38"/>
+            <span class="number"><span id="home-bath" class="houseBaths_txt"></span></span>
+            <img class="icon" src="images/HUD/bath.png" width="45" height="38"/>
+            <span class="number"><span id="home-car" class="houseCars_txt"></span></span>
+            <img class="icon last" src="images/HUD/car.png" width="45" height="38"/>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<div id="home-tut"></div>
+<script>
+$(function() {
+	var tutCount = parseInt($.cookie('tut'));
+	//alert(tutCount);
+	if(tutCount<3) {
+		$( "#home-tut" ).load( "content_tut_homes.html" );
+	} else {
+		$( "#home-tut" ).remove();
+	}
+});
+
+</script>

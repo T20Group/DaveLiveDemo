@@ -1,0 +1,103 @@
+@font-face {
+    font-family: "glyph";
+    src: url("../fonts/glyphicons-halflings-regular.woff") format('woff');
+}
+.glyphicon {
+	font-family:glyph;
+	position:relative;
+	top:4px;
+}
+a .glyphicon {
+	text-decoration:none;
+	color:inherit;
+}
+
+a {
+	text-decoration:none;
+	color:black;
+}
+
+.cleared { clear: both; }
+.hidden { display: none !important; }
+.button:hover { cursor: pointer; }
+
+.responsiveHeight {	position:absolute; top:0; left:0; width:1920px; height:1080px; }
+
+html, body {
+	height: 1080px;
+	margin: 0;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+	overflow:hidden;
+	color:#666;
+	background-color:#333;
+}
+
+#main-container { position:absolute; top:0; left:0; width:1920px; height:1080px; overflow: hidden; background: white; }
+.container { position:absolute; }
+/* OVERLAY LAYER */
+#overlay { z-index: 1000; }
+
+/* NAV LAYER */
+#navigation {  z-index: 900;  }
+
+	#finder-nav { width: 0; height: 40px; position: absolute; left: 900px; bottom: -1080px; }
+	#main-nav { bottom: -1055px; height: 100px; left: 20px; position: absolute; width: 300px; z-index: 100; }
+	#main-nav a { display:block;
+    width:60px;
+    height:60px;
+    line-height:60px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    text-align:center;
+    text-decoration:none;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 0 3px gray;
+    font-size:20px;
+    font-weight:bold; float:left;
+	margin-right:20px; }
+	#main-nav a .glyphicon { font-size: 26px; line-height: 50px; }
+	#main-control { width: 100px; height: 50px; position: absolute; left: 0; bottom: -1000px; background: purple; text-align: center; }
+	
+	#main-nav div {  border: 0px solid white; float: left; width: 90px; text-align: center; }
+	#main-nav div .menu-title { line-height: 45px; color: white; text-shadow: 0px 1px 1px #000000; display: block;}
+	#main-nav div .glyphicon-neo {
+	    line-height:60px;
+	    border: 2px solid #f5f5f5;
+	    border-radius: 50%;
+	    color:#f5f5f5;
+	    text-align:center;
+	    text-decoration:none;
+	    background: rgba(0,0,0,0.5);
+	    box-shadow: 0 0 3px gray;
+	    font-size:20px;
+	    font-weight:bold;
+	    padding: 16px 18px;
+	}
+	
+	/* HOMES */
+	#homes-filter-container { position: absolute; bottom: -1000px; left: -900px; width: 1920px; padding: 0px; text-align: center; opacity: 0; }
+	.homes { color: white; padding: 0px; margin: 20px; background: rgba(0, 0, 0, 0.4); display: inline-table; background-size: cover; background-position: center center; width: 400px; height: 200px; }
+	.homes:hover { cursor: pointer; }
+/* 		.homesImg { height: 200px; display: block; } */
+/* 		.homesImg > img { width: 400px; height: auto; } */
+		.homesDesc { text-shadow: 2px 2px #666; background: white; font-size: 20px; position: absolute; width: 30px; }
+		.homesTitle { font-weight: 100; font-size: 50px; text-shadow: 2px 2px #666; position: relative; top: -30px; text-align: left; left: 20px; }
+		
+/* 	#homes-filter-container > .selected { -moz-animation: glow 1.4s infinite;} */
+	#homes-filter-container > .selected { border: 10px solid rgba(255, 51, 51, 0.5); }
+	
+	@-moz-keyframes glow {
+	0% { box-shadow: 0 0 35px rgba(255, 255, 255, 1); }
+	50% { box-shadow: 0 0 5px rgba(255, 255, 255, .5); }
+	100% { box-shadow: 0 0 35px rgba(255, 255, 255, 1); }
+	
+/* CONTENT LAYER */
+#content { z-index: 800; width: 1920px; height: 1080px; overflow: hidden; }
+
+
+/* FAV LAYER */
+.fav-homes:hover { cursor: pointer; }
+
+#call-wishlist-menuB { color: red !important; transform: scale(2); }

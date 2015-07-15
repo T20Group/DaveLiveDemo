@@ -1,0 +1,169 @@
+<style>
+	#claim-form input {
+		display: block;
+		font-size: 14px;
+		margin: 10px 0 0;
+		padding: 10px;
+		width: 88%;
+	}
+	#claim-form button {
+		font-size: 18px;
+		height: 42px;
+		margin: 10px 0 10px;
+		width: 99%;
+	}
+	
+	#fav-homes-list li:nth-child(3n+3) {
+		padding-right: 0px;
+	}
+	.fav-homes { float: left; padding-right: 20px; padding-bottom: 20px; }
+	.fav-homes img { display: block; height: 132px; }
+	
+	#b_closeWishlist {
+	background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: inline-block;
+    font-size: 30px;
+    opacity: 1;
+    padding: 18px;
+    text-align: center;
+	border-top:solid 7px white;
+	border-top: 7px solid #777;
+	}
+</style>
+
+<script type="text/javascript">
+$(function() {
+	
+	
+	$('#add-wishlist-btn').on('tapstart', function(e) {
+		
+		$(this).toggleClass('hidden');
+		$('#remove-wishlist-btn').toggleClass('hidden');
+		
+		// get cookie
+		var wishlist = JSON.parse($.cookie('wishlist_homes')); // deserialize
+		
+		// check duplicate on index nav layer
+		//alert('this home is: '+$.cookie('homes') );
+		wishlist.push($.cookie('homes')); // modify value
+		$.cookie("wishlist_homes", JSON.stringify(wishlist)); // serialize
+	
+		// repoppulate #fav-homes-list
+		update_wishlist();
+	});
+	
+	// make home function
+	function update_wishlist() {
+		$wishlist = $('#fav-homes-list');
+		$wishlist.children('li').remove();
+		$.getJSON("homes.json", function(data) {	
+			
+			var wishlist = JSON.parse($.cookie('wishlist_homes'));
+			for(var i = 0; i < wishlist.length; i++) {
+					
+				$.each(data.homes, function(name, val) {
+					// append dynamic homes
+					if(val.id == wishlist[i]) { // search for id			
+						var id = val.id;
+						var name = val.name;
+						var homes = '<li class="fav-homes" data-id="'+id+'"><img class="fav-image" src="images/homes/'+id+'.jpg"  /><br/>'+name+'</li>';
+						
+						$wishlist.append(homes);
+					}
+				});
+			};
+		});
+	}
+	
+	$('#remove-wishlist-btn').on('tapstart', function(e) {
+		$(this).toggleClass('hidden');
+		$('#add-wishlist-btn').toggleClass('hidden');
+		
+		//alert('clicked remove');
+		// get cookie
+		var wishlist = JSON.parse($.cookie('wishlist_homes')); // deserialize
+		
+		// find cookie index
+		for(var i=0; i<wishlist.length; i++) {
+		   if(wishlist[i]==$.cookie('homes')) {
+			  //alert('deleting this house: ' +wishlist[i]);
+			  wishlist.splice(i, 1); // remove from cookie
+		   }
+	   }
+	   
+	   $.cookie("wishlist_homes", JSON.stringify(wishlist)); // serialize
+	   //alert( JSON.parse($.cookie('wishlist_homes')) );
+	   
+	   update_wishlist();
+	});
+	// repopulate function;
+	
+	$('#fav-homes-list').on('tap', '.fav-homes', function(e) {
+		$('.iosSlider').iosSlider('destroy');
+		// store cookie
+		var val = $(this).attr('data-id');
+		$.cookie('homes', val);
+		
+		$('#remove-wishlist-btn, #finder-nav').removeClass('hidden');
+		$('#add-wishlist-btn, #main-menu-nav').addClass('hidden');
+		// update content DIV
+		$('#content').load('content_homes.html');
+	});
+
+	$('#b_closeWishlist').on('tapstart', function(e) {
+		$('#wishlist-nav').addClass('hidden');
+	});
+});
+</script>
+
+<div style="padding: 10px; background: rgba(0, 0, 0, 0.9); border:solid 15px white; position: absolute; max-height: 800px;  min-height: 400px; max-width: 1800px; max-width: 1700px; min-width: 320px; bottom: -900px; left: 85px; z-index: 1000; box-shadow:5px 5px 20px #000000; color: white;">
+	
+	<div style="padding:60px 40px; position:relative; width: 750px;">
+		<div id="homes-wishlist-container" style="min-width: 750px; float: left; ">
+        	<span style="font-size:50px; color:white; width: 200px; ">Homes</span>
+            <div style="border:solid 1px white; margin-top:5px; margin-bottom: 30px;"></div>
+            
+            <ul id="fav-homes-list" style="max-height: 573px; overflow-x: visible;">
+	            <li class="fav-homes">
+		            <span style="font-size: 20pt;">Wishlist currently empty. Start collecting via Home Finder.</span>
+	            </li>
+
+            </ul> <!-- /fav-homes-list -->
+            <div class="cleared"></div>
+		</div> <!-- /homes-wishlist-container -->
+		
+		<div id="promos-wishlist-container" class="hidden" style="width: 750px; float: left; margin-left: 50px;">
+        	<span style="font-size:50px; color:white; width: 500px; ">Promotions</span>
+            <div style="border:solid 1px white; margin-top:5px; margin-bottom: 30px;"></div>
+            asadadada <br/>
+            asadadada <br/>
+            asadadada <br/>
+            asadadada <br/>
+            asadadada <br/>
+            asadadada <br/>
+            asadadada <br/>
+            asadadada <br/>
+            asadadada <br/>
+            asadadada <br/>
+            asadadada <br/>
+		</div> <!-- /homes-wishlist-container -->
+
+		<div class="cleared"></div>
+	</div> <!-- close main container -->
+	
+	<div id="share-wishlist-container" class="hidden" style="box-shadow:2px 2px 10px #000000; background:#c90c11; padding:20px 30px; color:white; font-size:16px; line-height: 20px; position: absolute; right: 20px; bottom: -50px; width: 240px; "><span style="font-size:32px; line-height:46px;">Share wishlist</span><br>
+
+	<form id="claim-form">
+	    <input type="email" value="" placeholder="Email" required name="email">
+	    <button type="button">Share</button>
+	</form>
+	</div>
+	
+	<a id="add-wishlist-btn" href="#" style="padding:20px 25px 25px; background:black; border:solid 4px white; color:white; width: 300px; font-size:24px; box-shadow:2px 2px 20px #000000; position:absolute; bottom:-50px; left: 40px;"><span style="padding-right:5px;" class="glyphicon">&#xE132;</span> Add to wishlist</a>
+	<a id="remove-wishlist-btn" class="hidden" href="#" style="padding:20px 25px 25px; background:black; border:solid 4px white; color:white; width: 300px; font-size:24px; box-shadow:2px 2px 20px #000000; position:absolute; bottom:-50px; left: 40px;"><span style="padding-right:5px;" class="glyphicon">&#xE132;</span> Remove from wishlist</a>
+	
+	
+	<a id="b_closeWishlist" class="close" href="#" style="position:absolute; top:0; right:0;"><span class="glyphicon">&#xE014;</span></a>
+</div>
+
