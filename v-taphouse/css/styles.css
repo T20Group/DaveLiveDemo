@@ -13,7 +13,18 @@
     font-style: normal;
 }
 
+h1, h2 {
+	font-family:loveloblack;
+}
+
 /* UTILTY */
+
+.clear {
+	clear:both;
+}
+.bold {
+	font-weight:bold;
+}
 
 :not(.DisableSelectingForEverything) {
     -webkit-touch-callout: none;
@@ -43,6 +54,8 @@
 	position:relative;
 }
 
+/* MAIN MENU */
+
 #taphouse-mainmenu ul {
 	list-style:none;
 }
@@ -57,13 +70,13 @@
 }
 
 #taphouse-mainmenu ul img{
-	transition:ease 0.7s;
-	opacity:.7;
+	transition:ease 2s;
+	opacity:.6;
 }
 
 #taphouse-mainmenu ul .active img {
 	opacity:1;
-	transform:scale(1.07,1.07);
+	transform:scale(1.1,1.1);
 }
 
 #taphouse-mainmenu .panel-border {
@@ -88,4 +101,92 @@
 	text-align:center;
 	font-size: 30px;
     padding-top: 52px;
+}
+
+/* HOTEL */
+#hotel-col1-scroll {
+	float:left;
+	width:1000px;
+	overflow:hidden;
+	z-index:100;
+	position:relative;
+}
+
+#hotel-col1 {
+	overflow-y:auto;
+	width:1015px;
+	height:947px;
+	background-color:#f4f4f4;
+}
+
+#room-list li {
+	clear:both;
+}
+
+#room-list li img {
+	display:block;
+}
+
+#room-list .col1 {
+	float:left;
+	clear:left;
+	width:490px;
+}
+
+#room-list .col2 {
+	float:left;
+	width:470px;
+	height:346px;
+	background:white;
+}
+
+#room-list li .arrow {
+	float:left;
+}
+
+#room-list li.active .col2 {
+	background-color:#e8ddc4;
+}
+#room-list li.active .arrow {
+	width: 0; 
+	height: 0; 
+	border-top: 173px solid rgba(255, 255, 255, 0);
+	border-bottom: 173px solid rgba(255, 255, 255, 0);
+	border-left: 40px solid #e8ddc4;
+	-moz-transform: scale(.9999);
+}
+
+#room-list .col2-cont {
+	padding:80px 40px;
+}
+#room-list .col2-cont h1 {
+	font-size:30px;
+	padding-bottom:10px;
+}
+#room-list .col2-cont p {
+	line-height:1.4;
+	padding-left:1px;
+}
+#room-list .col2-cont .roomprice {
+	font-weight:bold;
+	padding-top:10px;
+}
+#room-list .button-fill {
+	background-color: #ab9769;
+    border: 1px solid white;
+    color: white;
+    font-family: loveloblack;
+	font-size:30px;
+    margin: 10px 4px;
+    outline: 2px solid #ab9769;
+    padding: 6px 12px;
+    position: relative;
+    top: 30px;
+}
+
+#hotel-col2 {
+	float:left;
+	width:920px;
+	height:947px;
+	background-color:#f4f4f4;
 }
