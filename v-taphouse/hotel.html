@@ -38,21 +38,6 @@ $('a').on('tapstart', function() {
 	//console.log(a);
 });
 
-function slideAnim() {
-	$('#taphouse-mainmenu li').removeClass('active');
-	$('#taphouse-mainmenu .menu'+slideNo).addClass('active');
-	if(slideNo<4) {
-		slideNo++;
-	} else {
-		slideNo = 1;
-	}
-}
-slideNo = 1;
-timer = 4000;
-
-slideAnim();
-var tid = setInterval(slideAnim, timer);
-
 });
 </script>
 <div id="content-overlay"></div>
@@ -117,7 +102,83 @@ var tid = setInterval(slideAnim, timer);
             </div><!-- hotel-col1 -->
         </div><!-- hotel-col1-scroll -->
         <div id="hotel-col2">
-        </div><!-- hotel-col2 --
+        	<h1 class="col-header">SELECT YOUR DATES</h1>
+            <div class="calendar-cont">
+            	<div class="calendar-monthselectdiv">
+                	<a class="b_month b_prev" href="#"><</a><h1>Jul 2015</h1><a class="b_month b_next" href="#">></a>
+                    <div class="clear"></div>
+                </div>
+            	<div class="calendar-daylabelsdiv">
+                    <ul class="calendar-daylabels">
+                        <li>SUN</li><li>MON</li><li>TUE</li><li>WED</li><li>THU</li><li>FRI</li><li>SAT</li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="calendar-daysdiv">
+                    <ul class="calendar-days">
+                        <script>
+                        function outputDays(start, end, month) {
+                            for (i = start; i < end+1; i++) { 
+                                document.write("<li><a href='#' id='day"+i+"month"+month+"'><div>"+i+"</div></a></li>");
+                            }
+                        }
+						
+						function randomBooked() {
+							var number = 10 + Math.floor(Math.random() * 15);
+							$(".calendar-cont .calendar-days li a:lt("+number+")").addClass("disabled");
+						}
+                        outputDays(28,30,6);
+                        outputDays(1,31,7);
+                        outputDays(1,1,8);
+						randomBooked();
+						
+						$(".calendar-cont .calendar-days li a:not(.disabled)").on("tapstart",function(){
+						  $(this).toggleClass('active');
+						});
+                        </script>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div><!-- calendar-cont -->
+            <div id="hotel-book-div">
+            	<div class="col">
+                	<div class="label">CHECK-IN <span class="sub">2PM</span></div>
+                    <div class="top-text">8 JUL 2015</div>
+                    <div class="label">ADULTS</div>
+                    <div class="bottom-text">
+                    	<div class="big-number">1</div>
+                        <div class="arrow-div">
+                        	<a href="#" class="arrow arrow-up"></a>
+                            <a href="#" class="arrow arrow-down"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                	<div class="label">CHECK-IN <span class="sub">2PM</span></div>
+                    <div class="top-text">8 JUL 2015</div>
+                    <div class="label">ADULTS</div>
+                    <div class="bottom-text">
+                    	<div class="big-number">1</div>
+                        <div class="arrow-div">
+                        	<a href="#" class="arrow arrow-up"></a>
+                            <a href="#" class="arrow arrow-down"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                	<div class="label">CHECK-IN <span class="sub">2PM</span></div>
+                    <div class="top-text">8 JUL 2015</div>
+                    <div class="label">ADULTS</div>
+                    <div class="bottom-text">
+                    	<div class="big-number">1</div>
+                        <div class="arrow-div">
+                        	<a href="#" class="arrow arrow-up"></a>
+                            <a href="#" class="arrow arrow-down"></a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- hotel-book-div -->
+        </div><!-- hotel-col2 -->
     </div><!-- taphouse-container -->
 </div>
 
