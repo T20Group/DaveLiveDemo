@@ -33,10 +33,16 @@
 <script type="text/javascript">
 $(function() {
 
-$('a').on('tapstart', function() {
-	//a++;
-	//console.log(a);
-});
+	$('a').on('tapstart', function() {
+		//a++;
+		//console.log(a);
+	});
+
+	$('.b_book').on('tapstart', function() {
+		$('#room-list li').removeClass('active');
+		$(this).parents('li').addClass('active');
+		randomBooked();
+	});
 
 });
 </script>
@@ -125,6 +131,7 @@ $('a').on('tapstart', function() {
 						
 						function randomBooked() {
 							var number = 10 + Math.floor(Math.random() * 15);
+							$(".calendar-cont .calendar-days li a").removeClass("disabled");
 							$(".calendar-cont .calendar-days li a:lt("+number+")").addClass("disabled");
 						}
                         outputDays(28,30,6);
@@ -180,6 +187,7 @@ $('a').on('tapstart', function() {
                         </div>
                     </div>
                 </div>
+                <a class="button-fill" href="#">Next</a>
             </div><!-- hotel-book-div -->
         </div><!-- hotel-col2 -->
     </div><!-- taphouse-container -->
