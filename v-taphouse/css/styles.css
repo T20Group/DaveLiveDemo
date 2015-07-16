@@ -279,5 +279,27 @@ h1, h2 {
 }
 #hotel-book-div .col .top-text {
 	color:#ab9769;
-	font-size:32px;
+	font-size:34px;
+}
+#hotel-book-div .col .bottom-text {
+	width:120px;
+	margin:10px auto;
+	clear:both;
+}
+#hotel-book-div .col .big-number {
+	color:#ab9769;
+	font-size:74px;
+	float:left;
+	width: 70px;
+	margin-top: 8px;
+}
+#hotel-book-div .arrow-div {
+	float:right;
+}
+#hotel-book-div .arrow-div .arrow {
+	display:block;
+	height:40px;
+	width:40px;
+	background-color:#ab9769;
+	margin-bottom:10px;
 }
