@@ -13,7 +13,18 @@
     font-style: normal;
 }
 
+h1, h2 {
+	font-family:loveloblack;
+}
+
 /* UTILTY */
+
+.clear {
+	clear:both;
+}
+.bold {
+	font-weight:bold;
+}
 
 :not(.DisableSelectingForEverything) {
     -webkit-touch-callout: none;
@@ -43,6 +54,8 @@
 	position:relative;
 }
 
+/* MAIN MENU */
+
 #taphouse-mainmenu ul {
 	list-style:none;
 }
@@ -57,13 +70,13 @@
 }
 
 #taphouse-mainmenu ul img{
-	transition:ease 0.7s;
-	opacity:.7;
+	transition:ease 2s;
+	opacity:.6;
 }
 
 #taphouse-mainmenu ul .active img {
 	opacity:1;
-	transform:scale(1.07,1.07);
+	transform:scale(1.1,1.1);
 }
 
 #taphouse-mainmenu .panel-border {
@@ -88,4 +101,217 @@
 	text-align:center;
 	font-size: 30px;
     padding-top: 52px;
+}
+
+/* HOTEL */
+#hotel-col1-scroll {
+	float:left;
+	width:1000px;
+	overflow:hidden;
+	z-index:100;
+	position:relative;
+}
+
+#hotel-col1 {
+	overflow-y:auto;
+	width:1015px;
+	height:947px;
+	background-color:#f4f4f4;
+}
+
+#room-list li {
+	clear:both;
+}
+
+#room-list li img {
+	display:block;
+}
+
+#room-list .col1 {
+	float:left;
+	clear:left;
+	width:490px;
+}
+
+#room-list .col2 {
+	float:left;
+	width:470px;
+	height:346px;
+	background:white;
+}
+
+#room-list li .arrow {
+	float:left;
+}
+
+#room-list li.active .col2 {
+	background-color:#e8ddc4;
+}
+#room-list li.active .arrow {
+	width: 0; 
+	height: 0; 
+	border-top: 173px solid rgba(255, 255, 255, 0);
+	border-bottom: 173px solid rgba(255, 255, 255, 0);
+	border-left: 40px solid #e8ddc4;
+	-moz-transform: scale(.9999);
+}
+
+#room-list .col2-cont {
+	padding:80px 40px;
+}
+#room-list .col2-cont h1 {
+	font-size:30px;
+	padding-bottom:10px;
+}
+#room-list .col2-cont p {
+	line-height:1.4;
+	padding-left:1px;
+}
+#room-list .col2-cont .roomprice {
+	font-weight:bold;
+	padding-top:10px;
+}
+#room-list .button-fill {
+	background-color: #ab9769;
+    border: 1px solid white;
+    color: white;
+    font-family: loveloblack;
+	font-size:30px;
+    margin: 10px 4px;
+    outline: 2px solid #ab9769;
+    padding: 6px 12px;
+    position: relative;
+    top: 30px;
+}
+#hotel-col2 {
+	float:left;
+	width:920px;
+	height:947px;
+	background-color:#f4f4f4;
+	text-align:center;
+	padding-top:80px;
+}
+#hotel-col2 h1 {
+	font-size:30px;
+}
+#hotel-col2 .calendar-cont {
+	width:710px;
+	margin:0 auto;
+	background-color:white;
+	margin-top:15px;
+}
+#hotel-col2 .calendar-cont .calendar-daylabelsdiv {
+	padding:0 5px;
+	background-color:#ab9769;
+}
+#hotel-col2 .calendar-cont .calendar-daylabels li {
+	float:left;
+	width:100px;
+	text-align:center;
+	color:white;
+	font-family:loveloblack;
+	padding:10px 0;
+}
+#hotel-col2 .calendar-cont .calendar-daysdiv {
+	padding:5px;
+}
+#hotel-col2 .calendar-cont .calendar-days li {
+	float:left;
+	width:100px;
+	text-align:center;
+	font-family:loveloblack;
+	font-size:22px;	
+}
+
+#hotel-col2 .calendar-cont .calendar-days li a div {
+	
+	padding:20px 0;
+	margin:5px;
+	color:#ab9769;
+}
+#hotel-col2 .calendar-cont .calendar-days li a.active div {
+	background-color:#fff568;
+}
+#hotel-col2 .calendar-cont .calendar-days li a.disabled div {
+	background-color:#e0e0e0;
+}
+#hotel-col2 .calendar-monthselectdiv {
+	margin:0 auto;
+	width:290px;
+	text-align:center;
+}
+#hotel-col2 .calendar-monthselectdiv h1 {
+	font-size:24px;
+	color:#ab9769;
+	padding:10px;
+	float:left;
+	width:150px;
+	margin-top:10px;
+}
+#hotel-col2 .b_month {
+	background-color: #ab9769;
+    color: white;
+    display: block;
+    float: left;
+    font-weight: bold;
+    height: 35px;
+    margin: 5px 0;
+    padding-top: 15px;
+    vertical-align: middle;
+    width: 60px;
+}
+#hotel-book-div {
+	width:705px;
+	margin:0 auto;
+	font-family:loveloblack;
+	margin-top:10px;
+}
+#hotel-book-div .col {
+	float:left;
+	width:235px;
+}
+#hotel-book-div .col .label {
+	font-size:20px;
+	margin-top:20px;
+}
+#hotel-book-div .col .label .sub {
+	font-size:14px;
+}
+#hotel-book-div .col .top-text {
+	color:#ab9769;
+	font-size:34px;
+}
+#hotel-book-div .col .bottom-text {
+	width:120px;
+	margin:10px auto;
+	clear:both;
+}
+#hotel-book-div .col .big-number {
+	color:#ab9769;
+	font-size:74px;
+	float:left;
+	width: 70px;
+	margin-top: 8px;
+}
+#hotel-book-div .arrow-div {
+	float:right;
+}
+#hotel-book-div .arrow-div .arrow {
+	display:block;
+	height:40px;
+	width:40px;
+	background-color:#ab9769;
+	margin-bottom:10px;
+}
+#hotel-book-div .button-fill {
+	background-color: #ab9769;
+    border: 1px solid white;
+    color: white;
+    font-family: loveloblack;
+	font-size:30px;
+    margin: 10px 4px;
+    outline: 2px solid #ab9769;
+    padding: 6px 12px;
+    position: relative;
+    top: 30px;
 }
