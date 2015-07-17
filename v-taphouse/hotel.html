@@ -44,6 +44,7 @@ $(function() {
 			$(this).parents('li').addClass('active');
 			$('#hotel-col2 #col2-overlay').addClass('hidden');
 			randomBooked($(this).data('booked'));
+			setNights();
 		}
 	});
 	
@@ -53,6 +54,21 @@ $(function() {
 	$('#hotel-book-div .arrow-down').on('tapstart', function() {
 		if (parseInt($(this).parent().prev('.big-number').text())!=$(this).data('min')) {
 			$(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) - 1);
+		}
+	});
+	$("#hotel-booking-next").on("tapstart",function(){
+		if(!$(this).hasClass('disabled')) {
+			$('#hotel-col1-scroll').toggleClass('move');
+			$('#hotel-col2').toggleClass('move');
+			$('.arrow-div').toggleClass('hidden');
+			$('.b_month').toggleClass('hidden');
+			if ($('#hotel-col1-scroll').hasClass('move')) {
+				$('#hotel-col2 .col-header').text('YOUR SELECTIONS');
+				$('#hotel-booking-next').text('CHANGE');
+			} else {
+				$('#hotel-col2 .col-header').text('SELECT YOUR DATES');
+				$('#hotel-booking-next').text('NEXT');
+			}
 		}
 	});
 
@@ -150,9 +166,9 @@ $(function() {
 							$(".calendar-cont .calendar-days li a").removeClass("disabled");
 							$(".calendar-cont .calendar-days li a:lt("+number+")").addClass("disabled");
 						}
-                        outputDays(28,30,6);
+                        //outputDays(28,30,6);
                         outputDays(1,31,7);
-                        outputDays(1,1,8);
+                        //outputDays(1,1,8);
 						//randomBooked();
 						
 						$(".calendar-cont .calendar-days li a").on("tapstart",function(){
@@ -175,7 +191,7 @@ $(function() {
 								daylast = $('.calendar-days li a.active:last').data('day');
 								dayfirst = $('.calendar-days li a.active:first').data('day');
 								dayjustclicked = thisbut.data('day');
-								if( daylast == dayfirst ) {
+								if ( daylast == dayfirst ) {
 									//one night stay
 									$('#checkouttext').text((parseInt($('.calendar-days li a.active:last').data('day'))+1)+" JUL 2015");
 									if(thisbut.hasClass('active')) {
@@ -188,6 +204,14 @@ $(function() {
 									}
 									
 								} else {
+									//more than one night
+									if(thisbut.hasClass('active')) {
+										//just selected
+										$('.calendar-days li a.active:first').parent().nextUntil($('.calendar-days li a.active:last').parent()).andSelf().children().addClass('active');
+									} else {
+										//just deselected
+										
+									}
 									$('#checkouttext').text($('.calendar-days li a.active:last').data('day')+" JUL 2015");
 								}
 							} else {
@@ -202,8 +226,21 @@ $(function() {
 								} else {
 									$('#nightstext').text(1);
 								}
+								setNextButton(1);
 							} else {
 								$('#nightstext').html('&nbsp;');
+								setNextButton(0);
+							}
+						}
+						function setNextButton(status) {
+							if(!$('.calendar-days li a.active').hasClass('disabled')) {							
+								if(status) {
+									$('#hotel-booking-next').removeClass('disabled');
+								} else {
+									$('#hotel-booking-next').addClass('disabled');
+								}
+							} else {
+								$('#hotel-booking-next').addClass('disabled');
 							}
 						}
                         </script>
@@ -251,7 +288,7 @@ $(function() {
                         </div>
                     </div>
                 </div>
-                <a class="button-fill" href="#">Next</a>
+                <a id="hotel-booking-next" class="button-fill disabled" href="#">Next</a>
             </div><!-- hotel-book-div -->
             
         </div><!-- hotel-col2 -->
