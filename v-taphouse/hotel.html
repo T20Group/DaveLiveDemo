@@ -150,9 +150,9 @@ $(function() {
 							$(".calendar-cont .calendar-days li a").removeClass("disabled");
 							$(".calendar-cont .calendar-days li a:lt("+number+")").addClass("disabled");
 						}
-                        outputDays(28,30,6);
+                        //outputDays(28,30,6);
                         outputDays(1,31,7);
-                        outputDays(1,1,8);
+                        //outputDays(1,1,8);
 						//randomBooked();
 						
 						$(".calendar-cont .calendar-days li a").on("tapstart",function(){
@@ -175,7 +175,7 @@ $(function() {
 								daylast = $('.calendar-days li a.active:last').data('day');
 								dayfirst = $('.calendar-days li a.active:first').data('day');
 								dayjustclicked = thisbut.data('day');
-								if( daylast == dayfirst ) {
+								if ( daylast == dayfirst ) {
 									//one night stay
 									$('#checkouttext').text((parseInt($('.calendar-days li a.active:last').data('day'))+1)+" JUL 2015");
 									if(thisbut.hasClass('active')) {
@@ -188,6 +188,14 @@ $(function() {
 									}
 									
 								} else {
+									//more than one night
+									if(thisbut.hasClass('active')) {
+										//just selected
+										$('.calendar-days li a.active:first').parent().nextUntil($('.calendar-days li a.active:last').parent()).andSelf().children().addClass('active');
+									} else {
+										//just deselected
+										
+									}
 									$('#checkouttext').text($('.calendar-days li a.active:last').data('day')+" JUL 2015");
 								}
 							} else {
