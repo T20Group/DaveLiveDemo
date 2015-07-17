@@ -44,6 +44,7 @@ $(function() {
 			$(this).parents('li').addClass('active');
 			$('#hotel-col2 #col2-overlay').addClass('hidden');
 			randomBooked($(this).data('booked'));
+			setNights();
 		}
 	});
 	
@@ -232,8 +233,12 @@ $(function() {
 							}
 						}
 						function setNextButton(status) {
-							if(status) {
-								$('#hotel-booking-next').removeClass('disabled');
+							if(!$('.calendar-days li a.active').hasClass('disabled')) {							
+								if(status) {
+									$('#hotel-booking-next').removeClass('disabled');
+								} else {
+									$('#hotel-booking-next').addClass('disabled');
+								}
 							} else {
 								$('#hotel-booking-next').addClass('disabled');
 							}
