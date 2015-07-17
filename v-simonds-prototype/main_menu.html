@@ -20,7 +20,7 @@ $('.iosSlider').iosSlider({
 
 
 function slideChange(args) {
-						
+	console.log(args.currentSlideNumber);						
 	$('.indicators .item').removeClass('selected');
 	$('.indicators .item:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
 	

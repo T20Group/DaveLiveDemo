@@ -44,6 +44,7 @@ $(function() {
 
 	// Bind hashchange event
     $(window).bind('hashchange', function(e, triggered) {
+	    $('#link-holder').removeClass('show');
         var hash = location.hash.replace(/^#/, '');
         if (hash) {
             var match = $.routeMatches(hash);
