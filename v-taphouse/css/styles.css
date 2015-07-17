@@ -123,6 +123,11 @@ h1, h2 {
 	overflow:hidden;
 	z-index:100;
 	position:relative;
+	transition:ease 0.5s;
+	left:0;
+}
+#hotel-col1-scroll.move {
+	left:-1000px;
 }
 
 #hotel-col1 {
@@ -203,6 +208,15 @@ h1, h2 {
 	background-color:#f4f4f4;
 	text-align:center;
 	padding-top:40px;
+	transition:ease 0.5s;
+	position: relative;
+	left:0;
+	opacity:1;
+}
+#hotel-col2.move {
+	left: -1000px;
+    z-index: 100;
+	opacity:0.8;
 }
 #hotel-col2 h1 {
 	font-size:30px;
@@ -235,9 +249,7 @@ h1, h2 {
 	font-family:loveloblack;
 	font-size:22px;	
 }
-
 #hotel-col2 .calendar-cont .calendar-days li a div {
-	
 	padding:20px 0;
 	margin:5px;
 	color:#ab9769;
@@ -263,6 +275,9 @@ h1, h2 {
 	float:left;
 	width:150px;
 	margin-top:10px;
+}
+#hotel-col2.move .calendar-monthselectdiv h1 {
+	width: 280px;
 }
 #hotel-col2 .b_month {
 	background-color: #ab9769;
@@ -309,6 +324,9 @@ h1, h2 {
 	width: 70px;
 	margin-top: 8px;
 }
+.move #hotel-book-div .col .big-number {
+	width: 120px;
+}
 #hotel-book-div .arrow-div {
 	float:right;
 }
@@ -333,6 +351,9 @@ h1, h2 {
     padding: 6px 12px;
     position: relative;
     top: 45px;
+}
+#hotel-book-div #hotel-booking-next.disabled {
+	opacity:0.5;
 }
 #hotel-col2 #col2-overlay {
 	position:absolute;

@@ -55,6 +55,21 @@ $(function() {
 			$(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) - 1);
 		}
 	});
+	$("#hotel-booking-next").on("tapstart",function(){
+		if(!$(this).hasClass('disabled')) {
+			$('#hotel-col1-scroll').toggleClass('move');
+			$('#hotel-col2').toggleClass('move');
+			$('.arrow-div').toggleClass('hidden');
+			$('.b_month').toggleClass('hidden');
+			if ($('#hotel-col1-scroll').hasClass('move')) {
+				$('#hotel-col2 .col-header').text('YOUR SELECTIONS');
+				$('#hotel-booking-next').text('CHANGE');
+			} else {
+				$('#hotel-col2 .col-header').text('SELECT YOUR DATES');
+				$('#hotel-booking-next').text('NEXT');
+			}
+		}
+	});
 
 });
 </script>
@@ -210,8 +225,17 @@ $(function() {
 								} else {
 									$('#nightstext').text(1);
 								}
+								setNextButton(1);
 							} else {
 								$('#nightstext').html('&nbsp;');
+								setNextButton(0);
+							}
+						}
+						function setNextButton(status) {
+							if(status) {
+								$('#hotel-booking-next').removeClass('disabled');
+							} else {
+								$('#hotel-booking-next').addClass('disabled');
 							}
 						}
                         </script>
@@ -259,7 +283,7 @@ $(function() {
                         </div>
                     </div>
                 </div>
-                <a class="button-fill" href="#">Next</a>
+                <a id="hotel-booking-next" class="button-fill disabled" href="#">Next</a>
             </div><!-- hotel-book-div -->
             
         </div><!-- hotel-col2 -->
