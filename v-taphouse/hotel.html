@@ -45,6 +45,8 @@ $(function() {
 			$('#hotel-col2 #col2-overlay').addClass('hidden');
 			randomBooked($(this).data('booked'));
 			setNights();
+			$('#calendar-overlay #roomName').text($(this).data('roomname'));
+			$('#calendar-overlay #roomImg').attr("src","images/hotelroom_"+$(this).data('bookid')+".jpg");
 		}
 	});
 	
@@ -62,8 +64,9 @@ $(function() {
 			$('#hotel-col2').toggleClass('move');
 			$('.arrow-div').toggleClass('hidden');
 			$('.b_month').toggleClass('hidden');
+			$('#calendar-overlay').toggleClass('hidden');
 			if ($('#hotel-col1-scroll').hasClass('move')) {
-				$('#hotel-col2 .col-header').text('YOUR SELECTIONS');
+				$('#hotel-col2 .col-header').text('YOUR SELECTION');
 				$('#hotel-booking-next').text('CHANGE');
 			} else {
 				$('#hotel-col2 .col-header').text('SELECT YOUR DATES');
@@ -94,7 +97,7 @@ $(function() {
                         	<div class="col2-cont">
                                 <h1>Deluxe King or Twin</h1>
                                 <p>Deluxe King Rooms offer a variety of spectacular views, a luxurious deep soaking bath and king bed.</p><p class="roomprice">From $335 per night</p>
-                                <a class="button-fill b_book" href="#" data-booked="10">Book</a>
+                                <a class="button-fill b_book" href="#" data-booked="10" data-roomname="Deluxe King or Twin" data-bookid="1">Book</a>
                             </div>
                         </div>
                         <div class="arrow"></div>
@@ -105,7 +108,7 @@ $(function() {
                         	<div class="col2-cont">
                                 <h1>Premier King or Twin</h1>
                                 <p>Premier King Rooms offer a variety of spectacular views, a luxurious deep soaking bath and king bed.</p><p class="roomprice">From $398 per night</p>
-                                <a class="button-fill b_book" href="#" data-booked="20">Book</a>
+                                <a class="button-fill b_book" href="#" data-booked="20" data-roomname="Premier King or Twin" data-bookid="2">Book</a>
                             </div>
                         </div>
                         <div class="arrow"></div>
@@ -116,7 +119,7 @@ $(function() {
                         	<div class="col2-cont">
                                 <h1>Studio Room</h1>
                                 <p>The Studio Rooms offer 55sqm of contemporary luxury with sweeping views of the Yarra River and Melbourne city skyline.</p><p class="roomprice">From $424 per night</p>
-                                <a class="button-fill b_book" href="#" data-booked="15">Book</a>
+                                <a class="button-fill b_book" href="#" data-booked="15" data-roomname="Studio Room" data-bookid="3">Book</a>
                             </div>
                         </div>
                         <div class="arrow"></div>
@@ -127,7 +130,7 @@ $(function() {
                         	<div class="col2-cont">
                                 <h1>Deluxe Villa</h1>
                                 <p>Experience unparalleled luxury accomodation like never before in a stunning One Bedroom Villa.</p><p class="roomprice">From $519 per night</p>
-                                <a class="button-fill b_book" href="#" data-booked="25">Book</a>
+                                <a class="button-fill b_book" href="#" data-booked="25" data-roomname="Deluxe Villa" data-bookid="4">Book</a>
                             </div>
                         </div>
                         <div class="arrow"></div>
@@ -141,6 +144,10 @@ $(function() {
             </div>
         	<h1 class="col-header">SELECT YOUR DATES</h1>
             <div class="calendar-cont">
+            	<div id="calendar-overlay" class="hidden">
+                	<h1 id="roomName">STUDIO ROOM</h1>
+                	<img id="roomImg" src="images/hotelroom_1.jpg" />
+                </div>
             	<div class="calendar-monthselectdiv">
                 	<a class="b_month b_prev" href="#"><span class="glyphicon">&#xE079;</span></a><h1>Jul 2015</h1><a class="b_month b_next" href="#"><span class="glyphicon">&#xE080;</span></a>
                     <div class="clear"></div>
@@ -292,6 +299,9 @@ $(function() {
             </div><!-- hotel-book-div -->
             
         </div><!-- hotel-col2 -->
+        <div id="hotel-col3">
+        <h1>Price</h1>
+        </div>
     </div><!-- taphouse-container -->
 </div>
 

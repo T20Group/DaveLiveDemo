@@ -69,6 +69,10 @@ h1, h2 {
 
 /* MAIN MENU */
 
+#main-container {
+	background-color:#F4F4F4;
+}
+
 #taphouse-mainmenu ul {
 	list-style:none;
 }
@@ -212,11 +216,12 @@ h1, h2 {
 	position: relative;
 	left:0;
 	opacity:1;
+	z-index:20;
 }
 #hotel-col2.move {
 	left: -1000px;
     z-index: 100;
-	opacity:0.8;
+	opacity:1;
 }
 #hotel-col2 h1 {
 	font-size:30px;
@@ -226,6 +231,20 @@ h1, h2 {
 	margin:0 auto;
 	background-color:white;
 	margin-top:15px;
+	position:relative;
+}
+#hotel-col2 .calendar-cont #calendar-overlay {
+	background-color: white;
+    position: absolute;
+    text-align: center;
+    width: 710px;
+    z-index: 99;
+	height: 460px;
+}
+#hotel-col2 .calendar-cont #calendar-overlay h1 {
+	margin-top: 20px;
+    padding: 10px;
+	color:#ab9769;
 }
 #hotel-col2 .calendar-cont .calendar-daylabelsdiv {
 	padding:0 5px;
@@ -366,4 +385,14 @@ h1, h2 {
 	margin-top:400px;
 	color:#CCC;
 	font-size:50px;
+}
+
+#hotel-col3 {
+	position:fixed;
+	right:0;
+	width:960px;
+	height:1080px;
+	z-index:10;
+	background-color:#E8DDC4;
+	text-align:center;
 }
