@@ -25,9 +25,9 @@
 
 <!-- iosSlider plugin -->
 <script type="text/javascript" src="../js/jquery.iosslider.js"></script>
-		
+
 <body>
-	
+
 <div id="main-container">
 
 <script type="text/javascript">
@@ -49,16 +49,16 @@ $(function() {
 			$('#calendar-overlay #roomImg').attr("src","images/hotelroom_"+$(this).data('bookid')+".jpg");
 		}
 	});
-	
-	$('#hotel-book-div .arrow-up').on('tapstart', function() {
+
+	$('#book-div .arrow-up').on('tapstart', function() {
 		$(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) + 1);
 	});
-	$('#hotel-book-div .arrow-down').on('tapstart', function() {
+	$('#book-div .arrow-down').on('tapstart', function() {
 		if (parseInt($(this).parent().prev('.big-number').text())!=$(this).data('min')) {
 			$(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) - 1);
 		}
 	});
-	$("#hotel-booking-next").on("tapstart",function(){
+	$("#booking-next").on("tapstart",function(){
 		if(!$(this).hasClass('disabled')) {
 			$('#hotel-col1-scroll').toggleClass('move');
 			$('#hotel-col2').toggleClass('move');
@@ -67,10 +67,10 @@ $(function() {
 			$('#calendar-overlay').toggleClass('hidden');
 			if ($('#hotel-col1-scroll').hasClass('move')) {
 				$('#hotel-col2 .col-header').text('YOUR SELECTION');
-				$('#hotel-booking-next').text('CHANGE');
+				$('#booking-next').text('CHANGE');
 			} else {
 				$('#hotel-col2 .col-header').text('SELECT YOUR DATES');
-				$('#hotel-booking-next').text('NEXT');
+				$('#booking-next').text('NEXT');
 			}
 		}
 	});
@@ -79,7 +79,7 @@ $(function() {
 </script>
 <div id="content-overlay"></div>
 <div id="content-nav" style="position: absolute; top: 20%; right: 10%; background: rgba(255, 255, 255, 0.5);">
-	
+
 </div>
 <div id="content-view">
 	<div id="header">
@@ -162,14 +162,14 @@ $(function() {
                     <ul class="calendar-days">
                         <script>
                         function outputDays(start, end, month) {
-                            for (i = start; i < end+1; i++) { 
+                            for (i = start; i < end+1; i++) {
                                 document.write("<li><a href='#' id='day"+i+"month"+month+"' data-day='"+i+"' data-month='"+month+"'><div>"+i+"</div></a></li>");
                             }
                         }
-						
+
 						function randomBooked(number) {
 							//var number = 10 + Math.floor(Math.random() * 15);
-							
+
 							$(".calendar-cont .calendar-days li a").removeClass("disabled");
 							$(".calendar-cont .calendar-days li a:lt("+number+")").addClass("disabled");
 						}
@@ -177,15 +177,15 @@ $(function() {
                         outputDays(1,31,7);
                         //outputDays(1,1,8);
 						//randomBooked();
-						
+
 						$(".calendar-cont .calendar-days li a").on("tapstart",function(){
 						  $(this).toggleClass('active');
-						  
+
 						  setCheckOut($(this));
 						  setCheckIn();
 						  setNights();
 						});
-						
+
 						function setCheckIn() {
 							if($('.calendar-days li a').hasClass('active')) {
 								$('#checkintext').text($('.calendar-days li a.active:first').data('day')+" JUL 2015");
@@ -209,7 +209,7 @@ $(function() {
 										$('#checkouttext').html('&nbsp;');
 										$('.calendar-days li a').removeClass('active');
 									}
-									
+
 								} else {
 									//more than one night
 									if(thisbut.hasClass('active')) {
@@ -217,7 +217,7 @@ $(function() {
 										$('.calendar-days li a.active:first').parent().nextUntil($('.calendar-days li a.active:last').parent()).andSelf().children().addClass('active');
 									} else {
 										//just deselected
-										
+
 									}
 									$('#checkouttext').text($('.calendar-days li a.active:last').data('day')+" JUL 2015");
 								}
@@ -240,14 +240,14 @@ $(function() {
 							}
 						}
 						function setNextButton(status) {
-							if(!$('.calendar-days li a.active').hasClass('disabled')) {							
+							if(!$('.calendar-days li a.active').hasClass('disabled')) {
 								if(status) {
-									$('#hotel-booking-next').removeClass('disabled');
+									$('#booking-next').removeClass('disabled');
 								} else {
-									$('#hotel-booking-next').addClass('disabled');
+									$('#booking-next').addClass('disabled');
 								}
 							} else {
-								$('#hotel-booking-next').addClass('disabled');
+								$('#booking-next').addClass('disabled');
 							}
 						}
                         </script>
@@ -255,7 +255,7 @@ $(function() {
                     <div class="clear"></div>
                 </div>
             </div><!-- calendar-cont -->
-            <div id="hotel-book-div">
+            <div id="book-div">
             	<div class="col">
                 	<div class="label">CHECK-IN <span class="sub">2PM</span></div>
                     <div id="checkintext" class="top-text">&nbsp;</div>
@@ -295,9 +295,9 @@ $(function() {
                         </div>
                     </div>
                 </div>
-                <a id="hotel-booking-next" class="button-fill disabled" href="#">Next</a>
-            </div><!-- hotel-book-div -->
-            
+                <a id="booking-next" class="button-fill disabled" href="#">Next</a>
+            </div><!-- book-div -->
+
         </div><!-- hotel-col2 -->
         <div id="hotel-col3">
         <h1>Price</h1>

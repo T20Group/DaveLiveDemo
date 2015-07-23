@@ -170,8 +170,8 @@ h1, h2 {
 	background-color:#e8ddc4;
 }
 #room-list li.active .arrow {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-top: 173px solid rgba(255, 255, 255, 0);
 	border-bottom: 173px solid rgba(255, 255, 255, 0);
 	border-left: 40px solid #e8ddc4;
@@ -205,6 +205,7 @@ h1, h2 {
     position: relative;
     top: 30px;
 }
+
 #hotel-col2 {
 	float:left;
 	width:920px;
@@ -226,154 +227,7 @@ h1, h2 {
 #hotel-col2 h1 {
 	font-size:30px;
 }
-#hotel-col2 .calendar-cont {
-	width:710px;
-	margin:0 auto;
-	background-color:white;
-	margin-top:15px;
-	position:relative;
-}
-#hotel-col2 .calendar-cont #calendar-overlay {
-	background-color: white;
-    position: absolute;
-    text-align: center;
-    width: 710px;
-    z-index: 99;
-	height: 460px;
-}
-#hotel-col2 .calendar-cont #calendar-overlay h1 {
-	margin-top: 20px;
-    padding: 10px;
-	color:#ab9769;
-}
-#hotel-col2 .calendar-cont .calendar-daylabelsdiv {
-	padding:0 5px;
-	background-color:#ab9769;
-}
-#hotel-col2 .calendar-cont .calendar-daylabels li {
-	float:left;
-	width:100px;
-	text-align:center;
-	color:white;
-	font-family:loveloblack;
-	padding:10px 0;
-}
-#hotel-col2 .calendar-cont .calendar-daysdiv {
-	padding:5px;
-}
-#hotel-col2 .calendar-cont .calendar-days li {
-	float:left;
-	width:100px;
-	text-align:center;
-	font-family:loveloblack;
-	font-size:22px;	
-}
-#hotel-col2 .calendar-cont .calendar-days li a div {
-	padding:20px 0;
-	margin:5px;
-	color:#ab9769;
-}
-#hotel-col2 .calendar-cont .calendar-days li a.active div {
-	background-color:#fff568;
-}
-#hotel-col2 .calendar-cont .calendar-days li a.disabled div {
-	background-color:#e0e0e0;
-}
-#hotel-col2 .calendar-cont .calendar-days li a.disabled.active div {
-	background-color:#c0c0c0;
-}
-#hotel-col2 .calendar-monthselectdiv {
-	margin:0 auto;
-	width:290px;
-	text-align:center;
-}
-#hotel-col2 .calendar-monthselectdiv h1 {
-	font-size:24px;
-	color:#ab9769;
-	padding:10px;
-	float:left;
-	width:150px;
-	margin-top:10px;
-}
-#hotel-col2.move .calendar-monthselectdiv h1 {
-	width: 280px;
-}
-#hotel-col2 .b_month {
-	background-color: #ab9769;
-    color: white;
-    display: block;
-    float: left;
-    font-weight: bold;
-    height: 35px;
-    margin: 5px 0;
-    padding-top: 13px;
-    vertical-align: middle;
-    width: 60px;
-}
-#hotel-book-div {
-	width:705px;
-	margin:0 auto;
-	font-family:loveloblack;
-	margin-top:10px;
-}
-#hotel-book-div .col {
-	float:left;
-	width:235px;
-}
-#hotel-book-div .col .label {
-	font-size:20px;
-	margin-top:25px;
-}
-#hotel-book-div .col .label .sub {
-	font-size:14px;
-}
-#hotel-book-div .col .top-text {
-	color:#ab9769;
-	font-size:34px;
-}
-#hotel-book-div .col .bottom-text {
-	width:120px;
-	margin:10px auto;
-	clear:both;
-}
-#hotel-book-div .col .big-number {
-	color:#ab9769;
-	font-size:74px;
-	float:left;
-	width: 70px;
-	margin-top: 8px;
-}
-.move #hotel-book-div .col .big-number {
-	width: 120px;
-}
-#hotel-book-div .arrow-div {
-	float:right;
-}
-#hotel-book-div .arrow-div .arrow {
-	background-color: #ab9769;
-    color: white;
-    display: block;
-    height: 33px;
-    margin-bottom: 5px;
-    padding-top: 7px;
-    width: 40px;
-	text-align:center;
-}
-#hotel-book-div .button-fill {
-	background-color: #ab9769;
-    border: 1px solid white;
-    color: white;
-    font-family: loveloblack;
-	font-size:40px;
-    margin: 10px 4px;
-    outline: 2px solid #ab9769;
-    padding: 6px 12px;
-    position: relative;
-    top: 45px;
-}
-#hotel-book-div #hotel-booking-next.disabled {
-	opacity:0.5;
-}
+
 #hotel-col2 #col2-overlay {
 	position:absolute;
 	width:920px;
@@ -395,4 +249,297 @@ h1, h2 {
 	z-index:10;
 	background-color:#E8DDC4;
 	text-align:center;
+}
+
+/* CALENDAR */
+.calendar-cont {
+	width:710px;
+	margin:0 auto;
+	background-color:white;
+	margin-top:15px;
+	position:relative;
+}
+.calendar-cont #calendar-overlay {
+	background-color: white;
+    position: absolute;
+    text-align: center;
+    width: 710px;
+    z-index: 99;
+	height: 460px;
+}
+.calendar-cont #calendar-overlay h1 {
+	margin-top: 20px;
+    padding: 10px;
+	color:#ab9769;
+}
+.calendar-cont .calendar-daylabelsdiv {
+	padding:0 5px;
+	background-color:#ab9769;
+}
+.calendar-cont .calendar-daylabels li {
+	float:left;
+	width:100px;
+	text-align:center;
+	color:white;
+	font-family:loveloblack;
+	padding:10px 0;
+}
+.calendar-cont .calendar-daysdiv {
+	padding:5px;
+}
+.calendar-cont .calendar-days li {
+	float:left;
+	width:100px;
+	text-align:center;
+	font-family:loveloblack;
+	font-size:22px;
+}
+.calendar-cont .calendar-days li a div {
+	padding:20px 0;
+	margin:5px;
+	color:#ab9769;
+}
+.calendar-cont .calendar-days li a.active div {
+	background-color:#fff568;
+}
+.calendar-cont .calendar-days li a.disabled div {
+	background-color:#e0e0e0;
+}
+.calendar-cont .calendar-days li a.disabled.active div {
+	background-color:#c0c0c0;
+}
+.calendar-monthselectdiv {
+	margin:0 auto;
+	width:290px;
+	text-align:center;
+}
+.calendar-monthselectdiv h1 {
+	font-size:24px;
+	color:#ab9769;
+	padding:10px;
+	float:left;
+	width:150px;
+	margin-top:10px;
+}
+.move .calendar-monthselectdiv h1 {
+	width: 280px;
+}
+.b_month {
+	background-color: #ab9769;
+    color: white;
+    display: block;
+    float: left;
+    font-weight: bold;
+    height: 35px;
+    margin: 5px 0;
+    padding-top: 13px;
+    vertical-align: middle;
+    width: 60px;
+}
+
+/* CLOCK */
+.clock-cont {
+	width:705px;
+	margin:0 auto;
+	font-family:loveloblack;
+	margin-top:10px;
+}
+.clock-cont .col {
+	float:left;
+	width:235px;
+}
+.clock-cont .col .label {
+	font-size:20px;
+	margin-top:25px;
+}
+
+.col-header:not(:first-of-type) {
+  margin-top: 35px;
+}
+
+/* BOOKING */
+#book-div {
+	width:705px;
+	margin:0 auto;
+	font-family:loveloblack;
+	margin-top:10px;
+}
+#book-div .col {
+	float:left;
+	width:235px;
+}
+#book-div .col .label {
+	font-size:20px;
+	margin-top:25px;
+}
+#book-div .col .label .sub {
+	font-size:14px;
+}
+#book-div .col .top-text {
+	color:#ab9769;
+	font-size:34px;
+}
+#book-div .col .bottom-text {
+	width:120px;
+	margin:10px auto;
+	clear:both;
+}
+#book-div .col .big-number {
+	color:#ab9769;
+	font-size:74px;
+	float:left;
+	width: 70px;
+	margin-top: 8px;
+}
+.move #book-div .col .big-number {
+	width: 120px;
+}
+#book-div .arrow-div {
+	float:right;
+}
+#book-div .arrow-div .arrow {
+	background-color: #ab9769;
+    color: white;
+    display: block;
+    height: 33px;
+    margin-bottom: 5px;
+    padding-top: 7px;
+    width: 40px;
+	text-align:center;
+}
+#book-div .button-fill {
+	background-color: #ab9769;
+    border: 1px solid white;
+    color: white;
+    font-family: loveloblack;
+	font-size:40px;
+    margin: 10px 4px;
+    outline: 2px solid #ab9769;
+    padding: 6px 12px;
+    position: relative;
+    top: 45px;
+}
+#book-div #booking-next.disabled {
+	opacity:0.5;
+}
+
+/* DINING */
+#dining-col2-scroll {
+	float:left;
+	width:1000px;
+	overflow:hidden;
+	z-index:100;
+	position:relative;
+	transition:ease 0.5s;
+	left:0;
+}
+#dining-col2-scroll.move {
+	left:-1000px;
+}
+
+#dining-col2 {
+	overflow-y:auto;
+	width:1015px;
+	height:947px;
+	background-color:#f4f4f4;
+}
+
+#venue-list li {
+	clear:both;
+}
+
+#venue-list li img {
+	display:block;
+}
+
+#venue-list .col1 {
+	float:left;
+	clear:left;
+	width:490px;
+}
+
+#venue-list .col2 {
+	float:left;
+	width:470px;
+	height:346px;
+	background:white;
+}
+
+#venue-list li .arrow {
+	float:left;
+}
+
+#venue-list li.active .col2 {
+	background-color:#e8ddc4;
+}
+#venue-list li.active .arrow {
+	width: 0;
+	height: 0;
+	border-top: 173px solid rgba(255, 255, 255, 0);
+	border-bottom: 173px solid rgba(255, 255, 255, 0);
+	border-left: 40px solid #e8ddc4;
+	-moz-transform: scale(.9999);
+}
+
+#venue-list .col2-cont {
+	padding:80px 40px;
+}
+#venue-list .col2-cont h1 {
+	font-size:30px;
+	padding-bottom:10px;
+}
+#venue-list .col2-cont p {
+	line-height:1.4;
+	padding-left:1px;
+}
+#venue-list .col2-cont .roomprice {
+	font-weight:bold;
+	padding-top:10px;
+}
+#venue-list .button-fill {
+	background-color: #ab9769;
+    border: 1px solid white;
+    color: white;
+    font-family: loveloblack;
+	font-size:30px;
+    margin: 10px 4px;
+    outline: 2px solid #ab9769;
+    padding: 6px 12px;
+    position: relative;
+    top: 30px;
+}
+
+#dining-col3 {
+	float:left;
+	width:920px;
+	height:947px;
+	background-color:#f4f4f4;
+	text-align:center;
+	padding-top:40px;
+	transition:ease 0.5s;
+	position: relative;
+	left:0;
+	opacity:1;
+	z-index:20;
+}
+#dining-col3.move {
+	left: -1000px;
+    z-index: 100;
+	opacity:1;
+}
+#dining-col3 h1 {
+	font-size:30px;
+}
+
+#dining-col3 #col3-overlay {
+	position:absolute;
+	width:920px;
+	height:870px;
+	background-color:#F4F4F4;
+	z-index:100;
+}
+#dining-col3 #col3-overlay h1 {
+	margin-top:400px;
+	color:#CCC;
+	font-size:50px;
 }
