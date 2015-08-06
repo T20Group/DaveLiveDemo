@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>MAIN PAGE</title>
+<meta name = "viewport" content ="width=device-width, minimum-scale=1, maximum-scale=1">
+
+<!-- META -->
+<meta charset = "utf-8">
+
+<!-- CSS -->
+<link rel="stylesheet" href="../css/reset.css" />
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="stylesheet" href="../css/slide-default.css" />
+<link rel="stylesheet" href="../css/slide-common.css" />
+<link rel="stylesheet" href="css/styles.css" />
+
+<!-- JS -->
+<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing-1.3.js"></script>
+<script type="text/javascript" src="../js/jquery.mobile-events.min.js"></script>
+
+<!-- cookie -->
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+
+<!-- iosSlider plugin -->
+<script type="text/javascript" src="../js/jquery.iosslider.js"></script>
+
+<body>
+
+<div id="main-container">
+
+<script type="text/javascript">
+$(function() {
+
+$('a').on('tapstart', function() {
+	//a++;
+	//console.log(a);
+});
+
+$('.demos').on('tapstart', function() {
+	
+/*
+	var id = $(this).attr('id');
+	
+	$(this).removeClass('posL posR').addClass('posM');
+	
+	switch (id) {
+		case "one":
+			$('#one').removeClass('posL posR').addClass('posM');
+			$('#two').removeClass('posR posM').addClass('posL');
+			$('#three').removeClass('posL posM').addClass('posR');
+		break;
+		case "two":
+			$('#one').removeClass('posR posM').addClass('posL');
+			$('#two').removeClass('posL posR').addClass('posM');
+			$('#three').removeClass('posL posM').addClass('posR');
+		break;
+		case "three":
+		alert(id);
+		break;
+	}
+*/
+/*
+	$('.posM').addClass('posR').removeClass('posM');
+	$('.posR').addClass('posL').removeClass('posR');
+	$('.posL').removeClass('posL').addClass('posM');
+*/
+
+$('#one').on('tapstart', function() {
+	$('.demos').removeClass('posM posL posR');
+	$(this).addClass('posM');
+	$('#two').addClass('posR');
+	$('#three').addClass('posL');
+	$('.demo-bg').removeClass('show');
+	$('#one-bg').addClass('show');
+});
+
+$('#two').on('tapstart', function() {
+	$('.demos').removeClass('posM posL posR');
+	$(this).addClass('posM');
+	$('#one').addClass('posL');
+	$('#three').addClass('posR');
+	$('.demo-bg').removeClass('show');
+	$('#two-bg').addClass('show');	
+});
+
+$('#three').on('tapstart', function() {
+	$('.demos').removeClass('posM posL posR');
+	$(this).addClass('posM');
+	$('#one').addClass('posR');
+	$('#two').addClass('posL');
+	$('.demo-bg').removeClass('show');
+	$('#three-bg').addClass('show');
+});
+
+});
+
+});
+</script>
+
+<style type="text/css">
+.show { opacity: 1 !important; }
+	
+.demos { height: 20%; width: 20%; position: absolute; background: rgba(255, 255, 255, 0.0); }
+	.demos .bg { background: rgba(255, 255, 255, 0.5); border-bottom: 3px solid #fff; border-right: 3px solid #fff; height: 300px; width: 300px; position: absolute; left: 50px; }
+	
+	.posM { left: 35%; top: 30%; z-index: 1100; }
+	.posL { left: 10%; top: 40%; z-index: 1000; filter: blur(2px); opacity: .75; }
+	.posR { left: 70%; top: 40%; z-index: 900; filter: blur(2px); opacity: .75; }
+	
+	.posM .bg { transform: rotate(45deg); height: 450px; width: 450px; border: 0;  }
+	.posR .bg { transform: rotate(90deg); }
+	
+	
+	.blur {
+	  -moz-filter: blur(5px);
+	  filter: blur(5px);
+	}
+
+.demo-bg { position: absolute; opacity: 0;}
+
+.demos, .bg, .easein, .particles {
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+	}
+	
+.particles { position: absolute; }
+.enter { left: 50%; top : 130%; background: red; padding: 10px 20px; color: white; font-size: 30px; opacity: 0; }
+.posM > .enter { top : 160%; transform: scale(1.5,1.5); opacity: 1; }
+.logo { left: 25%; top : 20%; }
+
+/* qantas */
+#one { }
+#balloon { top: -15%; left: 20%; transform: scale(0.85); }
+	.posM > #balloon { top: -150px; left: 350px; transform: scale(2); -moz-animation: hover 3s infinite; filter: blur(1px); }
+
+	
+	#one.posM > .logo { top : 25%; left: 48%; }
+	
+	
+
+/* simonds */
+#two { }
+#two .logo { left: -18%; top : -20%; transform: scale(.5); }
+#two #pin { transform: scale(0.3); top: -200%; opacity: 0; }
+#plan { top: 10%; left: -25%; transform: scale(0.5);  }
+	.posM > #plan { transform: scale(1.25); top: 50px; left: -30px; }
+	#two.posM > #pin { transform: scale(1); top: 0; left: -30px; opacity: 1; }
+	#two.posM > .logo { top : -40%; left: 0%; transform: scale(1);}
+	
+
+/* taphouse */
+#three { }
+#three .logo { }
+	#three.posM > .logo { top : 35%; left: 45%; transform: scale(2);}
+	#three.posM > .enter { left: 55%; }
+/* animations */
+#btn-floorplan { -moz-animation: hoverplan 15s infinite; position: absolute; left: 0px;  bottom: 50px; }
+
+@-moz-keyframes hover {
+	0%   { margin-bottom: 0; }
+	25%  { margin-bottom: 15px; margin-left: 5px; }
+	50%  { margin-top: 10px; }
+	75%  { margin-bottom: 15px; margin-right: 5px; }
+	100% { margin-bottom: 0; }
+	}
+	
+</style>
+
+
+<div id="content-overlay"></div>
+<div id="content-nav">
+
+</div>
+<div id="content-view">
+	<div id="header" style="position: absolute; left: 50%;">
+        <div id="headerlogo" >
+            <a href="#"></a>
+        </div><!-- headerlogo -->
+
+    </div>
+    <div id="demo-container">
+		<div id="one" class="demos posM" style="">
+			<div class="bg" style=""></div>
+			<div class="particles" id="balloon"><img src="images/balloon.png" width="300" height="300"></div>
+			<div class="particles logo"><img src="images/qantas-logo.png" alt="qantas-logo" width="201" height="221"></div>
+			<div class="particles enter">Experience</div>
+		</div>
+		
+		<div id="two" class="demos posL" style="">
+			<div class="bg" style=""></div>
+			<div class="particles" id="plan"><img src="images/3d_plan_shadow.png" alt="3d_plan_shadow" width="587" height="374"></div>
+<!-- 			<div class="particles" id="pin"><img src="images/map-marker-red.png" alt="map-marker-red" width="256" height="256"></div> -->
+			<div class="particles logo"><img src="images/simonds_logo_whiteshadow.png" alt="simonds_logo_whiteshadow"></div>
+<!-- 			Simonds Homes -->
+			<div class="particles enter">Immerse</div>
+		</div>
+		
+		<div id="three" class="demos posR" style="">
+			<div class="bg" style=""></div>
+<!-- 			Tap House -->
+			<div class="particles logo"><img src="images/taphouse-logo.png" alt="taphouse-logo" width="229" height="161"></div>
+			<div class="particles enter">Explore</div>
+		</div>
+    </div><!-- demo-container -->
+    
+    <div id="one-bg" class="demo-bg easein show">
+	    <img src="images/hot-air-bg.jpg" width="1920" height="1080">
+    </div>
+    
+    <div id="two-bg" class="demo-bg easein">
+        <video loop autoplay id="vid_astoria" width="1920" height="1080">
+            <source src="video/astoria_facade.webm" type="video/webm">
+        </video>
+    </div>
+    
+    <div id="three-bg" class="demo-bg easein">
+	    <img src="images/sydney-opera.jpg" alt="sydney-opera" width="1920" height="1080">
+    </div>
+    
+</div>
+
+</div> <!-- /#main-container -->
+</body>
+</html>

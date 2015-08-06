@@ -26,7 +26,9 @@ $(function() {
 	        target_view.load(request.params.view+'.html');
 	        //return 'omg';
         }).route('home/', function(request) {
-	        target_view.load('v-home/index.html');
+	        $('.iosSlider').iosSlider('destroy'); // any page that contains iosSlider must be destroyed to work...
+	        target_view.html('<iframe src="v-homescreen/index.html" height="1080px" width="1920px"></iframe>');
+
 	        $('.iosSlider').iosSlider('destroy'); // any page that contains iosSlider must be destroyed to work...
         }).route('demo2/', function(request) {
 	        $('.iosSlider').iosSlider('destroy'); // any page that contains iosSlider must be destroyed to work...
