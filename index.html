@@ -50,6 +50,9 @@ $(function() {
 		console.log('close');
 	});
 	
+	$('#homescreen').on('tapstart', function() {
+		 location.reload();
+	});
 	
     /* IMPORTANT */
     /* DO NOT DECLARE ANY FUNCTIONS THAT CONTROLS PARENT CONTAINER WITHIN CHILD CONTAINER. DOING SO WILL CAUSE FUNCTION TO DUPLICATE */
@@ -150,9 +153,12 @@ $(function() {
 		<div class="hotspot" style="height: 15%; width: 200px;"></div>
 		<div id="link-holder" class="show noselect easein" style="border: 1px solid rgba(0, 255, 255, 1); background: rgba(0, 255, 255, 0.3); padding: 20px; position: absolute; border: 0px solid white; color: white; z-index: 9000;" >
 		<h3>Prototypes</h3>
+	    <a href="#" id="homescreen">Home</a>
+<!--
 	    <a href="#home/">Home</a>
 	    <a href="#demo2/">Tap House</a>
 	    <a href="#demo3/">Real Estate</a>
+-->
 <!-- 	    <a href="#dans/">Dan Murphy</a><br /> -->
 		</div>
 		
