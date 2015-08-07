@@ -129,7 +129,7 @@ $(function() {
 	
 	// binds dynamically generated .homes filter within $target to 
 	
-	$target.on('tapstart', '.homes', function(e) {
+	$target.on('tap', '.homes', function(e) {
 		
 		if (!$(this).hasClass('selected')) {
 			$('.iosSlider').iosSlider('destroy');
