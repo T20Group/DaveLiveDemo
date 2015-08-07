@@ -37,17 +37,21 @@ $(function() {
   	//console.log(a);
   });
 
-  $('.b_book').on('tapstart', function() {
-    if(!$(this).parents('li').hasClass('active')) {
-      $('#venue-list li').removeClass('active');
-      $(this).parents('li').addClass('active');
-      $('#dining-col3 #col3-overlay').addClass('hidden');
-      //randomBooked($(this).data('booked'));
-      //setNights();
-      //$('#calendar-overlay #roomName').text($(this).data('roomname'));
-      //$('#calendar-overlay #roomImg').attr("src","images/hotelroom_"+$(this).data('bookid')+".jpg");
-    }
-  });
+  function slideAnim() {
+  	$('#taphouse-diningmenu li').removeClass('active');
+  	$('#taphouse-diningmenu .diningmenu'+slideNo).addClass('active');
+  	if(slideNo<5) {
+  		slideNo++;
+  	} else {
+  		slideNo = 1;
+  	}
+  }
+  slideNo = 1;
+  timer = 4000;
+
+  slideAnim();
+  var tid = setInterval(slideAnim, timer);
+
 });
 </script>
 <div id="content-overlay"></div>
@@ -61,158 +65,35 @@ $(function() {
       </div><!-- headerlogo -->
   </div>
   <div id="taphouse-container">
-    <!-- <div id="dining-col1">
-      <input type="search" value="Search" placeholder="Enter restaurant name, cuisine or meal">
-      <button class="button-fill">Nearest</button>
-      <button class="button-fill">Newest</button>
-      <button class="button-fill">Popular</button>
-      <button class="button-fill">Meal</button>
-      <button class="button-fill">Cuisine</button>
-      <button class="button-fill">Price</button>
-      <button class="button-fill">Reservations</button>
-      <button class="button-fill">Pre-order</button>
-      <button class="button-fill">Dietary</button>
-    </div> dining-col1 -->
-
-    <div id="dining-col2-scroll">
-      <div id="dining-col2">
-        <ul id="venue-list">
-          <li>
-            <div class="col1"><img src="images/diningvenue_1.jpg" /></div>
-            <div class="col2">
-              <div class="col2-cont">
-                <h1>Bistro Guillaume</h1>
-                <p>Inspired by France's most popular neighbourhood bistros, Bistro Guillaume Melbourne elevates the dining experience for a modern international audience.</p>
-                <a class="button-fill b_book" href="#">Book</a>
-              </div>
-            </div>
-            <div class="arrow"></div>
-          </li>
-          <li>
-            <div class="col1"><img src="images/diningvenue_2.jpg" /></div>
-            <div class="col2">
-              <div class="col2-cont">
-                <h1>Conservatory</h1>
-                <p>The Conservatory restaurant offers an array of international cuisine, with a series of different culinary stations, each offering a unique dining experience.</p>
-                <a class="button-fill b_book" href="#">Book</a>
-              </div>
-            </div>
-            <div class="arrow"></div>
-          </li>
-          <li>
-            <div class="col1"><img src="images/diningvenue_3.jpg" /></div>
-            <div class="col2">
-              <div class="col2-cont">
-                <h1>Dinner by Heston Blumenthal</h1>
-                <p>Dinner by Heston Blumenthal offers diners a very modern interpretation of historic British gastronomy. <strong>Coming Soon</strong></p>
-                <a class="button-fill b_book" href="#">Book</a>
-              </div>
-            </div>
-            <div class="arrow"></div>
-          </li>
-          <li>
-            <div class="col1"><img src="images/diningvenue_4.jpg" /></div>
-            <div class="col2">
-              <div class="col2-cont">
-                <h1>Koko</h1>
-                <p>To continue to improve our dining experience, Koko is now closed for renovations until September.</p>
-                <a class="button-fill b_book" href="#">Book</a>
-              </div>
-            </div>
-            <div class="arrow"></div>
-          </li>
-          <li>
-            <div class="col1"><img src="images/diningvenue_5.jpg" /></div>
-            <div class="col2">
-              <div class="col2-cont">
-                <h1>Mr. Hive Kitchen &#38; Bar</h1>
-                <p>Crown Metropol proudly presents Mr. Hive Kitchen &#38; Bar - our signature restaurant offers diners Australian inspired modern dishes.</p>
-                <a class="button-fill b_book" href="#">Book</a>
-              </div>
-            </div>
-            <div class="arrow"></div>
-          </li>
-          <li>
-            <div class="col1"><img src="images/diningvenue_6.jpg" /></div>
-            <div class="col2">
-              <div class="col2-cont">
-                <h1>No.8 by John Lawson</h1>
-                <p>Inspired by regional produce, Executive Chef John Lawson delivers an urban sensibility to his Chef Hat award winning restaurant.</p>
-                <a class="button-fill b_book" href="#">Book</a>
-              </div>
-            </div>
-            <div class="arrow"></div>
-          </li>
-        </ul>
-      </div><!-- dining-col2 -->
-    </div><!-- dining-col2-scroll -->
-    <div id="dining-col3">
-      <div id="col3-overlay">
-        <h1>Select a venue to book</h1>
-      </div><!-- col3-overlay -->
-      <h1 class="col-header">SELECT YOUR DATE</h1>
-      <div class="calendar-cont">
-        <div class="calendar-monthselectdiv">
-          <a class="b_month b_prev" href="#"><span class="glyphicon">&#xE079;</span></a><h1>Jul 2015</h1><a class="b_month b_next" href="#"><span class="glyphicon">&#xE080;</span></a>
-            <div class="clear"></div>
-        </div>
-        <div class="calendar-daylabelsdiv">
-            <ul class="calendar-daylabels">
-              <li>SUN</li><li>MON</li><li>TUE</li><li>WED</li><li>THU</li><li>FRI</li><li>SAT</li>
-            </ul>
-            <div class="clear"></div>
-        </div>
-        <div class="calendar-daysdiv">
-          <ul class="calendar-days">
-          <script>
-          function outputDays(start, end, month) {
-              for (i = start; i < end+1; i++) {
-                  document.write("<li><a href='#' id='day"+i+"month"+month+"' data-day='"+i+"' data-month='"+month+"'><div>"+i+"</div></a></li>");
-              }
-          }
-          outputDays(1,31,7);
-          </script>
+    <div id="taphouse-diningmenu">
+          <ul>
+              <li class="diningmenu1"><a href="dining-2.html"><img src="images/main_dining_premium.jpg" />
+                  <div class="panel-border">
+                    <div class="panel"><h1>Premium</h1></div>
+                  </div></a>
+              </li>
+              <li class="diningmenu2"><a href="dining-2.html"><img src="images/main_dining_casual.jpg" />
+                  <div class="panel-border">
+                    <div class="panel"><h1>Casual</h1></div>
+                  </div></a>
+              </li>
+              <li class="diningmenu3"><a href="dining-2.html"><img src="images/main_dining_small_bites.jpg" />
+                  <div class="panel-border">
+                    <div class="panel"><h1>Small Bites</h1></div>
+                  </div></a>
+              </li>
+              <li class="diningmenu4"><a href="dining-2.html"><img src="images/main_dining_exotic.jpg" />
+                  <div class="panel-border">
+                    <div class="panel"><h1>Exotic</h1></div>
+                  </div></a>
+              </li>
+              <li class="diningmenu5"><a href="dining-2.html"><img src="images/main_dining_explore_more.jpg" />
+                  <div class="panel-border">
+                    <div class="panel"><h1>Explore More</h1></div>
+                  </div></a>
+              </li>
           </ul>
-          <div class="clear"></div>
-        </div>
-      </div>
-      <h1 class="col-header">SELECT YOUR TIME</h1>
-      <div class="clock-cont">
-        <div class="col clock-hourselectdiv">
-          <div class="label">HOUR</div>
-        </div>
-        <div class="col clock-minuteselectdiv">
-          <div class="label">MINUTE</div>
-        </div>
-        <div class="col clock-meridianselectdiv">
-          <div class="label">AM/PM</div>
-        </div>
-      </div>
-      <div id="book-div">
-        <div class="col">
-          <div class="label">ADULTS</div>
-          <div class="bottom-text">
-            <div id="count_adults" class="big-number">1</div>
-              <div class="arrow-div">
-                <a href="#" class="arrow arrow-up"><span class="glyphicon">&#xE113;</span></a>
-                <a href="#" class="arrow arrow-down" data-min="1"><span class="glyphicon">&#xE114;</span></a>
-                <div class="clear"></div>
-              </div>
-          </div>
-        </div>
-        <div class="col">
-            <div class="label">CHILDREN</div>
-            <div class="bottom-text">
-              <div id="count_children" class="big-number">0</div>
-                <div class="arrow-div">
-                  <a href="#" class="arrow arrow-up"><span class="glyphicon">&#xE113;</span></a>
-                  <a href="#" class="arrow arrow-down" data-min="0"><span class="glyphicon">&#xE114;</span></a>
-                  <div class="clear"></div>
-                </div>
-            </div>
-        </div>
-      </div><!-- dining-book-div -->
-    </div><!-- dining-col3 -->
+      </div><!-- taphouse-mainmenu -->
   </div><!-- taphouse-container -->
 </div>
 
