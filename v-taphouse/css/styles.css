@@ -73,12 +73,19 @@ h1, h2 {
 	background-color:#F4F4F4;
 }
 
-#taphouse-mainmenu ul {
+#taphouse-diningmenu {
+  margin-top: -133px;
+}
+
+#taphouse-mainmenu ul,
+#taphouse-diningmenu ul {
 	list-style:none;
 }
 
-#taphouse-mainmenu ul li {
+#taphouse-mainmenu ul li,
+#taphouse-diningmenu ul li {
 	float:left;
+  display: block;
 	/*opacity:.5;*/
 	transition:ease 0.5s;
 	position:relative;
@@ -86,17 +93,32 @@ h1, h2 {
 	overflow:hidden;
 }
 
-#taphouse-mainmenu ul img{
+#taphouse-diningmenu ul li {
+  height: 730px;
+}
+
+#taphouse-diningmenu ul li.diningmenu5 {
+  clear: left;
+  float: none;
+  width: 1920px;
+  height: 350px;
+}
+
+#taphouse-mainmenu ul img,
+#taphouse-diningmenu ul img {
+  display: block;
 	transition:ease 2s;
 	opacity:.6;
 }
 
-#taphouse-mainmenu ul .active img {
+#taphouse-mainmenu ul .active img,
+#taphouse-diningmenu ul .active img {
 	opacity:1;
 	transform:scale(1.1,1.1);
 }
 
-#taphouse-mainmenu .panel-border {
+#taphouse-mainmenu .panel-border,
+#taphouse-diningmenu .panel-border {
 	position:absolute;
 	bottom:120px;
 	left:34px;
@@ -105,19 +127,43 @@ h1, h2 {
 	border:solid 3px black;
 	padding:3px;
 }
+#taphouse-diningmenu .panel-border {
+  border-width: 0;
+	height: 80px;
+  top: 193px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#taphouse-diningmenu .diningmenu5 .panel-border {
+  top: 50%;
+	left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-#taphouse-mainmenu .panel {
+#taphouse-mainmenu .panel,
+#taphouse-diningmenu .panel {
 	background-color:black;
 	height:100%;
 	opacity:.9;
 }
 
-#taphouse-mainmenu .panel h1 {
+#taphouse-diningmenu .diningmenu5 .panel {
+	background-color: #aa9868;
+  opacity: 1;
+}
+
+#taphouse-mainmenu .panel h1,
+#taphouse-diningmenu .panel h1 {
 	font-family:loveloblack;
 	color:white;
 	text-align:center;
 	font-size: 30px;
-    padding-top: 52px;
+  position: absolute;
+    top: 50%;
+  	left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+
 }
 
 /* HOTEL */
