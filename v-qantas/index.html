@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>QANTAS DEMO</title>
+<title>QANTAS</title>
 <meta name = "viewport" content ="width=device-width, minimum-scale=1, maximum-scale=1">
 
 <!-- META -->
@@ -38,17 +38,132 @@ $('a').on('tapstart', function() {
 	//console.log(a);
 });
 
+var currView = 1; 
+$('.nav').on('tapstart', function(e) {
+	var action = $(this).attr('id');
+// 	alert(action);
+	if (action=="right") {
+		currView++;
+		if (currView>3) currView = 1;
+	} else {
+		currView--;
+		if (currView<1) currView = 3;
+	}
+	
+	switch (currView) {
+		case 1:
+			target = "#one";
+		break;
+		case 2:
+			target = "#two";
+		break;
+		case 3:
+			target = "#three";
+		break;
+	}
+	
+	$('.page').removeClass('show');
+	$(target).addClass('show');
+	
+	
+	
+	e.preventDefault();
+});
+
+// amex
+
+$('.window').on('tapstart', function() {
+	$('.window').removeClass('open');
+	$(this).addClass('open');
+});
+
+/*
+$('#one .enter').on('tapstart', function() {
+	alert('ok');
+//	$('#main-view').html('<iframe src="v-simonds-prototype/index.html" height="1080px" width="1920px"></iframe>');
+});
+*/
+
 
 });
 </script>
 
+<style type="text/css">
+a { color: white; }	
+	
+.show { opacity: 1 !important; z-index: 1000 !important; }
+.page { opacity: 0; position: absolute; width: 1920px; height: 1080px; z-index: 900; }
+
+.demos, .bg, .easein, .particles {
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+	}
+	
+.particles { position: absolute; }
+
+
+/* airbnb */
+#one {  }
+#one #balloon { top: 10%; right: 15%; transform: scale(2); -moz-animation: hover 3s infinite;}
+	
+	#one.posM > .logo { top : 25%; left: 48%; }
+
+/* amex */
+.window { position: absolute; height: 850px; width: 350px; background: rgba(0, 0, 0, 0.85); z-index: 950; border-radius: 50px; }	
+.window.open { height: 220px; }
+
+/* animations */
+#btn-floorplan { -moz-animation: hoverplan 15s infinite; position: absolute; left: 0px;  bottom: 50px; }
+
+@-moz-keyframes hover {
+	0%   { margin-bottom: 0; }
+	25%  { margin-bottom: 15px; margin-left: 5px; }
+	50%  { margin-top: 10px; }
+	75%  { margin-bottom: 15px; margin-right: 5px; }
+	100% { margin-bottom: 0; }
+	}
+
+/* NAV */
+#content-nav a { position: absolute; opacity: .1; padding: 40px; z-index: 2000; top: 50%; transform: translateY(-50%); }
+#left { left: 1%; }
+#right { right: 1%; }
+
+#content-view { z-index: 1000; }
+
+</style>
+
 
 <div id="content-overlay"></div>
 <div id="content-nav">
-
+	<a id="right" class="nav" href="#"><img src="images/arrowR.png" alt="arrowR" width="110" height="213"></a>
+	<a id="left"  class="nav" href="#"><img src="images/arrowL.png" alt="arrowL" width="109" height="213"></a>
 </div>
 <div id="content-view">
-	qantas page
+
+    <div id="one" class="easein page show">
+	   	<div class="particles" id="balloon"><img src="images/balloon-blur.png" width="300" height="300"></div>
+	    <img src="images/airbnb.jpg" width="1920" height="1080">
+	    <div class="particles" style="position: absolute; left: 50%; top: 55%; transform: translateX(-50%); background: #e34250; padding: 20px 40px; color: white;">SEARCH</div>
+    </div>
+    
+    <div id="two" class="easein page ">
+	    
+	    <img src="images/amex.png" width="1920" height="1080" style="position: absolute; left: 0; z-index: 1000; pointer-events: none;">
+	    <div class="window easein" style="left: 14%;"></div>
+	    <div class="window easein open" style="left: 41%;"></div>
+	    <div class="window easein" style="left: 68%;"></div>
+	    
+	    <img src="images/amex-bg.jpg" width="1920" height="1080" style="position: absolute; left: 0; z-index: 900;">
+
+    </div>
+    
+    <div id="three" class="easein page">
+	    <img src="images/miserable.jpg" width="1920" height="1080">
+	    <div class="particles" style="position: absolute; left: 12.5%; top: 50%; background: #e34250; padding: 20px 40px; color: white;">miserable</div>
+    </div>
+
+    
 </div>
 
 </div> <!-- /#main-container -->
