@@ -20,11 +20,11 @@
 <script type="text/javascript" src="../js/jquery.easing-1.3.js"></script>
 <script type="text/javascript" src="../js/jquery.mobile-events.min.js"></script>
 
+<!-- Bootstrap Carousel -->
+<script type="text/javascript" src="js/carousel.js"></script>
+
 <!-- cookie -->
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
-
-<!-- iosSlider plugin -->
-<script type="text/javascript" src="../js/jquery.iosslider.js"></script>
 
 <body>
 
@@ -36,6 +36,8 @@ $(function() {
   	//a++;
   	//console.log(a);
   });
+
+  $('.carousel').carousel()
 
 });
 </script>
@@ -53,7 +55,7 @@ $(function() {
     <div id="dining-explore-more">
       <a id="up" href="dining.html">
         <img src="images/up.png" height="30" width="59" alt="Up">
-        <span class="title">Explore</span>
+        <span class="title">Explorer <span class="white">Alert</span></span>
       </a>
 
       <div id="map-focus">
@@ -61,37 +63,55 @@ $(function() {
       </div>
 
       <div id="dining-venue">
-        <div class="title">No. 8 BY JOHN LAWSON</div>
-        <ul class="menu">
-          <li>Szechuan Calamari</li>
-          <li>250g Monte Gold Wagyu Rump (450D, MB 6+)</li>
-          <li>Creme Brulee</li>
-          <li>Cheese Board</li>
-        </ul>
-        <div class="footnote">* complimentary house wine</div>
+        <div class="title">LUNCH SET</div>
 
-        <div class="rating">
-          <img src="images/star-rating.png" height="28" width="29" style="opacity: 1;">
-          <img src="images/star-rating.png" height="28" width="29" style="opacity: 1;">
-          <img src="images/star-rating.png" height="28" width="29" style="opacity: 1;">
-          <img src="images/star-rating.png" height="28" width="29" style="opacity: 1;">
-          <img src="images/star-rating.png" height="28" width="29" style="opacity: 0.5;">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <ul class="menu" style="text-align: left;">
+                <li>Szechuan Calamari 1</li>
+                <li>250g Monte Gold Wagyu Rump (450D, MB 6+)</li>
+                <li>Creme Brulee</li>
+                <li>Cheese Board</li>
+              </ul>
+            </div>
+            <div class="item">
+              <ul class="menu" style="text-align: left;">
+                <li>Szechuan Calamari 2</li>
+                <li>250g Monte Gold Wagyu Rump (450D, MB 6+)</li>
+                <li>Creme Brulee</li>
+                <li>Cheese Board</li>
+              </ul>
+            </div>
+            <div class="item">
+              <ul class="menu" style="text-align: left;">
+                <li>Szechuan Calamari 3</li>
+                <li>250g Monte Gold Wagyu Rump (450D, MB 6+)</li>
+                <li>Creme Brulee</li>
+                <li>Cheese Board</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          </a>
         </div>
 
         <div class="price">$35/person</div>
 
         <div class="btn-group">
-          <button class="btn btn-default">Reserve</button>
+          <button class="btn btn-default">Invite Guest</button>
           <a class="btn btn-link" href="#">Cancel</a>
         </div>
 
         <div class="distance">56 second walk</div>
-
-        <blockquote>
-          <p>Bestest steak in town!</p>
-          <p><small>by Amy</small></p>
-        </blockquote>
-      </div>
+      </div> <!-- /#dining-venue -->
 
     </div> <!-- /#dining-explore-more -->
   </div><!-- /#taphouse-container -->
