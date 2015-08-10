@@ -590,6 +590,11 @@ h1, h2 {
 	font-size:50px;
 }
 
+#dining-explore-more {
+  background-color: #25292d;
+  height: 1080px;
+}
+
 #you {
   display: block;
   position: absolute;
@@ -716,4 +721,124 @@ h1, h2 {
   display: block;
   margin: 0 auto;
   opacity: 1 !important;
+}
+
+#map-focus {
+  position: absolute;
+  top: 166px;
+  left: 80px;
+}
+
+#dining-venue {
+  position: absolute;
+  right: 80px;
+  top: 166px;
+  padding: 30px;
+  text-align: center;
+}
+#dining-venue .title {
+  color: #ab9769;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 44px;
+  font-weight: 300;
+  line-height: 52px;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+#dining-venue .menu {
+  color: #ffffff;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 44px;
+  margin-bottom: 1em;
+}
+#dining-venue .footnote {
+  color: #ffffff;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 28px;
+  margin-bottom: 1em;
+}
+#dining-venue .price {
+  color: #ab9769;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 68px;
+  font-weight: 300;
+  line-height: 82px;
+  margin-bottom: 0.5em;
+}
+#dining-venue .distance {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 44px;
+  text-transform: lowercase;
+}
+#dining-venue .reserve {
+  background-color: #ab9769;
+}
+#dining-venue .btn-group {
+  margin-bottom: 0.5em;
+}
+
+.btn {
+  background: transparent none;
+  border: 0;
+  border-radius: 0;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 44px;
+  outline: 0;
+  margin-right: 0.5em;
+  padding: 0.5em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 450px;
+}
+.btn-link {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 44px;
+  text-transform: lowercase;
+}
+
+blockquote {
+  color: #ffffff;
+  quotes: "\201C""\201D""\2018""\2019";
+  position: relative;
+  width: auto;
+  display: inline-block;
+  padding: 0 50px;
+  margin-top: 1em;
+}
+
+blockquote:before {
+  color: #ab9769;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.25em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(50%);
+}
+blockquote:after {
+  color: #ab9769;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.25em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+blockquote p {
+  font-size: 36px;
+  font-style: italic;
+  line-height: 44px;
+}
+blockquote p:last-child {
+  text-align: right;
 }
