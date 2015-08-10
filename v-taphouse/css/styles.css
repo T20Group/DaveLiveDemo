@@ -589,3 +589,64 @@ h1, h2 {
 	color:#CCC;
 	font-size:50px;
 }
+
+#you {
+  display: block;
+  position: absolute;
+  top: 560px;
+  left: 940px;
+  transform: translate(-50%, -50%);
+}
+#you img {
+  display: block;
+}
+#star {
+  display: block;
+  position: absolute;
+  top: 326px;
+  left: 1138px;
+  transform: translate(-50%, -50%);
+}
+#star img {
+  display: block;
+  animation: star 4s linear infinite;
+}
+@keyframes star {
+  0% { transform: rotate(0deg) scale(1.0); opacity: 1; }
+  50% { transform: rotate(180deg) scale(1.5); opacity: 0.5; }
+  100% { transform: rotate(0deg) scale(1.0); opacity: 1; }
+}
+#up {
+  display: block;
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+#up img {
+  display: block;
+  margin: 0 auto;
+}
+#up span {
+  color: #ab9769;
+  font-family: "Helvetica Neue" sans-serif;
+  font-size: 76px;
+  line-height: 1em;
+  text-transform: uppercase;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#down {
+  display: block;
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+#down img {
+  display: block;
+  margin: 0 auto;
+  opacity: 1 !important;
+}

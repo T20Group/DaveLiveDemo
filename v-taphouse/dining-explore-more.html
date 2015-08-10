@@ -26,35 +26,6 @@
 <!-- iosSlider plugin -->
 <script type="text/javascript" src="../js/jquery.iosslider.js"></script>
 
-<style>
-#you {
-  display: block;
-  position: absolute;
-  top: 560px;
-  left: 940px;
-  transform: translate(-50%, -50%);
-}
-#you img {
-  display: block;
-}
-#star {
-  display: block;
-  position: absolute;
-  top: 326px;
-  left: 1138px;
-  transform: translate(-50%, -50%);
-}
-#star img {
-  display: block;
-  animation: star 4s linear infinite;
-}
-@keyframes star {
-  0% { transform: rotate(0deg) scale(1.0); }
-  50% { transform: rotate(180deg) scale(2.0); }
-  100% { transform: rotate(0deg) scale(1.0); }
-}
-</style>
-
 <body>
 
 <div id="main-container">
@@ -83,7 +54,10 @@ $(function() {
       <img src="images/map.png" height="1080" width="1920" alt="Taphouse map" style="position: absolute; top: 0; left: 0;">
       <a id="you" href="#"><img src="images/you.png" height="55" width="20" alt="You">
       <a id="star" href="#"><img src="images/star.png" height="45" width="47" alt="Star"></a>
-      <a id="up" href="dining.html" style=" display: block; position: absolute; top: 22px; left: 50%; transform: translate(-50%, 0);"><img src="images/up.png" height="30" width="59" alt="Up" style="display: block;"></a>
+      <a id="up" href="dining.html">
+        <img src="images/up.png" height="30" width="59" alt="Up">
+        <span>Explore</span>
+      </a>
     </div> <!-- /#dining-explore-more -->
   </div><!-- /#taphouse-container -->
 </div>
