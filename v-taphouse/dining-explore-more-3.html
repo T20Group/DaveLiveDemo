@@ -38,7 +38,9 @@ $(function() {
   	//console.log(a);
   });
 
-  $('.carousel').carousel()
+  $('.carousel').carousel({
+    interval: false
+  })
 
 });
 </script>
@@ -61,6 +63,9 @@ $(function() {
 
       <div id="map-focus">
           <img src="images/map-focus.png" height="880" width="880" alt="Map focus">
+          <img src="images/you-2.png" height="49" width="18" alt="You" style="position: absolute; top: 375px; left: 414px;">
+          <img src="images/star.png" height="45" width="47" alt="Star" style="position: absolute; top: 184px; left: 578px;">
+          <img src="images/animated-path.gif" height="185" width="451" alt="Animated path" style="position: absolute; top: 230px; left: 154px;">
       </div>
 
       <div id="dining-venue">
@@ -104,21 +109,23 @@ $(function() {
           </a>
         </div>
 
-        <div class="extra" style="font-size: 36px; width: 40%; float: left; margin-bottom: 1em;">
-          <div class="subtitle">Extra</div>
-          <ul>
-            <li><input type="checkbox" id="extra-1" checked><label for="extra-1"><span></span>House wine</label></li>
-            <li><input type="checkbox" id="extra-2"><label for="extra-2"><span></span>Sparkling water</label></li>
-            <li><input type="checkbox" id="extra-3"><label for="extra-3"><span></span>Bread and cheese</label></li>
-            <li><input type="checkbox" id="extra-4"><label for="extra-4"><span></span>Coffee or tea</label></li>
-          </ul>
+        <div class="clearfix" style="margin-bottom: 34px;">
+          <div class="extra" style="font-size: 36px; width: 40%; float: left;">
+            <div class="subtitle">Extra</div>
+            <ul>
+              <li><input type="checkbox" id="extra-1" checked><label for="extra-1"><span></span>House wine</label></li>
+              <li><input type="checkbox" id="extra-2"><label for="extra-2"><span></span>Sparkling water</label></li>
+              <li><input type="checkbox" id="extra-3"><label for="extra-3"><span></span>Bread and cheese</label></li>
+              <li><input type="checkbox" id="extra-4"><label for="extra-4"><span></span>Coffee or tea</label></li>
+            </ul>
+          </div>
+
+          <div class="price" style="width: 60%; float: left; text-align: right;">$ <input class="price-input" value="35" disabled><span> /per</span></div>
         </div>
 
-        <div class="price" style="width: 60%; float: left; text-align: right;">$ <input class="price-input" value="35" disabled><span> /per</span></div>
-
-        <div class="btn-group" style="clear: both;">
-          <button class="btn btn-default">Invite Guest</button>
-          <a class="btn btn-link" href="#">Cancel</a>
+        <div class="btn-group">
+          <a class="btn btn-default" href="dining-explore-more-2.html">Invite Guest</a>
+          <a class="btn btn-link" href="dining-foot-traffic.html">Cancel</a>
         </div>
 
         <div class="distance">56 second walk</div>
