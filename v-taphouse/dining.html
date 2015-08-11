@@ -32,10 +32,11 @@
 
 <script type="text/javascript">
 $(function() {
-  $('a').on('tapstart', function() {
-  	//a++;
-  	//console.log(a);
-  });
+  // $('a').on('tapstart', function() {
+  // 	//a++;
+  // 	//console.log(a);
+  //   alert('boob');
+  // });
 
   function slideAnim() {
   	$('#taphouse-diningmenu li').removeClass('active');
@@ -52,20 +53,47 @@ $(function() {
   slideAnim();
   var tid = setInterval(slideAnim, timer);
 
+  // $('#down').on('tapstart', function(e) {
+  //     $('#dining-explore-more').addClass('show');
+  //   e.preventDefault();
+  // });
+
+  $('.btnX').on('tapstart', function(e) {
+    var action = $(this).attr('data-action');
+
+    switch(action) {
+      case "pull-up-dining":
+        $('#dining-explore-more').addClass('show');
+        break;
+      case "pull-down-dining":
+        $('#dining-explore-more').removeClass('show');
+        break;
+      default:
+        break;
+    }
+
+    e.preventDefault();
+  });
 });
 </script>
+
+<style type="text/css">
+#dining-explore-more { position: absolute; top: 100%; left: 0; background-color: black; height: 100%; width: 100%; }
+.show { top: 0% !important; z-index: 1001; }
+.easein {transition: all 0.6s ease-in-out;}
+</style>
 <div id="content-overlay"></div>
 <div id="content-nav" style="position: absolute; top: 20%; right: 10%; background: rgba(255, 255, 255, 0.5);">
 
 </div>
 <div id="content-view">
-	<div id="header">
-      <div id="headerlogo">
-          <a href="index.html"><img src="images/taphouse-logo.png"/></a>
-      </div><!-- headerlogo -->
-  </div>
   <div id="taphouse-container">
     <div id="taphouse-diningmenu">
+      <div id="header">
+          <div id="headerlogo">
+              <a href="index.html"><img src="images/taphouse-logo.png"/></a>
+          </div>
+      </div>
       <ul>
         <li class="diningmenu1">
           <a href="dining-2.html"><img src="images/main_dining_premium.jpg">
@@ -96,17 +124,28 @@ $(function() {
           </a>
         </li>
         <li class="diningmenu5">
-          <a href="dining-explore-more.html"><img src="images/main_dining_explore_more.jpg">
+          <a class="btnX" data-action="pull-up-dining" href="#"><img src="images/main_dining_explore_more.jpg">
             <div class="panel-border">
               <div class="panel"><h1>Explore More</h1></div>
             </div>
           </a>
-          <a id="down" href="dining-explore-more.html">
+          <a id="down" class="btnX" data-action="pull-up-dining" href="#">
             <img src="images/down.png" height="30" width="59" alt="Down">
           </a>
         </li>
       </ul>
-    </div><!-- taphouse-mainmenu -->
+    </div><!-- taphouse-diningmenu -->
+
+    <div id="dining-explore-more" class="easein">
+      <img src="images/map.png" height="1080" width="1920" alt="Taphouse map" style="position: absolute; top: 0; left: 0;">
+      <a id="you" href="dining-foot-traffic.html"><img src="images/you.png" height="344" width="344" alt="You"></a>
+      <a id="star" href="dining-explore-more-2.html"><img class="animate" src="images/star.png" height="45" width="47" alt="Star"></a>
+      <span id="animated-path"><img i src="images/animated-path.gif" height="185" width="451" alt="Animated path"></span>
+      <a id="up" class="btnX" data-action="pull-down-dining" href="#">
+        <img src="images/up.png" height="30" width="59" alt="Up">
+        <span class="title">Explore</span>
+      </a>
+    </div> <!-- /#dining-explore-more -->
   </div><!-- taphouse-container -->
 </div>
 

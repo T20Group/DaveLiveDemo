@@ -73,13 +73,17 @@ h1, h2 {
 	background-color:#F4F4F4;
 }
 
-#taphouse-diningmenu {
+/*#taphouse-diningmenu {
   margin-top: -133px;
-}
+}*/
 
 #taphouse-mainmenu ul,
 #taphouse-diningmenu ul {
 	list-style:none;
+}
+
+#taphouse-diningmenu ul {
+  margin-top: -133px;
 }
 
 #taphouse-mainmenu ul li,
