@@ -95,17 +95,27 @@ $(function() {
           </div>
 
           <!-- Controls -->
-          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
           </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           </a>
         </div>
 
-        <div class="price">$35/person</div>
+        <div class="extra" style="font-size: 36px; width: 40%; float: left; margin-bottom: 1em;">
+          <div class="subtitle">Extra</div>
+          <ul>
+            <li><input type="checkbox" id="extra-1" checked><label for="extra-1"><span></span>House wine</label></li>
+            <li><input type="checkbox" id="extra-2"><label for="extra-2"><span></span>Sparkling water</label></li>
+            <li><input type="checkbox" id="extra-3"><label for="extra-3"><span></span>Bread and cheese</label></li>
+            <li><input type="checkbox" id="extra-4"><label for="extra-4"><span></span>Coffee or tea</label></li>
+          </ul>
+        </div>
 
-        <div class="btn-group">
+        <div class="price" style="width: 60%; float: left; text-align: right;">$ <input class="price-input" value="35" disabled><span> /per</span></div>
+
+        <div class="btn-group" style="clear: both;">
           <button class="btn btn-default">Invite Guest</button>
           <a class="btn btn-link" href="#">Cancel</a>
         </div>

@@ -761,13 +761,57 @@ h1, h2 {
   line-height: 28px;
   margin-bottom: 1em;
 }
-#dining-venue .price {
+#dining-venue .extra {
+  text-align: left;
+}
+#dining-venue .extra .subtitle {
+  color: #ffffff;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 44px;
+}
+#dining-venue .extra input {
+  vertical-align: middle;
+}
+#dining-venue .extra input[type="checkbox"] {
+    display:none;
+}
+#dining-venue .extra input[type="checkbox"] + label span {
+    display:inline-block;
+    width:29px;
+    height:24px;
+    background: transparent url('../images/unchecked.png') left top no-repeat;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+}
+#dining-venue .extra input[type="checkbox"]:checked + label span {
+  background: transparent url('../images/checked.png') left top no-repeat;
+}
+#dining-venue .extra label {
+  color: #ffffff;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 30px;
+  vertical-align: middle;
+}
+#dining-venue .price,
+#dining-venue .price-input {
   color: #ab9769;
   font-family: "Helvetica Neue", sans-serif;
   font-size: 68px;
   font-weight: 300;
   line-height: 82px;
   margin-bottom: 0.5em;
+}
+#dining-venue .price-input {
+  background: transparent;
+  border: 3px solid #ffffff;
+  height: 93px;
+  text-align: center;
+  width: 170px;
 }
 #dining-venue .distance {
   color: #ffffff;
@@ -797,6 +841,9 @@ h1, h2 {
   text-align: center;
   text-transform: uppercase;
   width: 450px;
+}
+.btn:last-child {
+  margin-right: 0;
 }
 .btn-link {
   font-size: 24px;
@@ -939,12 +986,12 @@ blockquote p:last-child {
   top: 0;
   left: 0;
   bottom: 0;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.4;
+  filter: alpha(opacity=40);
   font-size: 20px;
   color: #ffffff;
   text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  display: block;
 }
 .carousel-control.left {
   left: 0;
@@ -962,25 +1009,29 @@ blockquote p:last-child {
   opacity: 0.9;
   filter: alpha(opacity=90);
 }
-.carousel-control .icon-prev,
-.carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-left,
-.carousel-control .glyphicon-chevron-right {
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  height: 74px;
+  margin-top: -15px;
+  font-size: 74px;
+  line-height: 1em;
   position: absolute;
   top: 50%;
-  margin-top: -10px;
-  z-index: 5;
+  z-index: 10000;
   display: inline-block;
+  transform: translateY(-50%);
 }
 .carousel-control .icon-prev,
 .carousel-control .glyphicon-chevron-left {
   left: 50%;
-  margin-left: -10px;
+  margin-left: -89px;
 }
 .carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-right {
   right: 50%;
-  margin-right: -10px;
+  margin-right: -89px;
 }
 .carousel-control .icon-prev,
 .carousel-control .icon-next {
@@ -994,23 +1045,4 @@ blockquote p:last-child {
 }
 .carousel-control .icon-next:before {
   content: '\203a';
-}
-@media screen and (min-width: 768px) {
-  .carousel-control .glyphicon-chevron-left,
-  .carousel-control .glyphicon-chevron-right,
-  .carousel-control .icon-prev,
-  .carousel-control .icon-next {
-    width: 30px;
-    height: 30px;
-    margin-top: -15px;
-    font-size: 30px;
-  }
-  .carousel-control .glyphicon-chevron-left,
-  .carousel-control .icon-prev {
-    margin-left: -30px;
-  }
-  .carousel-control .glyphicon-chevron-right,
-  .carousel-control .icon-next {
-    margin-right: -30px;
-  }
 }
