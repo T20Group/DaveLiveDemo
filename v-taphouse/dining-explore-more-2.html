@@ -20,6 +20,10 @@
 <script type="text/javascript" src="../js/jquery.easing-1.3.js"></script>
 <script type="text/javascript" src="../js/jquery.mobile-events.min.js"></script>
 
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="js/transition.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
+
 <!-- cookie -->
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
 
@@ -81,8 +85,8 @@ $(function() {
         <div class="price">$35/per</div>
 
         <div class="btn-group">
-          <button class="btn btn-default">Reserve</button>
-          <a class="btn btn-link" href="#">Cancel</a>
+          <button class="btn btn-default" data-toggle="modal" data-target="#myModal">Reserve</button>
+          <a class="btn btn-link" href="dining-explore-more-3.html">Cancel</a>
         </div>
 
         <div class="distance">56 second walk</div>
@@ -98,5 +102,29 @@ $(function() {
 </div>
 
 </div> <!-- /#main-container -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Hi, Mr Brett</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please enter your email or mobile number to receive your reservation details.</p>
+        <div>
+          <input class="contact-input" type="text" placeholder="04 8776 8899 or email@address.com">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="width: 450px;">Confirm</button>
+          <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
