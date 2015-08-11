@@ -38,34 +38,6 @@ $('a').on('tapstart', function() {
 	//console.log(a);
 });
 
-$('.demos').on('tapstart', function() {
-	
-/*
-	var id = $(this).attr('id');
-	
-	$(this).removeClass('posL posR').addClass('posM');
-	
-	switch (id) {
-		case "one":
-			$('#one').removeClass('posL posR').addClass('posM');
-			$('#two').removeClass('posR posM').addClass('posL');
-			$('#three').removeClass('posL posM').addClass('posR');
-		break;
-		case "two":
-			$('#one').removeClass('posR posM').addClass('posL');
-			$('#two').removeClass('posL posR').addClass('posM');
-			$('#three').removeClass('posL posM').addClass('posR');
-		break;
-		case "three":
-		alert(id);
-		break;
-	}
-*/
-/*
-	$('.posM').addClass('posR').removeClass('posM');
-	$('.posR').addClass('posL').removeClass('posR');
-	$('.posL').removeClass('posL').addClass('posM');
-*/
 
 $('#one').on('tapstart', function() {
 	$('.demos').removeClass('posM posL posR');
@@ -94,14 +66,8 @@ $('#three').on('tapstart', function() {
 	$('#three-bg').addClass('show');
 });
 
-/*
-$('#one .enter').on('tapstart', function() {
-	alert('ok');
-//	$('#main-view').html('<iframe src="v-simonds-prototype/index.html" height="1080px" width="1920px"></iframe>');
-});
-*/
 
-});
+
 
 });
 </script>
