@@ -702,7 +702,7 @@ h1, h2 {
 }
 #up .title {
   color: #ab9769;
-  font-family: "Helvetica Neue" sans-serif;
+  font-family: "loveloblack", sans-serif;
   font-size: 76px;
   line-height: 1em;
   text-transform: uppercase;
@@ -742,9 +742,8 @@ h1, h2 {
 }
 #dining-venue .title {
   color: #ab9769;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "loveloblack", sans-serif;
   font-size: 44px;
-  font-weight: 300;
   line-height: 52px;
   margin-bottom: 0.5em;
   text-transform: uppercase;
@@ -804,9 +803,8 @@ h1, h2 {
 #dining-venue .price,
 #dining-venue .price-input {
   color: #ab9769;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "loveloblack", sans-serif;
   font-size: 68px;
-  font-weight: 300;
   line-height: 82px;
   margin-bottom: 0.5em;
 }
@@ -850,6 +848,7 @@ h1, h2 {
 }
 .btn-default {
   background-color: #ab9769;
+  font-family: "loveloblack", sans-serif;
 }
 .btn-link {
   font-size: 24px;
@@ -987,7 +986,7 @@ blockquote p:last-child {
 }
 .modal-header {
   color: #ab9769;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "loveloblack", sans-serif;
   font-size: 74px;
   font-weight: 300;
   line-height: 1em;
