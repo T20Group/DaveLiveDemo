@@ -122,6 +122,9 @@ $('.toggle').on('tapstart', function() {
 		case 'uber':
 			$('#toggle-control').toggleClass('uber');
 		break;
+		case 'lesmis':
+			$('#toggle-control').toggleClass('lesmis');
+		break;
 	}
 });
 
@@ -131,9 +134,9 @@ $('.toggle').on('tapstart', function() {
 
 <style type="text/css">
 /* .kgroup.airbnb, .kgroup.uber, .kgroup.amex { opacity: 0; visibility: hidden; } */
-.kgroup.lesmis { opacity: 1; visibility: visible; top: 0; }
+/* .kgroup.lesmis { opacity: 1; visibility: visible; top: 0; } */
 .kgroup { position: absolute; top: -20px; opacity: 0; visibility: hidden;}
-#toggle-control.airbnb > .kgroup.airbnb, #toggle-control.uber > .kgroup.uber, #toggle-control.amex > .kgroup.amex { opacity: 1; visibility: visible; top: 0;}
+#toggle-control.airbnb > .kgroup.airbnb, #toggle-control.uber > .kgroup.uber, #toggle-control.amex > .kgroup.amex,  #toggle-control.lesmis > .kgroup.lesmis { opacity: 1; visibility: visible; top: 0;}
 	
 body { font-family: Helvetica Neue, Arial;}
 a { color: white; }	
@@ -201,21 +204,24 @@ a { color: white; }
 
 #content-view { z-index: 1000; }
 
-#cpanel { visibility: hidden; opacity: 0; }
+#cpanel { visibility: collapse; opacity: 0; }
+#cpanel #map { top: 100%; }
 #cpanel.show { visibility: visible !important; opacity: 1; }
-
+#cpanel.show #map { top: 0; }
 .noselect { pointer-events: none; }
 
-.btn { background-color: #9a8656; padding: 5px 30px; color: white; font-size: 32px; width: 200px; border: 10px solid #9a8656; }
+.btn { background-color: #9a8656; padding: 5px 30px; color: white; font-size: 32px; width: 200px;  border-bottom: 5px solid #9a8656; }
 .btn.selected { border-color: white; }
 
 .kiosks { position: absolute; font-size: 40px; color: white;  -moz-animation: hoverKiosk 2s infinite; text-shadow: 0px 0px 3px rgba(0,0,0, 0.3); }
+
+.schedule h1 { font-size: 40px; color: #9a8656; font-weight: bolder; padding-left: 68px; padding-bottom: 30px; }
 </style>
 
 
 <div id="content-overlay">
 	    
-    <div id="cpanel" class="easein page show" style="">
+    <div id="cpanel" class="easein page " style="">
 	    <div id="map" class="easeinB" style="">
 				
 			<div id="toggle-control" class="easein airbnb uber amex lesmis">	
@@ -223,10 +229,7 @@ a { color: white; }
 				<div class="kiosks" style="left: 655px; top: 40px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
 				<div class="kiosks" style="left: 1100px; top: 40px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
 				
-				<div class="kiosks" style="left: 260px; top: 190px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
-				<div class="kiosks" style="left: 550px; top: 100px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
-				<div class="kiosks" style="left: 320px; top: 100px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
-				<div class="kiosks" style="left: 1420px; top: 180px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
+				
 			</div>
 			
 			<div class="kgroup easeinB uber" data-target="uber">
@@ -245,30 +248,33 @@ a { color: white; }
 
 			</div>
 			
-			<div class="kgroup easein lesmis" data-target="lesmis" style="position: relative;">
-				
+			<div class="kgroup easein lesmis" data-target="lesmis">
+				<div class="kiosks" style="left: 260px; top: 190px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
+				<div class="kiosks" style="left: 550px; top: 100px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
+				<div class="kiosks" style="left: 320px; top: 100px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
+				<div class="kiosks" style="left: 1420px; top: 180px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
 			</div>
 			</div> <!-- /toggle-control -->
 			
 	    </div>
 	    
 	    <div id="botnav" style="height: 180px; background: rgba(0, 0, 0, 0.5); width: 100%; position: absolute; bottom: 0;">
-		    <div id="botnav-ctrl" style="position: absolute; left: 50%; top: 10%; transform: translateX(-50%); width: 640px; height: 100px; border: 0px solid white; padding: 20px; overflow: hidden;">
+		    <div id="botnav-ctrl" style="position: absolute;  top: 10%;  width: 640px; height: 100px; border: 0px solid white; padding: 20px; overflow: ;">
 				
-				<div class="control-container easein posL" style="position: absolute; width: 1920px; border: 0px solid blue;">
+				<div class="control-container easein posL" style="position: absolute; width: 5760px; border: 0px solid blue;">
 					
-			    <div class="controls" style="float: left; width: 640px; text-align: center;">
+			    <div class="controls" style="float: left; width: 1920px; text-align: center;">
 				    <a class="btn popup" data-action="show-arrival">ARRIVAL</a> &nbsp; &nbsp; <a class="btn popup" data-action="show-departure">DEPARTURE</a>
 				    <p class="title" style="text-align: center; color: white; padding-top: 30px; font-size: 50px;">SCHEDULE</p>
 			    </div>
 			    
-			    <div class="controls" style="float: left; width: 640px; text-align: center;">
-				    <a class="btn toggle" data-action="show-heatmap">HEATMAP</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="toggle-kiosk">KIOSK</a>
+			    <div class="controls" style="float: left; width: 1920px; text-align: center;">
+				    <a class="btn toggle" data-action="show-heatmap">HEATMAP</a> &nbsp; &nbsp; <a class="btn toggle" data-action="toggle-stat">STATS</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="toggle-kiosk">KIOSK</a>
 				    <p class="title" style="text-align: center; color: white; padding-top: 30px; font-size: 50px;">OVERLAY</p>
 			    </div>
 			    
-				<div class="controls" style="float: left; width: 640px; text-align: center;">
-				    <a class="btn toggle selected" data-action="airbnb">airbnb</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="amex">AMEX</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="uber">uber</a>
+				<div class="controls" style="float: left; width: 1920px; text-align: center;">
+				    <a class="btn toggle selected" data-action="airbnb">airbnb</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="amex">AMEX</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="uber">uber</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="lesmis">Les Mis&eacute;rable</a>
 				    <p class="title" style="color: white; padding-top: 30px; font-size: 50px;">TOGGLE</p>
 			    </div>
 
@@ -282,7 +288,64 @@ a { color: white; }
 		    
 	    </div> <!-- /botnav -->
 	    
-	    <div id="" class="schedule" style="">
+	    <div id="" class="schedule " style="">
+		    <a class="closebtn" style="position: absolute; top: 10%; right: 5%; padding: 16px 20px; border: 1px solid white; border-radius: 30px;">x</a>
+		    
+		    <div style="border: 0px solid white; top: 15%; left: 48%; height: 300px; width: 900px; position: absolute; ">
+			    <div id="show-arrival" class="schedules">
+				    <h1>SYDNEY ARRIVAL</h1>
+				    <img src="images/arrival.png" width="937" height="720">
+<!--
+				    <div class="schedule-container">
+					    <span>Qantas</span>
+					    <span>airbnb</span>
+					    <span>uber</span>
+					    +
+				    </div>
+				    
+				    <div class="schedule-dates">
+					    <div class="row">
+						    <span class="day">mon</span>
+						    <span class="hour">00</span>
+						    <span class="hour">01</span>
+						    <span class="hour">02</span>
+						    <span class="hour">03</span>
+						    <span class="hour">04</span>
+						    <span class="hour">05</span>
+						    
+						    <span class="hour">06</span>
+						    <span class="hour">07</span>
+						    <span class="hour">08</span>
+						    <span class="hour">09</span>
+						    <span class="hour">10</span>
+						    <span class="hour">11</span>
+					    </div>
+					    <div class="row">
+						    <span class="day">mon</span>
+						    <span class="box"></span>
+						    <span class="box"></span>
+						    <span class="box"></span>
+						    <span class="box"></span>
+						    <span class="box"></span>
+						    <span class="box"></span>
+						    
+						    <span class="box"></span>
+						    <span class="box"></span>
+						    <span class="box"></span>
+						    <span class="box"></span>
+						    <span class="box"></span>
+						    <span class="box"></span>
+					    </div>
+				    </div>
+-->
+			    </div> <!-- /arrival -->
+			    
+			    <div id="show-departure" class="schedules">
+				    <h1>SYDNEY DEPARTURE</h1>
+				    <img src="images/depart.png" width="937" height="720">
+			    </div>
+			    
+			</div>
 		    
 	    </div>
     </div> <!-- /cpanel -->
@@ -291,15 +354,25 @@ a { color: white; }
 
 <style type="text/css">
 	.posL { left: 0px; }
-	.posM { left: -640px; }
-	.posR { left: -1280px; }
+	.posM { left: -1920px; }
+	.posR { left: -3840px; }
 	
-	#map { background-image: url(images/airport-map.jpg); height: 1080px; width: 1920px; right: 0%; top: 0%; position: absolute; }
+	#map { background-image: url(images/airport-map.jpg); height: 1080px; width: 1920px; right: 0%; position: absolute; }
 	
 	.schedule { visibility: hidden; opacity: 0; background-image: url(images/glowy-hole.png); width: 1920px; height: 1080px; position: absolute; left: 0; top: 0;}
 	.schedule.show { visibility: visible; opacity: 0.95 !important; }
+	.schedules { display: none; }
+	.schedules.show { display: block; }
 	.show-arrival { right: 15% !important; top: 0% !important; transform: scale(1.2) }
 	.show-departure { right: 20% !important; top: 40% !important; transform: scale(1.2) }
+	
+	
+	.schedule-dates { }
+	.schedule-dates .row { }
+	.schedule-dates .row span { display: inline-block; width: 70px; }
+	.schedule-dates .row .day { }
+	.schedule-dates .row .hour { }
+	.schedule-dates .row .box { height: 70px; width: 70px; margin-right: 1px; background: white; }
 </style>
 <script type="text/javascript">
 $(function() {
@@ -307,7 +380,7 @@ $(function() {
 	// schedule control
 	$('.popup').on('tapstart', function() {
 		var action = $(this).attr('data-action');
-		
+
 		$('.schedule').toggleClass('show');		
 /*
 		switch(action) {
@@ -319,6 +392,13 @@ $(function() {
 		}		
 */
 		$('#map').toggleClass(action);
+		$('.schedules').removeClass('show');
+		$('#'+action).addClass('show');
+	});
+	
+	$('.closebtn').on('tapstart', function() {
+		$('.schedule').removeClass('show');
+		$('#map').removeClass('show-arrival show-departure');
 	});
 	
 	// nav controls
@@ -363,7 +443,7 @@ $(function() {
 </div>
 <div id="content-view">
 
-    <div id="airbnb" class="easein page ">
+    <div id="airbnb" class="easein page show">
 	   	<div class="particles" id="balloon"><img src="images/balloon-blur.png" width="300" height="300"></div>
 	    <img src="images/airbnb.jpg" width="1920" height="1080">
 	    <div class="particles" style="position: absolute; left: 50%; top: 55%; transform: translateX(-50%); background: #e34250; padding: 20px 40px; color: white;">SEARCH</div>
