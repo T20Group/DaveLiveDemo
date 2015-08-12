@@ -68,47 +68,46 @@ $(function() {
     var action = $(this).attr('data-action');
 
     switch(action) {
-      case "pull-up-dining":
-        $('#dining-explore-more').addClass('show');
+      case "show-explore-map":
+        // if ($(".dining-explore-more").hasClass("show")) {
+        //   $(".dining-explore-more").removeClass('show');
+        // }
+        $('#dining-explore-map').addClass('show');
+        $('#dining-explorer-alert').css('z-index', '1001');
         break;
-      case "pull-up-dining-2":
-        if ($("#dining-explore-more-3").hasClass("show")) {
-          $(this).removeClass('show');
-        }
-        if ($("#dining-explore-more-4").hasClass("show")) {
-          $(this).removeClass('show');
-        }
-        $('#dining-explore-more-2').addClass('show');
+      case "hide-explore-map":
+        $('#dining-explore-map').removeClass('show');
         break;
-      case "pull-up-dining-3":
-        if ($("#dining-explore-more-2").hasClass("show")) {
-          $(this).removeClass('show');
-        }
-        if ($("#dining-explore-more-4").hasClass("show")) {
-          $(this).removeClass('show');
-        }
-        $('#dining-explore-more-3').addClass('show');
+      case "show-explore":
+        // if ($(".dining-explore-more").hasClass("show")) {
+        //   $(".dining-explore-more").removeClass('show');
+        // }
+        $('#dining-explore').addClass('show').css('z-index', '2000');
+        $('#dining-explorer-alert').css('z-index', '1001');
         break;
-      case "pull-up-dining-4":
-        if ($("#dining-explore-more-2").hasClass("show")) {
-          $(this).removeClass('show');
-        }
-        if ($("#dining-explore-more-3").hasClass("show")) {
-          $(this).removeClass('show');
-        }
-        $('#dining-explore-more-4').addClass('show');
+      case "hide-explore":
+        $('#dining-explore').removeClass('show');
         break;
-      case "pull-down-dining":
-        $('#dining-explore-more').removeClass('show');
+      case "show-explorer-alert":
+        // if ($(".dining-explore-more").hasClass("show")) {
+        //   $(".dining-explore-more").removeClass('show');
+        // }
+        $('#dining-explorer-alert').addClass('show').css('z-index', '2000');
+        $('#dining-explore').css('z-index', '1001');
         break;
-      case "pull-down-dining-2":
-        $('#dining-explore-more-2').removeClass('show');
+      case "hide-explorer-alert":
+        $('#dining-explorer-alert').removeClass('show');
         break;
-      case "pull-down-dining-3":
-        $('#dining-explore-more-3').removeClass('show');
+      case "show-traffic-map":
+        // if ($(".dining-explore-more").hasClass("show")) {
+        //   $(".dining-explore-more").removeClass('show');
+        // }
+        $('#dining-traffic-map').addClass('show');
+        $('#dining-explorer-alert').css('z-index', '1001');
         break;
-      case "pull-down-dining-4":
-        $('#dining-explore-more-4').removeClass('show');
+      case "hide-traffic-map":
+        $('#dining-traffic-map').removeClass('show');
+        $('#dining-explorer-alert').css('z-index', '2000');
         break;
       default:
         break;
@@ -121,7 +120,7 @@ $(function() {
 
 <style type="text/css">
 .dining-explore-more { position: absolute; top: 100%; left: 0; background-color: black; height: 100%; width: 100%; }
-.show { top: 0% !important; z-index: 1001; }
+.show { top: 0%; z-index: 1002; }
 .easein {transition: all 0.6s ease-in-out;}
 </style>
 <div id="content-overlay"></div>
@@ -166,37 +165,37 @@ $(function() {
           </a>
         </li>
         <li class="diningmenu5">
-          <a class="btnX" data-action="pull-up-dining" href="#"><img src="images/main_dining_explore_more.jpg">
+          <a class="btnX" data-action="show-explore-map" href="#"><img src="images/main_dining_explore_more.jpg">
             <div class="panel-border">
               <div class="panel"><h1>Explore More</h1></div>
             </div>
           </a>
-          <a id="down" class="btnX" data-action="pull-up-dining" href="#">
+          <a id="down" class="btnX" data-action="show-explore-map" href="#">
             <img src="images/down.png" height="30" width="59" alt="Down">
           </a>
         </li>
       </ul>
     </div><!-- taphouse-diningmenu -->
 
-    <div id="dining-explore-more" class="dining-explore-more easein">
+    <div id="dining-explore-map" class="dining-explore-more easein">
       <img src="images/map.png" height="1080" width="1920" alt="Taphouse map" style="position: absolute; top: 0; left: 0;">
-      <a id="you" class="btnX" data-action="pull-up-dining-4" href="#"><img src="images/you.png" height="344" width="344" alt="You"></a>
-      <a id="star" class="btnX" data-action="pull-up-dining-2" href="#"><img class="animate" src="images/star.png" height="45" width="47" alt="Star"></a>
+      <a id="you" class="btnX" data-action="show-traffic-map" href="#"><img src="images/you.png" height="344" width="344" alt="You"></a>
+      <a id="star" class="btnX" data-action="show-explore" href="#"><img class="animate" src="images/star.png" height="45" width="47" alt="Star"></a>
       <span id="animated-path"><img src="images/animated-path.gif" height="185" width="451" alt="Animated path"></span>
-      <a id="up" class="btnX" data-action="pull-down-dining" href="#">
+      <a id="up" class="btnX" data-action="hide-explore-map" href="#">
         <img src="images/up.png" height="30" width="59" alt="Up">
         <span class="title">Explore</span>
       </a>
-    </div> <!-- /#dining-explore-more -->
+    </div> <!-- /#dining-explore-map -->
 
-    <div id="dining-explore-more-2" class="dining-explore-more easein">
-      <a id="up" class="btnX" data-action="pull-down-dining-2" href="#">
+    <div id="dining-explore" class="dining-explore-more easein" style="z-index: 2000;">
+      <a id="up" class="btnX" data-action="hide-explore" href="#">
         <img src="images/up.png" height="30" width="59" alt="Up">
         <span class="title">Explore</span>
       </a>
 
       <div id="map-focus">
-        <a class="btnX" data-action="pull-up-dining" href="#" style="display: block;">
+        <a class="btnX" data-action="show-explore-map" href="#" style="display: block;">
           <img src="images/map-focus.png" height="880" width="880" alt="Map focus">
           <img src="images/you-2.png" height="49" width="18" alt="You" style="position: absolute; top: 375px; left: 414px;">
           <img src="images/star.png" height="45" width="47" alt="Star" style="position: absolute; top: 184px; left: 578px;">
@@ -226,7 +225,7 @@ $(function() {
 
         <div class="btn-group">
           <button class="btn btn-default" data-toggle="modal" data-target="#myModal">Reserve</button>
-          <a class="btn btn-link btnX" data-action="pull-up-dining" href="#">Cancel</a>
+          <a class="btn btn-link btnX" data-action="show-explore-map" href="#">Cancel</a>
         </div>
 
         <div class="distance">56 second walk</div>
@@ -237,16 +236,16 @@ $(function() {
         </blockquote>
       </div>
 
-    </div> <!-- /#dining-explore-more-2 -->
+    </div> <!-- /#dining-explore -->
 
-    <div id="dining-explore-more-3" class="dining-explore-more">
-      <a id="up" class="btnX" data-action="pull-down-dining-3" href="#">
+    <div id="dining-explorer-alert" class="dining-explore-more">
+      <a id="up" class="btnX" data-action="hide-explorer-alert" href="#">
         <img src="images/up.png" height="30" width="59" alt="Up">
         <span class="title">Explorer <span class="white">Alert</span></span>
       </a>
 
       <div id="map-focus">
-        <a class="btnX" data-action="pull-up-dining" href="#" style="display: block;">
+        <a class="btnX" data-action="show-explore-map" href="#" style="display: block;">
           <img src="images/map-focus.png" height="880" width="880" alt="Map focus">
           <img src="images/you-2.png" height="49" width="18" alt="You" style="position: absolute; top: 375px; left: 414px;">
           <img src="images/star.png" height="45" width="47" alt="Star" style="position: absolute; top: 184px; left: 578px;">
@@ -310,28 +309,28 @@ $(function() {
         </div>
 
         <div class="btn-group">
-          <a class="btn btn-default btnX" data-action="pull-up-dining-2" href="#">Invite Guest</a>
-          <a class="btn btn-link btnX" data-action="pull-up-dining-4" href="#">Cancel</a>
+          <a class="btn btn-default btnX" data-action="show-explore" href="#">Invite Guest</a>
+          <a class="btn btn-link btnX" data-action="show-traffic-map" href="#">Cancel</a>
         </div>
 
         <div class="distance">56 second walk</div>
       </div> <!-- /#dining-venue -->
 
-    </div> <!-- /#dining-explore-more-3 -->
+    </div> <!-- /#dining-explorer-alert -->
 
-    <div id="dining-explore-more-4" class="dining-explore-more">
+    <div id="dining-traffic-map" class="dining-explore-more">
       <img src="images/map.png" height="1080" width="1920" alt="Taphouse map" style="position: absolute; top: 0; left: 0;">
-      <a id="traffic-1" class="traffic btnX" data-action="pull-up-dining-3" href="#"><img src="images/you.png" height="345" width="345" alt="Traffic 1"><span class="badge gray">6</span></a>
-      <a id="traffic-2" class="traffic btnX" data-action="pull-up-dining-3" href="#"><img src="images/you.png" height="345" width="345" alt="Traffic 2"><span class="badge red">37</span></a>
-      <a id="traffic-3" class="traffic btnX" data-action="pull-up-dining-3" href="#"><img src="images/you.png" height="345" width="345" alt="Traffic 3"><span class="badge yellow">17</span></a>
-      <a id="traffic-4" class="traffic btnX" data-action="pull-up-dining-3" href="#"><img src="images/you.png" height="345" width="345" alt="Traffic 4"><span class="badge yellow">12</span></a>
-      <a id="traffic-5" class="traffic btnX" data-action="pull-up-dining-3" href="#"><img src="images/you.png" height="345" width="345" alt="Traffic 5"><span class="badge red">27</span></a>
-      <a id="star" class="btnX" data-action="pull-up-dining-3" href="#"><img src="images/star.png" height="45" width="47" alt="Star"></a>
-      <a id="up" class="btnX" data-action="pull-down-dining-4" href="#">
+      <a id="traffic-1" class="traffic btnX" data-action="show-explorer-alert" href="#"><img src="images/you.png" height="345" width="345" alt="Traffic 1"><span class="badge gray">6</span></a>
+      <a id="traffic-2" class="traffic btnX" data-action="show-explorer-alert" href="#"><img src="images/you.png" height="345" width="345" alt="Traffic 2"><span class="badge red">37</span></a>
+      <a id="traffic-3" class="traffic btnX" data-action="show-explorer-alert" href="#"><img src="images/you.png" height="345" width="345" alt="Traffic 3"><span class="badge yellow">17</span></a>
+      <a id="traffic-4" class="traffic btnX" data-action="show-explorer-alert" href="#"><img src="images/you.png" height="345" width="345" alt="Traffic 4"><span class="badge yellow">12</span></a>
+      <a id="traffic-5" class="traffic btnX" data-action="show-explorer-alert" href="#"><img src="images/you.png" height="345" width="345" alt="Traffic 5"><span class="badge red">27</span></a>
+      <a id="star" class="btnX" data-action="show-explorer-alert" href="#"><img src="images/star.png" height="45" width="47" alt="Star"></a>
+      <a id="up" class="btnX" data-action="hide-traffic-map" href="#">
         <img src="images/up.png" height="30" width="59" alt="Up">
         <span class="title">Foot <span class="white">Traffic</span></span>
       </a>
-    </div> <!-- /#dining-explore-more-4 -->
+    </div> <!-- /#dining-traffic-map -->
   </div><!-- taphouse-container -->
 </div>
 
@@ -352,7 +351,7 @@ $(function() {
       </div>
       <div class="modal-footer">
         <div class="btn-group">
-          <a href="#" class="btnX btn btn-default" data-action="pull-up-dining-3" data-dismiss="modal" style="width: 450px;">Confirm</a>
+          <a href="#" class="btnX btn btn-default" data-action="show-explorer-alert" data-dismiss="modal" style="width: 450px;">Confirm</a>
           <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</a>
         </div>
       </div>
