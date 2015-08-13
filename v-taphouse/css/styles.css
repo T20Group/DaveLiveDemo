@@ -612,8 +612,7 @@ h1, h2 {
 	padding-top:10px;
 }
 
-#venue-list .button-fill,
-#venue-list .button {
+#venue-list .button-fill {
   background-color: #aaaaaa;
     border: 1px solid white;
     color: white;
@@ -625,7 +624,7 @@ h1, h2 {
     position: relative;
     top: 30px;
 }
-#venue-list .success .button-fill {
+#venue-list .button-fill.active {
 	background-color: #ab9769;
   outline: 2px solid #ab9769;
 }

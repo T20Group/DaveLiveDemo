@@ -41,6 +41,8 @@ $(function() {
       $('#venue-list li').removeClass('active');
       $(this).parents('li').addClass('active');
     }
+    $(this).addClass('active');
+    $('.b_map, .b_book').removeClass('active');
     $('#dining-col3 #col3-overlay').removeClass('hidden');
     $('#dining-col3 #col3-overlay .overlay, #dining-col3 #col3-overlay .map').addClass('hidden');
     $('#dining-col3 #col3-overlay .specials').removeClass('hidden');
@@ -50,6 +52,8 @@ $(function() {
       $('#venue-list li').removeClass('active');
       $(this).parents('li').addClass('active');
     }
+    $(this).addClass('active');
+    $('.b_specials, .b_book').removeClass('active');
     $('#dining-col3 #col3-overlay').removeClass('hidden');
     $('#dining-col3 #col3-overlay .overlay, #dining-col3 #col3-overlay .specials').addClass('hidden');
     $('#dining-col3 #col3-overlay .map').removeClass('hidden');
@@ -63,6 +67,8 @@ $(function() {
       //$('#calendar-overlay #roomName').text($(this).data('roomname'));
       //$('#calendar-overlay #roomImg').attr("src","images/hotelroom_"+$(this).data('bookid')+".jpg");
     }
+    $(this).addClass('active');
+    $('.b_specials, .b_map').removeClass('active');
     $('#dining-col3 #col3-overlay').addClass('hidden');
   });
 });
@@ -90,8 +96,8 @@ $(function() {
                 <p>Inspired by France's most popular neighbourhood bistros, Bistro Guillaume Melbourne elevates the dining experience for a modern international audience.</p>
                 <div class="availability">Table available now</div>
                 <div class="button-group">
-                  <a class="button b_specials" href="#">Specials</a>
-                  <a class="button b_map" href="#">Map</a>
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
                   <a class="button-fill b_book" href="#">Book</a>
                 </div>
               </div>
@@ -107,8 +113,8 @@ $(function() {
                 <p>The Conservatory restaurant offers an array of international cuisine, with a series of different culinary stations, each offering a unique dining experience.</p>
                 <div class="availability">30 minute wait</div>
                 <div class="button-group">
-                  <a class="button b_specials" href="#">Specials</a>
-                  <a class="button b_map" href="#">Map</a>
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
                   <a class="button-fill b_book" href="#">Book</a>
                 </div>
               </div>
@@ -124,8 +130,8 @@ $(function() {
                 <p>Dinner by Heston Blumenthal offers diners a very modern interpretation of historic British gastronomy. <strong>Coming Soon</strong></p>
                 <div class="availability">Table available now</div>
                 <div class="button-group">
-                  <a class="button b_specials" href="#">Specials</a>
-                  <a class="button b_map" href="#">Map</a>
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
                   <a class="button-fill b_book" href="#">Book</a>
                 </div>
               </div>
@@ -141,8 +147,8 @@ $(function() {
                 <p>To continue to improve our dining experience, Koko is now closed for renovations until September.</p>
                 <div class="availability">15 minute wait</div>
                 <div class="button-group">
-                  <a class="button b_specials" href="#">Specials</a>
-                  <a class="button b_map" href="#">Map</a>
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
                   <a class="button-fill b_book" href="#">Book</a>
                 </div>
               </div>
@@ -158,8 +164,8 @@ $(function() {
                 <p>Crown Metropol proudly presents Mr. Hive Kitchen &#38; Bar - our signature restaurant offers diners Australian inspired modern dishes.</p>
                 <div class="availability">Table available now</div>
                 <div class="button-group">
-                  <a class="button b_specials" href="#">Specials</a>
-                  <a class="button b_map" href="#">Map</a>
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
                   <a class="button-fill b_book" href="#">Book</a>
                 </div>
               </div>
@@ -175,8 +181,8 @@ $(function() {
                 <p>Inspired by regional produce, Executive Chef John Lawson delivers an urban sensibility to his Chef Hat award winning restaurant.</p>
                 <div class="availability">15 minute wait</div>
                 <div class="button-group">
-                  <a class="button b_specials" href="#">Specials</a>
-                  <a class="button b_map" href="#">Map</a>
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
                   <a class="button-fill b_book" href="#">Book</a>
                 </div>
               </div>
