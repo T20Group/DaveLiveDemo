@@ -94,6 +94,10 @@ $('.window').on('tapstart', function() {
 	$('.window').removeClass('open');
 	$(this).addClass('open');
 });
+$('.window2').on('tapstart', function() {
+	$('.window2').removeClass('open');
+	$(this).addClass('open');
+});
 
 // cpanel
 /*
@@ -161,7 +165,7 @@ a { color: white; }
 .show { opacity: 1 !important; z-index: 1000 !important; }
 .page { opacity: 0; position: absolute; width: 1920px; height: 1080px; z-index: 900; }
 
-.demos, .bg, .easein, .particles, .btn {
+.demos, .bg, .easein, .particles, .btn, .window2 {
 	-webkit-transition: all .5s ease-in-out;
 	-moz-transition: all .5s ease-in-out;
 	transition: all .5s ease-in-out;
@@ -205,8 +209,8 @@ a { color: white; }
 /* NAV */
 #content-overlay { position: absolute; z-index: 3000; }
 #content-nav a { position: absolute; opacity: .1; padding: 40px; z-index: 2000; top: 50%; transform: translateY(-50%); }
-#left { left: 1%; }
-#right { right: 1%; }
+#left { left: 0px; }
+#right { right: 0px; }
 
 #content-view { z-index: 1000; }
 
@@ -485,7 +489,7 @@ $(function() {
 	}
 @-moz-keyframes cloud2 {
 	0%   { left: 100%; }
-	5%  { left: -50%; }
+	80%  { left: -50%; }
 	100%  { left: -50%; }
 	}
 @-moz-keyframes cloud3 {
@@ -520,22 +524,53 @@ $(function() {
 #fly {  -moz-animation: flyshake 5s infinite; }
 #plane {  -moz-animation: planeblur 1s infinite; }
 #plane2 {  -moz-animation: planehover 5s infinite; }
+
+.window2 { position: absolute; top: 320px; }	
+.window2.open {top: 50px; }
+
+#amex-windows{ top: 100%; position: absolute; }
+#amex-windows.show { top: 0%; }
+
 </style>
+
+<script type="text/javascript">
+$(function() {
+	$('#amex-back, #fly, #plane2, #amex-logo').on('tapstart', function() {
+		$('#amex-windows').toggleClass('show');
+	});
+});
+</script>
     <div id="amex" class="easein page show" style="background-color: #85bfdb;">
 	    <img src="images/amex-bg.png" width="1920" height="1080" class="noselect" style="position: absolute; left: 0; ">
 
 	    <div class="particles" style="left: 960px; top: 30px;" id="plane"><img src="images/amex-plane-blur.png" ></div>
 	    <div class="particles" style="left: 960px; top: 30px;" id="plane2"><img src="images/amex-plane.png" ></div>
 	    <div class="particles" style="left: -50%; top: 80px;"  id="cloud1"><img src="images/amex-cloud.png" height="100"></div>
-	    <div class="particles" style="left: -50%; top: 450px;" id="cloud2"><img src="images/amex-cloud-blur.png" height="250"></div>
+	    <div class="particles" style="left: -50%; top: 450px;" id="cloud2"><img src="images/amex-cloud.png" height="250"></div>
 	    <div class="particles" style="left: -50%; top: 600px;" id="cloud3"><img src="images/amex-cloud.png" height="200"></div>
 	    <div class="particles" style="left: 350px; top: 350px;" id="fly"><img src="images/amex-fly.png"></div>
 	    
 	    
 	    
+	    <div id="amex-windows" class="easein">
+		    <img src="images/amex-bg3.jpg" width="1920" height="1080" class="noselect" style="position: absolute; left: 0; ">
+		    
+			<img class="window2 open" style="left: 30px;" src="images/window-door.png" width="324" height="353">
+			<img class="window2 " style="left: 390px;" src="images/window-door.png" width="324" height="353">
+			<img class="window2 " style="left: 790px;" src="images/window-door.png" width="324" height="353">
+			<img class="window2 " style="left: 1180px;" src="images/window-door.png" width="324" height="353">
+			<img class="window2 " style="left: 1530px;" src="images/window-door.png" width="324" height="353">		   
+		    <img src="images/amex-bg2.png" width="1920" height="1080" class="noselect" style="position: absolute; left: 0; ">
+		    
+			<img id="amex-back" class="particles " style="top: 30px; left: 1530px;" src="images/amex-back.png">
+
+		    
+	    </div>
 	    
 	    
-	    <div class="particles" style="bottom: 5%; right: 4%;"><img src="images/amex-logo.png"></div>
+
+	    <div class="particles" id="amex-logo" style="bottom: 5%; right: 4%; z-index: 1000;"><img src="images/amex-logo.png"></div>
+	    <div class="particles" style="bottom: 3%; right: 22%; padding: 25px 40px; color: white; background: red; font-size: 100px; z-index: 1000;">Apply here</div>
 
     </div>
     
