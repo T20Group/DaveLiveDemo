@@ -204,48 +204,11 @@ $(function() {
           <h1>Map</h1>
         </div>
       </div><!-- col3-overlay -->
-      <h1 class="col-header">SELECT YOUR DATE</h1>
-      <div class="calendar-cont">
-        <div class="calendar-monthselectdiv">
-          <a class="b_month b_prev" href="#"><span class="glyphicon">&#xE079;</span></a><h1>Jul 2015</h1><a class="b_month b_next" href="#"><span class="glyphicon">&#xE080;</span></a>
-            <div class="clear"></div>
-        </div>
-        <div class="calendar-daylabelsdiv">
-            <ul class="calendar-daylabels">
-              <li>SUN</li><li>MON</li><li>TUE</li><li>WED</li><li>THU</li><li>FRI</li><li>SAT</li>
-            </ul>
-            <div class="clear"></div>
-        </div>
-        <div class="calendar-daysdiv">
-          <ul class="calendar-days">
-          <script>
-          function outputDays(start, end, month) {
-              for (i = start; i < end+1; i++) {
-                  document.write("<li><a href='#' id='day"+i+"month"+month+"' data-day='"+i+"' data-month='"+month+"'><div>"+i+"</div></a></li>");
-              }
-          }
-          outputDays(1,31,7);
-          </script>
-          </ul>
-          <div class="clear"></div>
-        </div>
-      </div>
-      <h1 class="col-header">SELECT YOUR TIME</h1>
-      <div class="clock-cont">
-        <div class="col clock-hourselectdiv">
-          <div class="label">HOUR</div>
-        </div>
-        <div class="col clock-minuteselectdiv">
-          <div class="label">MINUTE</div>
-        </div>
-        <div class="col clock-meridianselectdiv">
-          <div class="label">AM/PM</div>
-        </div>
-      </div>
+      <h1 class="col-header">MAKE A RESERVATION</h1>
       <div id="book-div">
         <div class="col">
-          <div class="label">ADULTS</div>
-          <div class="bottom-text">
+          <div class="label">TABLE FOR</div>
+          <div class="bottom-text clearfix">
             <div id="count_adults" class="big-number">1</div>
               <div class="arrow-div">
                 <a href="#" class="arrow arrow-up"><span class="glyphicon">&#xE113;</span></a>
@@ -254,18 +217,35 @@ $(function() {
               </div>
           </div>
         </div>
-        <div class="col">
-            <div class="label">CHILDREN</div>
-            <div class="bottom-text">
-              <div id="count_children" class="big-number">0</div>
-                <div class="arrow-div">
-                  <a href="#" class="arrow arrow-up"><span class="glyphicon">&#xE113;</span></a>
-                  <a href="#" class="arrow arrow-down" data-min="0"><span class="glyphicon">&#xE114;</span></a>
-                  <div class="clear"></div>
-                </div>
-            </div>
-        </div>
       </div><!-- dining-book-div -->
+      <div class="clock-cont">
+        <div class="col">
+          <div class="label">TIME</div>
+          <div class="button-group">
+            <button class="button-fill">NOW</button>
+            <button class="button-fill">7:30pm</button>
+            <button class="button-fill disabled">8:00pm</button>
+            <button class="button-fill disabled">8:30pm</button>
+          </div>
+          <div class="button-group">
+            <button class="button-fill">9:00pm</button>
+            <button class="button-fill">9:30pm</button>
+            <button class="button-fill">10:00pm</button>
+            <button class="button-fill">10:30pm</button>
+          </div>
+        </div>
+      </div><!-- dining-clock-cont -->
+      <div class="contact-div">
+        <div class="col">
+          <div class="label" for="name-input">YOUR NAME</div>
+          <div><input id="name-input" type="text"></div>
+        </div>
+        <div class="col">
+          <div class="label" for="name-input">YOUR EMAIL OR MOBILE</div>
+          <div><input id="contact-input" type="text"></div>
+          <div><a class="button-fill" href="#">Book</a></div>
+        </div>
+      </div><!-- dining-contact-div -->
     </div><!-- dining-col3 -->
   </div><!-- taphouse-container -->
 </div>
