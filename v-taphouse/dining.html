@@ -168,14 +168,21 @@ $(function() {
           </a>
         </li>
         <li class="diningmenu5">
-          <a class="btnX" data-action="show-explore-map" href="#"><img src="images/main_dining_explore_more.jpg">
+          <a class="btnX" data-action="show-explore-map" href="#">
+            <img src="images/main_dining_explore_more.jpg">
             <div class="panel-border">
-              <div class="panel"><h1>Explore More</h1></div>
+              <div class="panel"><h1>Eat now</h1></div>
             </div>
           </a>
-          <a id="down" class="btnX" data-action="show-explore-map" href="#">
-            <img src="images/down.png" height="30" width="59" alt="Down">
-          </a>
+          <div class="bottom-text clearfix">
+            <div id="count_label">Find a table for</div>
+            <div id="count_adults" class="big-number">2</div>
+            <div class="arrow-div">
+              <a href="#" class="arrow arrow-up"><span class="glyphicon"></span></a>
+              <a href="#" class="arrow arrow-down" data-min="1"><span class="glyphicon"></span></a>
+              <div class="clear"></div>
+            </div>
+          </div>
         </li>
       </ul>
     </div><!-- taphouse-diningmenu -->

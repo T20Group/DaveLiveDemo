@@ -73,10 +73,6 @@ h1, h2 {
 	background-color:#F4F4F4;
 }
 
-/*#taphouse-diningmenu {
-  margin-top: -133px;
-}*/
-
 #taphouse-mainmenu ul,
 #taphouse-diningmenu ul {
 	list-style:none;
@@ -139,9 +135,14 @@ h1, h2 {
   transform: translateX(-50%);
 }
 #taphouse-diningmenu .diningmenu5 .panel-border {
-  top: 50%;
+	padding: 1px;
+  top: 200px;
 	left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  width: 200px;
+  height: 80px;
+  color: white;
+  border: 2px solid #ab9769;
 }
 
 #taphouse-mainmenu .panel,
@@ -167,7 +168,53 @@ h1, h2 {
   	left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+}
 
+#taphouse-diningmenu .diningmenu5 .bottom-text {
+	background-color: #ab9769;
+  color: #ffffff;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 110px;
+	padding: 24px 42px;
+  box-sizing: border-box;
+}
+
+#taphouse-diningmenu .diningmenu5 .bottom-text #count_label {
+  color:#ffffff;
+  font-family: loveloblack;
+	float: left;
+  font-size: 24px;
+  line-height: 64px;
+}
+#taphouse-diningmenu .diningmenu5 .bottom-text .big-number {
+	color:#ffffff;
+  font-family: loveloblack;
+	font-size:64px;
+  line-height: 64px;
+	float:left;
+	width: 80px;
+  text-align: center;
+}
+
+#taphouse-diningmenu .diningmenu5 .bottom-text .arrow-div {
+	float:right;
+}
+#taphouse-diningmenu .diningmenu5 .bottom-text .arrow {
+	color: #ab9769;
+    background-color: white;
+    display: block;
+    box-sizing: border-box;
+    height: 30px;
+    margin-bottom: 4px;
+    padding-top: 4px;
+    width: 30px;
+	text-align:center;
+}
+#taphouse-diningmenu .diningmenu5 .bottom-text .arrow .glyphicon {
+  vertical-align: top;
 }
 
 /* HOTEL */
