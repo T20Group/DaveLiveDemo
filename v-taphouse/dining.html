@@ -38,9 +38,8 @@
 <script type="text/javascript">
 $(function() {
   // $('a').on('tapstart', function() {
-  // 	//a++;
-  // 	//console.log(a);
-  //   alert('boob');
+  // 	a++;
+  // 	console.log(a);
   // });
 
   function slideAnim() {
@@ -62,6 +61,16 @@ $(function() {
   $('.carousel').carousel({
     interval: false
   })
+
+  $('#taphouse-diningmenu .diningmenu5 .arrow-up').on('tapstart', function() {
+    $(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) + 1);
+  });
+
+  $('#taphouse-diningmenu .diningmenu5 .arrow-down').on('tapstart', function() {
+    if (parseInt($(this).parent().prev('.big-number').text())!=$(this).data('min')) {
+      $(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) - 1);
+    }
+  });
 
   // Navigation
   $('.btnX').on('tapstart', function(e) {
