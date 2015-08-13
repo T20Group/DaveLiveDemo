@@ -299,6 +299,53 @@ h1, h2 {
 	z-index:10;
 	background-color:#E8DDC4;
 	text-align:center;
+  padding-top: 40px;
+}
+#hotel-col3 #price-div {
+  width: 705px;
+  margin: 160px auto 0px auto;
+  font-family: loveloblack;
+}
+#hotel-col3 h1 {
+	font-size:30px;
+}
+#hotel-col3 .big-number {
+  color: #AB9769;
+  font-size: 120px;
+  line-height: 1em;
+  text-align: center;
+  margin-top: 16px;
+}
+#hotel-col3 label {
+  font-size: 20px;
+  line-height: 1em;
+  margin-top: 100px;
+  display: block;
+}
+#hotel-col3 #contact-input {
+  color: #ab9769;
+  border: 1px solid #000000;
+  font-family: "Helvetica Neue" sans-serif;
+  font-weight: 700;
+  height: 100px;
+  width: 100%;
+  margin-top: 20px;
+  display: block;
+  font-size: 74px;
+  line-height: 92px;
+  padding: 4px;
+}
+#hotel-col3 .button-fill {
+  background-color: #ab9769;
+  border: 1px solid white;
+  color: white;
+  font-family: loveloblack;
+  font-size:40px;
+  margin: 10px 4px;
+  outline: 2px solid #ab9769;
+  padding: 6px 12px;
+  position: relative;
+  top: 45px;
 }
 
 /* CALENDAR */
