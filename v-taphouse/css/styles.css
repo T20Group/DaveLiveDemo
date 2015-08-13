@@ -786,6 +786,10 @@ h1, h2 {
     background-color: #d6d6d6;
     outline: 1px solid #d6d6d6;
 }
+#dining-col3 .clock-cont .button-fill.active {
+  background-color: #ab9769;
+  outline: 1px solid #ab9769;
+}
 
 
 /* DINING - EXPLORE MORE */

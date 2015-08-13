@@ -250,6 +250,15 @@ $(function() {
   </div><!-- taphouse-container -->
 </div>
 
+<script>
+$('.clock-cont .button-fill').on('tapstart', function() {
+  if (!$(this).hasClass('disabled')) {
+    $('.clock-cont .button-fill').removeClass('active');
+    $(this).addClass('active');
+  }
+});
+
+</script>
 </div> <!-- /#main-container -->
 </body>
 </html>
