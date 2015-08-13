@@ -125,6 +125,12 @@ $('.toggle').on('tapstart', function() {
 		case 'lesmis':
 			$('#toggle-control').toggleClass('lesmis');
 		break;
+		case 'toggle-stat':
+			$('#stats').toggleClass('hidden');
+		break;
+		case 'show-heatmap':
+			$('#heatmap').slideToggle();
+		break;
 	}
 });
 
@@ -221,15 +227,18 @@ a { color: white; }
 
 <div id="content-overlay">
 	    
-    <div id="cpanel" class="easein page " style="">
+    <div id="cpanel" class="easein page" style="">
+	    
 	    <div id="map" class="easeinB" style="">
-				
+	
+			<div id="heatmap" style="position: absolute; display: none;">
+				<img src="images/heatmap-qantas.jpg" width="1920" height="1080">
+			</div>
+							
 			<div id="toggle-control" class="easein airbnb uber amex lesmis">	
 			<div class="kgroup easeinB airbnb" data-target="airbnb">
 				<div class="kiosks" style="left: 655px; top: 40px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
 				<div class="kiosks" style="left: 1100px; top: 40px;"><span class="glyphicon-neo glyphicon">&#xE062;</span></div>
-				
-				
 			</div>
 			
 			<div class="kgroup easeinB uber" data-target="uber">
@@ -256,6 +265,13 @@ a { color: white; }
 			</div>
 			</div> <!-- /toggle-control -->
 			
+
+
+			
+	    </div> <!-- / maps -->
+
+	    <div id="stats" class="easeinB hidden" style="position: absolute; top: 0;">
+		    <img src="images/qantas-stats-mockup.jpg" width="1920" height="1080">
 	    </div>
 	    
 	    <div id="botnav" style="height: 180px; background: rgba(0, 0, 0, 0.5); width: 100%; position: absolute; bottom: 0;">
@@ -289,7 +305,7 @@ a { color: white; }
 	    </div> <!-- /botnav -->
 	    
 	    <div id="" class="schedule " style="">
-		    <a class="closebtn" style="position: absolute; top: 10%; right: 5%; padding: 16px 20px; border: 1px solid white; border-radius: 30px;">x</a>
+		    <a class="closebtn" style="position: absolute; top: 10%; right: 5%;"><img src="images/closebtn.png" width="68" height="68"></a>
 		    
 		    <div style="border: 0px solid white; top: 15%; left: 48%; height: 300px; width: 900px; position: absolute; ">
 			    <div id="show-arrival" class="schedules">
