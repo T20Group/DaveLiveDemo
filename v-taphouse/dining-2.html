@@ -41,8 +41,8 @@ $(function() {
       $('#venue-list li').removeClass('active');
       $(this).parents('li').addClass('active');
     }
+    $('#venue-list li .button-fill').removeClass('active');
     $(this).addClass('active');
-    $('.b_map, .b_book').removeClass('active');
     $('#dining-col3 #col3-overlay').removeClass('hidden');
     $('#dining-col3 #col3-overlay .overlay, #dining-col3 #col3-overlay .map').addClass('hidden');
     $('#dining-col3 #col3-overlay .specials').removeClass('hidden');
@@ -52,8 +52,8 @@ $(function() {
       $('#venue-list li').removeClass('active');
       $(this).parents('li').addClass('active');
     }
+    $('#venue-list li .button-fill').removeClass('active');
     $(this).addClass('active');
-    $('.b_specials, .b_book').removeClass('active');
     $('#dining-col3 #col3-overlay').removeClass('hidden');
     $('#dining-col3 #col3-overlay .overlay, #dining-col3 #col3-overlay .specials').addClass('hidden');
     $('#dining-col3 #col3-overlay .map').removeClass('hidden');
@@ -67,8 +67,8 @@ $(function() {
       //$('#calendar-overlay #roomName').text($(this).data('roomname'));
       //$('#calendar-overlay #roomImg').attr("src","images/hotelroom_"+$(this).data('bookid')+".jpg");
     }
+    $('#venue-list li .button-fill').removeClass('active');
     $(this).addClass('active');
-    $('.b_specials, .b_map').removeClass('active');
     $('#dining-col3 #col3-overlay').addClass('hidden');
   });
 });
