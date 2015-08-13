@@ -581,9 +581,6 @@ h1, h2 {
 
 #venue-list .col2-cont {
 	padding:40px 40px;
-  position: absolute;
-  transform: translateY(-50%);
-  top: 50%;
 }
 #venue-list .col2-cont h1 {
 	font-size:30px;
