@@ -560,6 +560,7 @@ h1, h2 {
 	width:470px;
 	height:346px;
 	background:white;
+  position: relative;
 }
 
 #venue-list li .arrow {
@@ -579,11 +580,31 @@ h1, h2 {
 }
 
 #venue-list .col2-cont {
-	padding:80px 40px;
+	padding:40px 40px;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
 }
 #venue-list .col2-cont h1 {
 	font-size:30px;
 	padding-bottom:10px;
+}
+#venue-list .col2-cont .cuisine {
+  color: #ab9769;
+  font-family: loveloblack;
+  font-size: 18px;
+  line-height: 22px;
+  padding-bottom: 5px;
+}
+#venue-list .col2-cont .availability {
+  color: #ab9769;
+  font-family: loveloblack;
+  font-size: 18px;
+  line-height: 22px;
+  padding-top: 5px;
+}
+#venue-list .success .col2-cont .availability {
+  color: #679428;
 }
 #venue-list .col2-cont p {
 	line-height:1.4;
@@ -593,17 +614,23 @@ h1, h2 {
 	font-weight:bold;
 	padding-top:10px;
 }
-#venue-list .button-fill {
-	background-color: #ab9769;
+
+#venue-list .button-fill,
+#venue-list .button {
+  background-color: #aaaaaa;
     border: 1px solid white;
     color: white;
     font-family: loveloblack;
-	font-size:30px;
+  font-size:30px;
     margin: 10px 4px;
-    outline: 2px solid #ab9769;
+    outline: 2px solid #aaaaaa;
     padding: 6px 12px;
     position: relative;
     top: 30px;
+}
+#venue-list .success .button-fill {
+	background-color: #ab9769;
+  outline: 2px solid #ab9769;
 }
 
 #dining-col3 {
