@@ -72,6 +72,11 @@ $(function() {
     $(this).addClass('active');
     $('#dining-col3 #col3-overlay').addClass('hidden');
   });
+  $('.b_confirm').on('tapstart', function() {
+    $('#dining-col3 #col3-overlay').removeClass('hidden');
+    $('#dining-col3 #col3-overlay .overlay, #dining-col3 #col3-overlay .specials, #dining-col3 #col3-overlay .map').addClass('hidden');
+    $('#dining-col3 #col3-overlay .confirm').removeClass('hidden');
+  });
   $('#dining-col3 .arrow-up').on('tapstart', function() {
     $(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) + 1);
   });
@@ -227,11 +232,14 @@ $(function() {
               <p>Indulge in a two course weekday dinner for only $50.</p>
             </div>
           </div>
-          <a href="#" class="button-fill">Book now</a>
+          <a href="#" class="button-fill b_confirm">Book now</a>
         </div>
         <div class="map hidden">
           <h1 class="hidden">Map</h1>
           <img src="images/map.gif" alt="Map">
+        </div>
+        <div class="confirm hidden">
+          <h1>Booking confirmed</h1>
         </div>
       </div><!-- col3-overlay -->
       <h1 class="col-header">MAKE A RESERVATION</h1>
@@ -273,7 +281,7 @@ $(function() {
         <div class="col">
           <div class="label" for="name-input">YOUR EMAIL OR MOBILE</div>
           <div><input id="contact-input" type="text"></div>
-          <div><a class="button-fill" href="#">Book</a></div>
+          <div><a class="button-fill b_confirm" href="#">Book</a></div>
         </div>
       </div><!-- dining-contact-div -->
     </div><!-- dining-col3 -->
