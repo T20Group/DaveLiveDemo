@@ -609,7 +609,7 @@ h1, h2 {
 	overflow-y:auto;
 	width:1015px;
 	height:947px;
-	background-color:#f4f4f4;
+	background-color:transparent;
 }
 
 #venue-list li {
@@ -721,6 +721,7 @@ h1, h2 {
 	left:0;
 	opacity:1;
 	z-index:20;
+  box-sizing: border-box;
 }
 #dining-col3.move {
 	left: -1000px;
@@ -738,7 +739,7 @@ h1, h2 {
 #dining-col3 #col3-overlay {
 	position:absolute;
 	width:920px;
-	height:870px;
+	height:847px;
 	background-color:#F4F4F4;
 	z-index:100;
 }
@@ -803,6 +804,12 @@ h1, h2 {
 #dining-col3 .clock-cont .button-fill.active {
   background-color: #ab9769;
   outline: 1px solid #ab9769;
+}
+
+#dining-col3 #col3-overlay .map img {
+  position: absolute;
+  top: -100px;
+  left: -40px;
 }
 
 
