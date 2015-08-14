@@ -44,10 +44,10 @@ $('.nav').on('tapstart', function(e) {
 // 	alert(action);
 	if (action=="right") {
 		currView++;
-		if (currView>3) currView = 1;
+		if (currView>4) currView = 1;
 	} else {
 		currView--;
-		if (currView<1) currView = 3;
+		if (currView<1) currView = 4;
 	}
 	
 	switch (currView) {
@@ -59,6 +59,9 @@ $('.nav').on('tapstart', function(e) {
 		break;
 		case 3:
 			target = "#lesmis";
+		break;
+		case 4:
+			target = "#uber";
 		break;
 	}
 	
@@ -294,7 +297,7 @@ a { color: white; }
 			    </div>
 			    
 				<div class="controls" style="float: left; width: 1920px; text-align: center;">
-				    <a class="btn toggle selected" data-action="airbnb">airbnb</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="amex">AMEX</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="uber">uber</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="lesmis">Les Mis&eacute;rable</a>
+				    <a class="btn toggle selected" data-action="airbnb">AIRBNB</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="amex">AMEX</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="uber">UBER</a> &nbsp; &nbsp; <a class="btn toggle selected" data-action="lesmis">LES MIS&Eacute;RABLE</a>
 				    <p class="title" style="color: white; padding-top: 30px; font-size: 50px;">TOGGLE</p>
 			    </div>
 
@@ -303,8 +306,8 @@ a { color: white; }
 		    </div> <!-- /botnav-ctrl -->
 		    
 		    
-			    <div class="cpanel-nav" data-action="next" id="next" style="position: absolute; top: 50%; transform: translateY(-50%); right: 500px; "><img src="images/arrowR.png" height="120"></div>
-			    <div class="cpanel-nav" data-action="prev" id="prev" style="position: absolute; top: 50%; transform: translateY(-50%); left: 500px;"><img src="images/arrowL.png" height="120"></div>
+			    <div class="cpanel-nav" data-action="next" id="next" style="position: absolute; top: 50%; transform: translateY(-50%); right: 450px; "><img src="images/arrowR.png" height="120"></div>
+			    <div class="cpanel-nav" data-action="prev" id="prev" style="position: absolute; top: 50%; transform: translateY(-50%); left: 450px;"><img src="images/arrowL.png" height="120"></div>
 		    
 	    </div> <!-- /botnav -->
 	    
@@ -463,10 +466,10 @@ $(function() {
 </div>
 <div id="content-view">
 
-    <div id="airbnb" class="easein page ">
+    <div id="airbnb" class="easein page show">
 	   	<div class="particles" id="balloon"><img src="images/balloon-blur.png" width="300" height="300"></div>
 	    <img src="images/airbnb.jpg" width="1920" height="1080">
-	    <div class="particles" style="position: absolute; left: 50%; top: 55%; transform: translateX(-50%); background: #e34250; padding: 20px 40px; color: white;">SEARCH</div>
+	    <div class="particles" style="position: absolute; left: 50%; top: 55%; transform: translateX(-50%); font-size: 60px; background: #e34250; padding: 20px 40px; color: white;">SEARCH</div>
     </div>
     
 <!--
@@ -521,7 +524,7 @@ $(function() {
 #cloud1 {  -moz-animation: cloud1 60s infinite; }
 #cloud2 {  -moz-animation: cloud2 30s infinite; }
 #cloud3 {  -moz-animation: cloud3 39s infinite; }
-#fly {  -moz-animation: flyshake 5s infinite; }
+#fly, #amex-back {  -moz-animation: flyshake 5s infinite; }
 #plane {  -moz-animation: planeblur 1s infinite; }
 #plane2 {  -moz-animation: planehover 5s infinite; }
 
@@ -540,8 +543,8 @@ $(function() {
 	});
 });
 </script>
-    <div id="amex" class="easein page show" style="background-color: #85bfdb;">
-	    <img src="images/amex-bg.png" width="1920" height="1080" class="noselect" style="position: absolute; left: 0; ">
+    <div id="amex" class="easein page " style="background-color: #85bfdb;">
+	    <img src="images/amex-bg.png" width="1920" height="1080" class="" style="position: absolute; left: 0; ">
 
 	    <div class="particles" style="left: 960px; top: 30px;" id="plane"><img src="images/amex-plane-blur.png" ></div>
 	    <div class="particles" style="left: 960px; top: 30px;" id="plane2"><img src="images/amex-plane.png" ></div>
@@ -570,7 +573,7 @@ $(function() {
 	    
 
 	    <div class="particles" id="amex-logo" style="bottom: 5%; right: 4%; z-index: 1000;"><img src="images/amex-logo.png"></div>
-	    <div class="particles" style="bottom: 3%; right: 22%; padding: 25px 40px; color: white; background: red; font-size: 100px; z-index: 1000;">Apply here</div>
+	    <div class="particles" style="bottom: 3%; right: 22%; z-index: 1000;"><img src="images/amex-apply-here.png" width="300" ></div>
 
     </div>
     
@@ -579,7 +582,9 @@ $(function() {
 	    <div class="particles" style="position: absolute; left: 12.5%; top: 50%; background: #e34250; padding: 20px 40px; color: white;">Book Now</div>
     </div>
 
-
+	<div id="uber" class="easein page">
+	    <img src="images/uber-bg.jpg" width="1920" height="1080">
+    </div>
     
 </div>
 
