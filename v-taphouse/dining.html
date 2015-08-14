@@ -37,10 +37,11 @@
 
 <script type="text/javascript">
 $(function() {
-  // $('a').on('tapstart', function() {
-  // 	a++;
-  // 	console.log(a);
-  // });
+  $('a.tapstart').on('tapstart', function() {
+	window.location.href = $(this).attr('href');
+	//a++;
+	//console.log(a);
+});
 
   function slideAnim() {
   	$('#taphouse-diningmenu li').removeClass('active');
@@ -144,33 +145,33 @@ $(function() {
     <div id="taphouse-diningmenu">
       <div id="header">
           <div id="headerlogo">
-              <a href="index.html"><img src="images/taphouse-logo.png"/></a>
+              <a class="tapstart" href="index.html"><img src="images/taphouse-logo.png"/></a>
           </div>
       </div>
       <ul>
         <li class="diningmenu1">
-          <a href="dining-2.html"><img src="images/main_dining_premium.jpg">
+          <a class="tapstart" href="dining-2.html"><img src="images/main_dining_premium.jpg">
             <div class="panel-border">
               <div class="panel"><h1>Premium</h1></div>
             </div>
           </a>
         </li>
         <li class="diningmenu2">
-          <a href="dining-2.html"><img src="images/main_dining_casual.jpg">
+          <a class="tapstart" href="dining-2.html"><img src="images/main_dining_casual.jpg">
             <div class="panel-border">
               <div class="panel"><h1>Casual</h1></div>
             </div>
           </a>
         </li>
         <li class="diningmenu3">
-          <a href="dining-2.html"><img src="images/main_dining_small_bites.jpg">
+          <a class="tapstart" href="dining-2.html"><img src="images/main_dining_small_bites.jpg">
             <div class="panel-border">
               <div class="panel"><h1>Small Bites</h1></div>
             </div>
           </a>
         </li>
         <li class="diningmenu4">
-          <a href="dining-2.html"><img src="images/main_dining_exotic.jpg">
+          <a class="tapstart" href="dining-2.html"><img src="images/main_dining_exotic.jpg">
             <div class="panel-border">
               <div class="panel"><h1>Exotic</h1></div>
             </div>
@@ -183,17 +184,17 @@ $(function() {
               <div class="panel"><h1>Eat now</h1></div>
             </div>
           </a> -->
-          <a href="dining-3.html"><img src="images/main_dining_explore_more.jpg">
+          <img src="images/main_dining_explore_more.jpg">
             <div class="panel-border">
-              <div class="panel"><h1>Eat now</h1></div>
+              <a class="tapstart" href="dining-3.html"><div class="panel"><h1>Eat now</h1></div></a>
             </div>
           </a>
           <div class="bottom-text clearfix">
             <div id="count_label">Find a table for</div>
             <div id="count_adults" class="big-number">2</div>
             <div class="arrow-div">
-              <a href="#" class="arrow arrow-up"><span class="glyphicon"></span></a>
-              <a href="#" class="arrow arrow-down" data-min="1"><span class="glyphicon"></span></a>
+              <a href="#" class="arrow arrow-up"><span class="glyphicon"></span></a>
+              <a href="#" class="arrow arrow-down" data-min="1"><span class="glyphicon"></span></a>
               <div class="clear"></div>
             </div>
           </div>
