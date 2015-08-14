@@ -703,15 +703,15 @@ input[type="submit"] {
 }
 #venue-list .button-fill {
   background-color: #aaaaaa;
-    border: 1px solid white;
-    color: white;
-    font-family: loveloblack;
+  border: 1px solid white;
+  color: white;
+  font-family: loveloblack;
   font-size:30px;
-    margin: 10px 4px;
-    outline: 2px solid #aaaaaa;
-    padding: 6px 12px;
-    position: relative;
-    top: 30px;
+  margin: 10px 4px;
+  outline: 2px solid #aaaaaa;
+  padding: 6px 12px;
+  position: relative;
+  top: 30px;
 }
 #venue-list .button-fill.active {
 	background-color: #ab9769;
@@ -795,9 +795,12 @@ input[type="submit"] {
 #dining-col3 .clock-cont .button-fill {
   background-color: #aaaaaa;
   border: 1px solid white;
+  box-sizing: border-box;
   color: white;
+  display: inline-block;
   font-family: loveloblack;
   font-size:24px;
+  line-height: 34px;
   margin: 10px 4px;
   outline: 1px solid #aaaaaa;
   padding: 6px 12px;
