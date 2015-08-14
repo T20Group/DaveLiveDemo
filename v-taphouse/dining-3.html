@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Taphouse Demo</title>
+<meta name = "viewport" content ="width=device-width, minimum-scale=1, maximum-scale=1">
+
+<!-- META -->
+<meta charset = "utf-8">
+
+<!-- CSS -->
+<link rel="stylesheet" href="../css/reset.css" />
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="stylesheet" href="../css/slide-default.css" />
+<link rel="stylesheet" href="../css/slide-common.css" />
+<link rel="stylesheet" href="css/styles.css" />
+
+<!-- JS -->
+<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing-1.3.js"></script>
+<script type="text/javascript" src="../js/jquery.mobile-events.min.js"></script>
+
+<!-- cookie -->
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+
+<!-- iosSlider plugin -->
+<script type="text/javascript" src="../js/jquery.iosslider.js"></script>
+
+<body>
+
+<div id="main-container">
+
+<script type="text/javascript">
+$(function() {
+  $('a').on('tapstart', function() {
+  	//a++;
+  	//console.log(a);
+  });
+  $('.b_specials').on('tapstart', function() {
+    if(!$(this).parents('li').hasClass('active')) {
+      $('#venue-list li').removeClass('active');
+      $(this).parents('li').addClass('active');
+    }
+    $('#venue-list li .button-fill').removeClass('active');
+    $(this).addClass('active');
+    $('#dining-col3 #col3-overlay').removeClass('hidden');
+    $('#dining-col3 #col3-overlay .overlay, #dining-col3 #col3-overlay .map').addClass('hidden');
+    $('#dining-col3 #col3-overlay .specials').removeClass('hidden');
+  });
+  $('.b_map').on('tapstart', function() {
+    if(!$(this).parents('li').hasClass('active')) {
+      $('#venue-list li').removeClass('active');
+      $(this).parents('li').addClass('active');
+    }
+    $('#venue-list li .button-fill').removeClass('active');
+    $(this).addClass('active');
+    $('#dining-col3 #col3-overlay').removeClass('hidden');
+    $('#dining-col3 #col3-overlay .overlay, #dining-col3 #col3-overlay .specials').addClass('hidden');
+    $('#dining-col3 #col3-overlay .map').removeClass('hidden');
+  });
+  $('.b_book').on('tapstart', function() {
+    if(!$(this).parents('li').hasClass('active')) {
+      $('#venue-list li').removeClass('active');
+      $(this).parents('li').addClass('active');
+      //randomBooked($(this).data('booked'));
+      //setNights();
+      //$('#calendar-overlay #roomName').text($(this).data('roomname'));
+      //$('#calendar-overlay #roomImg').attr("src","images/hotelroom_"+$(this).data('bookid')+".jpg");
+    }
+    $('#venue-list li .button-fill').removeClass('active');
+    $(this).addClass('active');
+    $('#dining-col3 #col3-overlay').addClass('hidden');
+  });
+
+  $('#dining-col3 .arrow-up').on('tapstart', function() {
+    $(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) + 1);
+  });
+
+  $('#dining-col3 .arrow-down').on('tapstart', function() {
+    if (parseInt($(this).parent().prev('.big-number').text())!=$(this).data('min')) {
+      $(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) - 1);
+    }
+  });
+});
+</script>
+<div id="content-overlay"></div>
+<div id="content-nav" style="position: absolute; top: 20%; right: 10%; background: rgba(255, 255, 255, 0.5);">
+
+</div>
+<div id="content-view">
+	<div id="header">
+      <div id="headerlogo">
+          <a href="index.html"><img src="images/taphouse-logo.png"/></a>
+      </div><!-- headerlogo -->
+      <a id="back" href="dining.html">BACK</a>
+  </div>
+  <div id="taphouse-container">
+    <div id="dining-col2-scroll">
+      <div id="dining-col2">
+        <ul id="venue-list">
+          <li class="separator success">TABLES AVAILABLE NOW</li>
+          <li class="success">
+            <div class="col1"><img src="images/diningvenue_1.jpg" /></div>
+            <div class="col2">
+              <div class="col2-cont">
+                <h1>Bistro Guillaume</h1>
+                <div class="cuisine">Modern French</div>
+                <p>Inspired by France's most popular neighbourhood bistros, Bistro Guillaume Melbourne elevates the dining experience for a modern international audience.</p>
+                <div class="availability">Table available now</div>
+                <div class="button-group">
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
+                  <a class="button-fill b_book" href="#">Book</a>
+                </div>
+              </div>
+            </div>
+            <div class="arrow"></div>
+          </li>
+          <li class="success">
+            <div class="col1"><img src="images/diningvenue_2.jpg" /></div>
+            <div class="col2">
+              <div class="col2-cont">
+                <h1>Conservatory</h1>
+                <div class="cuisine">International</div>
+                <p>The Conservatory restaurant offers an array of international cuisine, with a series of different culinary stations, each offering a unique dining experience.</p>
+                <div class="availability">Table available now</div>
+                <div class="button-group">
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
+                  <a class="button-fill b_book" href="#">Book</a>
+                </div>
+              </div>
+            </div>
+            <div class="arrow"></div>
+          </li>
+          <li class="separator">TABLES WITH A WAIT</li>
+          <li>
+            <div class="col1"><img src="images/diningvenue_5.jpg" /></div>
+            <div class="col2">
+              <div class="col2-cont">
+                <h1>Mr. Hive Kitchen &#38; Bar</h1>
+                <div class="cuisine">Cuisine type</div>
+                <p>Crown Metropol proudly presents Mr. Hive Kitchen &#38; Bar - our signature restaurant offers diners Australian inspired modern dishes.</p>
+                <div class="availability">15 minute wait</div>
+                <div class="button-group">
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
+                  <a class="button-fill b_book" href="#">Book</a>
+                </div>
+              </div>
+            </div>
+            <div class="arrow"></div>
+          </li>
+          <li>
+            <div class="col1"><img src="images/diningvenue_4.jpg" /></div>
+            <div class="col2">
+              <div class="col2-cont">
+                <h1>Koko</h1>
+                <div class="cuisine">Cuisine type</div>
+                <p>To continue to improve our dining experience, Koko is now closed for renovations until September.</p>
+                <div class="availability">15 minute wait</div>
+                <div class="button-group">
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
+                  <a class="button-fill b_book" href="#">Book</a>
+                </div>
+              </div>
+            </div>
+            <div class="arrow"></div>
+          </li>
+          <li>
+            <div class="col1"><img src="images/diningvenue_6.jpg" /></div>
+            <div class="col2">
+              <div class="col2-cont">
+                <h1>No.8 by John Lawson</h1>
+                <div class="cuisine">Cuisine type</div>
+                <p>Inspired by regional produce, Executive Chef John Lawson delivers an urban sensibility to his Chef Hat award winning restaurant.</p>
+                <div class="availability">30 minute wait</div>
+                <div class="button-group">
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
+                  <a class="button-fill b_book" href="#">Book</a>
+                </div>
+              </div>
+            </div>
+            <div class="arrow"></div>
+          </li>
+          <li>
+            <div class="col1"><img src="images/diningvenue_3.jpg" /></div>
+            <div class="col2">
+              <div class="col2-cont">
+                <h1>Dinner by Heston Blumenthal</h1>
+                <div class="cuisine">Cuisine type</div>
+                <p>Dinner by Heston Blumenthal offers diners a very modern interpretation of historic British gastronomy. <strong>Coming Soon</strong></p>
+                <div class="availability">1 hour wait</div>
+                <div class="button-group">
+                  <a class="button-fill b_specials" href="#">Specials</a>
+                  <a class="button-fill b_map" href="#">Map</a>
+                  <a class="button-fill b_book" href="#">Book</a>
+                </div>
+              </div>
+            </div>
+            <div class="arrow"></div>
+          </li>
+        </ul>
+      </div><!-- dining-col2 -->
+    </div><!-- dining-col2-scroll -->
+    <div id="dining-col3">
+      <div id="col3-overlay">
+        <div class="overlay">
+          <h1>Select a venue to book</h1>
+        </div>
+        <div class="specials hidden">
+          <h1>Specials</h1>
+        </div>
+        <div class="map hidden">
+          <h1>Map</h1>
+        </div>
+      </div><!-- col3-overlay -->
+      <h1 class="col-header">MAKE A RESERVATION</h1>
+      <div id="book-div">
+        <div class="col">
+          <div class="label">TABLE FOR</div>
+          <div class="bottom-text clearfix">
+            <div id="count_adults" class="big-number">2</div>
+              <div class="arrow-div">
+                <a href="#" class="arrow arrow-up"><span class="glyphicon">&#xE113;</span></a>
+                <a href="#" class="arrow arrow-down" data-min="1"><span class="glyphicon">&#xE114;</span></a>
+                <div class="clear"></div>
+              </div>
+          </div>
+        </div>
+      </div><!-- dining-book-div -->
+      <div class="clock-cont">
+        <div class="col">
+          <div class="label">TIME</div>
+          <div class="button-group">
+            <button class="button-fill">NOW</button>
+            <button class="button-fill">7:30pm</button>
+            <button class="button-fill disabled">8:00pm</button>
+            <button class="button-fill disabled">8:30pm</button>
+          </div>
+          <div class="button-group">
+            <button class="button-fill">9:00pm</button>
+            <button class="button-fill">9:30pm</button>
+            <button class="button-fill">10:00pm</button>
+            <button class="button-fill">10:30pm</button>
+          </div>
+        </div>
+      </div><!-- dining-clock-cont -->
+      <div class="contact-div">
+        <div class="col">
+          <div class="label" for="name-input">YOUR NAME</div>
+          <div><input id="name-input" type="text"></div>
+        </div>
+        <div class="col">
+          <div class="label" for="name-input">YOUR EMAIL OR MOBILE</div>
+          <div><input id="contact-input" type="text"></div>
+          <div><a class="button-fill" href="#">Book</a></div>
+        </div>
+      </div><!-- dining-contact-div -->
+    </div><!-- dining-col3 -->
+  </div><!-- taphouse-container -->
+</div>
+
+<script>
+$('.clock-cont .button-fill').on('tapstart', function() {
+  if (!$(this).hasClass('disabled')) {
+    $('.clock-cont .button-fill').removeClass('active');
+    $(this).addClass('active');
+  }
+});
+
+</script>
+</div> <!-- /#main-container -->
+</body>
+</html>

@@ -638,6 +638,20 @@ h1, h2 {
 	float:left;
 }
 
+#venue-list li.separator {
+  background-color: #ab9769;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: "loveloblack";
+  font-size: 28px;
+  line-height: 1em;
+  padding: 22px;
+  width: 960px;
+}
+#venue-list li.separator.success {
+  background-color: #679428;
+}
+
 #venue-list li.active .col2 {
 	background-color:#e8ddc4;
 }
@@ -924,6 +938,20 @@ h1, h2 {
   display: block;
   margin: 0 auto;
   opacity: 1 !important;
+}
+
+#back {
+  position: absolute;
+  left: 25px;
+  top: 70px;
+  box-shadow: 1px 2px 20px 0px rgba(0, 0, 0, 1) inset;
+  color: rgb(175, 175, 175);
+  font-family: "loveloblack";
+  font-size: 24px;
+  line-height: 1em;
+  padding: 8px 40px;
+  text-align: center;
+  display: block;
 }
 
 #map-focus {
