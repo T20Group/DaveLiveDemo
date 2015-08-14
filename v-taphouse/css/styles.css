@@ -57,6 +57,14 @@ h1, h2 {
     user-select: all;
 }
 
+button,
+input[type="color"]:-moz-system-metric(color-picker-available),
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  -moz-appearance: none;
+}
+
 /* STYLES */
 
 #header {
@@ -949,7 +957,7 @@ h1, h2 {
 
 #back {
   position: absolute;
-  left: 25px;
+  right: 25px;
   top: 70px;
   box-shadow: 1px 2px 20px 0px rgba(0, 0, 0, 1) inset;
   color: rgb(175, 175, 175);
