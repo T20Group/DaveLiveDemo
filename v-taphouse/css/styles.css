@@ -62,7 +62,8 @@ input[type="color"]:-moz-system-metric(color-picker-available),
 input[type="reset"],
 input[type="button"],
 input[type="submit"] {
-  -moz-appearance: none;
+  -moz-appearance: none !important;
+  background-image: none !important;
 }
 
 /* STYLES */
@@ -702,15 +703,15 @@ input[type="submit"] {
 }
 #venue-list .button-fill {
   background-color: #aaaaaa;
-    border: 1px solid white;
-    color: white;
-    font-family: loveloblack;
+  border: 1px solid white;
+  color: white;
+  font-family: loveloblack;
   font-size:30px;
-    margin: 10px 4px;
-    outline: 2px solid #aaaaaa;
-    padding: 6px 12px;
-    position: relative;
-    top: 30px;
+  margin: 10px 4px;
+  outline: 2px solid #aaaaaa;
+  padding: 6px 12px;
+  position: relative;
+  top: 30px;
 }
 #venue-list .button-fill.active {
 	background-color: #ab9769;
@@ -752,7 +753,7 @@ input[type="submit"] {
 	z-index:100;
 }
 #dining-col3 #col3-overlay h1 {
-	margin-top:400px;
+	margin-top:340px;
 	color:#CCC;
 	font-size:50px;
 }
@@ -794,9 +795,12 @@ input[type="submit"] {
 #dining-col3 .clock-cont .button-fill {
   background-color: #aaaaaa;
   border: 1px solid white;
+  box-sizing: border-box;
   color: white;
+  display: inline-block;
   font-family: loveloblack;
   font-size:24px;
+  line-height: 34px;
   margin: 10px 4px;
   outline: 1px solid #aaaaaa;
   padding: 6px 12px;
@@ -819,7 +823,38 @@ input[type="submit"] {
   top: -100px;
   left: -40px;
 }
-
+#dining-col3 #col3-overlay .specials {
+  width: 880px;
+}
+#dining-col3 #col3-overlay .specials h1 {
+  margin-top: 0 !important;
+  color: #666 !important;
+  font-size: 30px !important;
+  margin-bottom: 36px;
+}
+#dining-col3 #col3-overlay .specials .dining-special {
+  float: left;
+  width: 375px;
+  box-sizing: border-box;
+  text-align: left;
+  margin-bottom: 100px;
+}
+#dining-col3 #col3-overlay .specials .dining-special:first-child {
+  margin-left: 40px;
+  margin-right: 50px;
+}
+#dining-col3 #col3-overlay .specials .heading {
+  font-family: "loveloblack";
+  color: #ab9769;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: left;
+  margin-top: 24px;
+}
+#dining-col3 #col3-overlay .specials p {
+  font-size: 16px;
+  line-height: 24px;
+}
 
 /* DINING - EXPLORE MORE */
 .dining-explore-more {

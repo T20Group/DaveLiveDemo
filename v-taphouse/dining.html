@@ -38,10 +38,10 @@
 <script type="text/javascript">
 $(function() {
   $('a.tapstart').on('tapstart', function() {
-	window.location.href = $(this).attr('href');
-	//a++;
-	//console.log(a);
-});
+  	window.location.href = $(this).attr('href');
+  	//a++;
+  	//console.log(a);
+  });
 
   function slideAnim() {
   	$('#taphouse-diningmenu li').removeClass('active');
@@ -144,9 +144,10 @@ $(function() {
   <div id="taphouse-container">
     <div id="taphouse-diningmenu">
       <div id="header">
-          <div id="headerlogo">
-              <a class="tapstart" href="index.html"><img src="images/taphouse-logo.png"/></a>
-          </div>
+        <div id="headerlogo">
+            <a class="tapstart" href="index.html"><img src="images/taphouse-logo.png"></a>
+        </div><!-- headerlogo -->
+        <a id="back" class="tapstart" href="dining.html">BACK</a>
       </div>
       <ul>
         <li class="diningmenu1">

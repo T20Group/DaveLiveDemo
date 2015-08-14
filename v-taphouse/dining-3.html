@@ -32,7 +32,8 @@
 
 <script type="text/javascript">
 $(function() {
-  $('a').on('tapstart', function() {
+  $('a.tapstart').on('tapstart', function() {
+  	window.location.href = $(this).attr('href');
   	//a++;
   	//console.log(a);
   });
@@ -94,9 +95,9 @@ $(function() {
 <div id="content-view">
 	<div id="header">
     <div id="headerlogo">
-        <a href="index.html"><img src="images/taphouse-logo.png"/></a>
+        <a class="tapstart" href="index.html"><img src="images/taphouse-logo.png"></a>
     </div><!-- headerlogo -->
-    <a id="back" href="dining.html">BACK</a>
+    <a id="back" class="tapstart" href="dining.html">BACK</a>
   </div>
   <div id="taphouse-container">
     <div id="dining-col2-scroll">
@@ -215,7 +216,20 @@ $(function() {
           <h1>Select a venue to book</h1>
         </div>
         <div class="specials hidden">
-          <h1>Specials</h1>
+          <h1 class="col-header">Today's Specials</h1>
+          <div class="clearfix">
+            <div class="dining-special">
+              <img src="images/special-1.jpg" alt="Special 1">
+              <div class="heading">Signature Specials</div>
+              <p>Enjoy our famous signature dishes paired with a glass of wine for $20.</p>
+            </div>
+            <div class="dining-special">
+              <img src="images/special-2.jpg" alt="Special 2">
+              <div class="heading">$50 Weekday DINNER Indulgence</div>
+              <p>Indulge in a two course weekday dinner for only $50.</p>
+            </div>
+          </div>
+          <a href="#" class="button-fill">Book now</a>
         </div>
         <div class="map hidden">
           <h1 class="hidden">Map</h1>
@@ -240,16 +254,16 @@ $(function() {
         <div class="col">
           <div class="label">TIME</div>
           <div class="button-group">
-            <button class="button-fill">NOW</button>
-            <button class="button-fill">7:30pm</button>
-            <button class="button-fill disabled">8:00pm</button>
-            <button class="button-fill disabled">8:30pm</button>
+            <a href="#" class="button-fill">NOW</a>
+            <a href="#" class="button-fill">7:30pm</a>
+            <a href="#" class="button-fill disabled">8:00pm</a>
+            <a href="#" class="button-fill disabled">8:30pm</a>
           </div>
           <div class="button-group">
-            <button class="button-fill">9:00pm</button>
-            <button class="button-fill">9:30pm</button>
-            <button class="button-fill">10:00pm</button>
-            <button class="button-fill">10:30pm</button>
+            <a href="#" class="button-fill">9:00pm</a>
+            <a href="#" class="button-fill">9:30pm</a>
+            <a href="#" class="button-fill">10:00pm</a>
+            <a href="#" class="button-fill">10:30pm</a>
           </div>
         </div>
       </div><!-- dining-clock-cont -->
