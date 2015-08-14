@@ -1,0 +1,14 @@
+{
+  "name": "Dave Live Demo",
+  "description": "My elevator pitch goes here",
+  "launch_path": "/index.html",
+  "icons": {
+    "512": "/img/icon-512.png",
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "T20 Group",
+    "url": "http://www.t20group.com.au"
+  },
+  "default_locale": "en"
+}
