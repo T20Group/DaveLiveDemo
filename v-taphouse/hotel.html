@@ -75,6 +75,13 @@ $('a.tapstart').on('tapstart', function() {
 			}
 		}
 	});
+	$(".b_confirm").on("tapstart",function(){
+		$('#hotel-col1-scroll').removeClass('move');
+		$('#hotel-col2').removeClass('move');
+		$('#col2-overlay').removeClass('hidden');
+		$('#col2-overlay .overlay').addClass('hidden');
+		$('#col2-overlay .confirm').removeClass('hidden');
+	});
 
 });
 </script>
@@ -141,7 +148,12 @@ $('a.tapstart').on('tapstart', function() {
         </div><!-- hotel-col1-scroll -->
         <div id="hotel-col2">
         	<div id="col2-overlay">
-            	<h1>Select a room to book</h1>
+							<div class="overlay">
+            		<h1>Select a room to book</h1>
+							</div>
+							<div class="confirm hidden">
+			          <h1>Booking confirmed</h1>
+			        </div>
             </div>
         	<h1 class="col-header">SELECT YOUR DATES</h1>
             <div class="calendar-cont">
@@ -306,7 +318,7 @@ $('a.tapstart').on('tapstart', function() {
 						<div id="book-price" class="big-number">$898</div>
 						<div><label for="contact-input">Enter your mobile or email to proceed</label></div>
 						<div><input id="contact-input" type="text"></div>
-						<div><a class="button-fill" href="#">Book</a></div>
+						<div><a class="button-fill b_confirm" href="#">Book</a></div>
 					</div>
         </div><!-- hotel-col3 -->
     </div><!-- taphouse-container -->
