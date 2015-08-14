@@ -71,14 +71,18 @@ $(function() {
     $(this).addClass('active');
     $('#dining-col3 #col3-overlay').addClass('hidden');
   });
-
   $('#dining-col3 .arrow-up').on('tapstart', function() {
     $(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) + 1);
   });
-
   $('#dining-col3 .arrow-down').on('tapstart', function() {
     if (parseInt($(this).parent().prev('.big-number').text())!=$(this).data('min')) {
       $(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) - 1);
+    }
+  });
+  $('.clock-cont .button-fill').on('tapstart', function() {
+    if (!$(this).hasClass('disabled')) {
+      $('.clock-cont .button-fill').removeClass('active');
+      $(this).addClass('active');
     }
   });
 });
@@ -89,9 +93,10 @@ $(function() {
 </div>
 <div id="content-view">
 	<div id="header">
-      <div id="headerlogo">
-          <a href="index.html"><img src="images/taphouse-logo.png"/></a>
-      </div><!-- headerlogo -->
+    <div id="headerlogo">
+        <a href="index.html"><img src="images/taphouse-logo.png"/></a>
+    </div><!-- headerlogo -->
+    <a id="back" href="dining.html">BACK</a>
   </div>
   <div id="taphouse-container">
     <div id="dining-col2-scroll">
@@ -260,16 +265,6 @@ $(function() {
     </div><!-- dining-col3 -->
   </div><!-- taphouse-container -->
 </div>
-
-<script>
-$('.clock-cont .button-fill').on('tapstart', function() {
-  if (!$(this).hasClass('disabled')) {
-    $('.clock-cont .button-fill').removeClass('active');
-    $(this).addClass('active');
-  }
-});
-
-</script>
 </div> <!-- /#main-container -->
 </body>
 </html>
