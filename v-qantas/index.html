@@ -459,6 +459,18 @@ $(function() {
 });
 </script>
 
+<style type="text/css">
+@-moz-keyframes aura1 {
+	0%   { opacity: 0; }
+	50%  { opacity: .5; }
+	100%  { opacity: 0; }
+	}
+	
+#aura1 { top: 250px; mix-blend-mode: screen; -moz-animation: aura1 1s infinite; }
+#aura2 { top: 250px; mix-blend-mode: screen; -moz-animation: aura1 1.5s infinite; }
+#aura3 { top: 250px; mix-blend-mode: screen; -moz-animation: aura1 1s infinite; }
+</style>
+
 
 <div id="content-nav">
 	<a id="right" class="nav" href="#"><img src="images/arrowR.png" width="110" height="213"></a>
@@ -468,6 +480,9 @@ $(function() {
 
     <div id="airbnb" class="easein page show">
 	   	<div class="particles" id="balloon"><img src="images/balloon-blur.png" width="300" height="300"></div>
+	   	<div class="particles" id="aura1"><img src="images/airbnb-aura1.png"></div>
+	   	<div class="particles" id="aura2"><img src="images/airbnb-aura2.png"></div>
+	   	<div class="particles" id="aura3"><img src="images/airbnb-aura3.png"></div>
 	    <img src="images/airbnb.jpg" width="1920" height="1080">
 	    <div class="particles" style="position: absolute; left: 50%; top: 55%; transform: translateX(-50%); font-size: 50px; background: #e34250; padding: 20px 40px; color: white;">Find a place</div>
     </div>
@@ -488,16 +503,20 @@ $(function() {
 <style type="text/css">
 @-moz-keyframes cloud1 {
 	0%   { left: 100%; }
-	100%  { left: -50%; }
+	100%  { left: -50%; top:500px; }
+	}
+@-moz-keyframes cloud4 {
+	0%   { left: 100%; top: 400px; }
+	30%  { left: 100%; top: 400px; }
+	100%  { left: -50%; top:1050px; }
 	}
 @-moz-keyframes cloud2 {
 	0%   { left: 100%; }
-	80%  { left: -50%; }
-	100%  { left: -50%; }
+	100%  { left: -50%; top:1200px;}
 	}
 @-moz-keyframes cloud3 {
 	0%   { left: 100%; }
-	100%  { left: -100%; }
+	100%  { left: -50%; top:800px;}
 	}
 @-moz-keyframes flyshake {
 	0%   { transform: rotate(0deg); }
@@ -521,9 +540,10 @@ $(function() {
 	75%    { margin-left: 3px; top: 30px; }
 	100%   { margin-left: 0px; }
 	}
-#cloud1 {  -moz-animation: cloud1 60s infinite; }
-#cloud2 {  -moz-animation: cloud2 30s infinite; }
-#cloud3 {  -moz-animation: cloud3 39s infinite; }
+#cloud1 {  -moz-animation: cloud1 13s infinite; position: absolute; }
+#cloud2 {  -moz-animation: cloud2 12s infinite; position: absolute; }
+#cloud3 {  -moz-animation: cloud3 11s infinite; position: absolute; }
+#cloud4 {  -moz-animation: cloud4 15s infinite; position: absolute; }
 #fly, #amex-back {  -moz-animation: flyshake 5s infinite; }
 #plane {  -moz-animation: planeblur 1s infinite; }
 #plane2 {  -moz-animation: planehover 5s infinite; }
@@ -545,12 +565,14 @@ $(function() {
 </script>
     <div id="amex" class="easein page " style="background-color: #85bfdb;">
 	    <img src="images/amex-bg.png" width="1920" height="1080" class="" style="position: absolute; left: 0; ">
+		
+	    <div class="" style="left: -50%; top: 80px;"  id="cloud1"><img src="images/amex-cloud.png" height="100"></div>
+	    <div class="" style="left: -50%; top: 400px;"  id="cloud4"><img src="images/amex-cloud.png" height="100"></div>
 
 	    <div class="particles" style="left: 960px; top: 30px;" id="plane"><img src="images/amex-plane-blur.png" ></div>
 	    <div class="particles" style="left: 960px; top: 30px;" id="plane2"><img src="images/amex-plane.png" ></div>
-	    <div class="particles" style="left: -50%; top: 80px;"  id="cloud1"><img src="images/amex-cloud.png" height="100"></div>
-	    <div class="particles" style="left: -50%; top: 450px;" id="cloud2"><img src="images/amex-cloud.png" height="250"></div>
-	    <div class="particles" style="left: -50%; top: 600px;" id="cloud3"><img src="images/amex-cloud.png" height="200"></div>
+	    <div class="" style="left: -50%; top: 450px;" id="cloud2"><img src="images/amex-cloud.png" height="250"></div>
+	    <div class="" style="left: -50%; top: 200px;" id="cloud3"><img src="images/amex-cloud.png" height="200"></div>
 	    <div class="particles" style="left: 350px; top: 350px;" id="fly"><img src="images/amex-fly.png"></div>
 	    
 	    
