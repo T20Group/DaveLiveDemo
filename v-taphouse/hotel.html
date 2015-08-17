@@ -34,9 +34,8 @@
 $(function() {
 
 $('a.tapstart').on('tapstart', function() {
-	window.location.href = $(this).attr('href');
-	//a++;
-	//console.log(a);
+	window.location = $(this).attr('href');
+	event.preventDefault();
 });
 
 	$('.b_book').on('tapstart', function() {
