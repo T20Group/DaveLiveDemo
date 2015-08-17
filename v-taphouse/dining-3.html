@@ -36,8 +36,9 @@ $(function() {
       $('body').addClass('loaded');
   }, 3000);
   $('a.tapstart').on('tapstart', function() {
-  	window.location = $(this).attr('href');
-	event.preventDefault();
+  	window.location.href = $(this).attr('href');
+  	//a++;
+  	//console.log(a);
   });
 
   var get = localStorage.getItem("set");

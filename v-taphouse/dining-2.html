@@ -33,8 +33,9 @@
 <script type="text/javascript">
 $(function() {
   $('a.tapstart').on('tapstart', function() {
-  	window.location = $(this).attr('href');
-	event.preventDefault();
+  	window.location.href = $(this).attr('href');
+  	//a++;
+  	//console.log(a);
   });
   $('.b_specials').on('tapstart', function() {
     if(!$(this).parents('li').hasClass('active')) {
