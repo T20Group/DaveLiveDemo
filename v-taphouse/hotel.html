@@ -76,17 +76,56 @@ $('a.tapstart').on('tapstart', function() {
 		}
 	});
 	$(".b_confirm").on("tapstart",function(){
+		// Move panels back to col1 & col2
 		$('#hotel-col1-scroll').removeClass('move');
 		$('#hotel-col2').removeClass('move');
+		// Show #col2-overlay
 		$('#col2-overlay').removeClass('hidden');
+		// Hide .overlay
 		$('#col2-overlay .overlay').addClass('hidden');
+		// Show .confirm
 		$('#col2-overlay .confirm').removeClass('hidden');
+		// Hide #calendar-overlay
+		$('#calendar-overlay').addClass('hidden');
+		// Initialise text and calendar
+		// Reset header text
+		$('#hotel-col2 .col-header').text('SELECT YOUR DATES');
+		// Reset calendar controls
+		$('.arrow-div').removeClass('hidden');
+		$('.b_month').removeClass('hidden');
+		// Reset nights booked text
+		$('#nightstext, #checkintext, #checkouttext').html('&nbsp;');
+		// Reset adults (1), children (0) & rooms (1)
+		$('#count_adults, #count_rooms').html('1');
+		$('#count_children').html('0');
+		// Reset button text
+		$('#booking-next').text('NEXT');
+		// Reset calendar selected dates
+		if($('.calendar-days li a').hasClass('active')) {
+			$('.calendar-days li a').removeClass('active');
+		}
 	});
+
+	// home button
+	$('#content-nav > .hotspot').on('swiperight', function() {
+		console.log('open');
+		$('#link-holder').fadeIn();
+	});
+	$('#content-nav > .hotspot').on('swipeleft', function() {
+		$('#link-holder').fadeOut();
+		console.log('close');
+	});
+
 
 });
 </script>
 <div id="content-overlay"></div>
-<div id="content-nav" style="position: absolute; top: 20%; right: 10%; background: rgba(255, 255, 255, 0.5);">
+<div id="content-nav" style="">
+
+	<div class="hotspot" style="height: 150px; width: 200px;  z-index: 9000; position: absolute; border: 0px solid rgba(0, 255, 0, 0); background: rgba(0, 255, 0, 0.0);"></div>
+	<div id="link-holder" class="noselect" style="border: 1px solid rgba(0, 255, 255, 1); background: rgba(0, 255, 255, 0.3); padding: 20px; position: absolute; border: 0px solid white; color: white; z-index: 9000; display: none;" >
+    <a href="../v-homescreen/index.html" id="homescreen" style="color: white; padding: 20px 40px; border: 0px solid white;">Home</a>
+	</div>
 
 </div>
 <div id="content-view">

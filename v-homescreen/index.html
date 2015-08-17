@@ -56,6 +56,9 @@ $('#one').on('tapstart', function() {
 	$('#three').addClass('posL');
 	$('.demo-bg').removeClass('show');
 	$('#one-bg').addClass('show');
+	
+	$('.links').removeClass('selected');
+	$('#qantas').addClass('selected');
 
 });
 
@@ -66,7 +69,9 @@ $('#two').on('tapstart', function() {
 	$('#three').addClass('posR');
 	$('.demo-bg').removeClass('show');
 	$('#two-bg').addClass('show');	
-
+	
+	$('.links').removeClass('selected');
+	$('#simonds').addClass('selected');
 });
 
 $('#three').on('tapstart', function() {
@@ -76,10 +81,27 @@ $('#three').on('tapstart', function() {
 	$('#two').addClass('posL');
 	$('.demo-bg').removeClass('show');
 	$('#three-bg').addClass('show');
-
+	
+	$('.links').removeClass('selected');
+	$('#taphouse').addClass('selected');
 });
-
-
+	
+	
+$('#bigbtn').on('tapstart', function() {
+	alert( $('#demo-container').find('.posM') );
+	
+});
+	
+	// home button
+	$('#content-nav > .hotspot').on('swiperight', function() {
+		console.log('open');
+		$('#link-holder').fadeIn();
+	});
+	$('#content-nav > .hotspot').on('swipeleft', function() {
+		$('#link-holder').fadeOut();
+		console.log('close');
+	});
+	
 
 
 
@@ -116,7 +138,7 @@ a { color: white; }
 	
 .particles { position: absolute; }
 .enter { left:50%; top : 130%; background: red; padding: 10px 20px; color: white; font-size: 30px; opacity: 0; } /* left: 50%; */
-.posM > .enter { top : 160%; transform: scale(1.5,1.5); opacity: 1; }
+.posM > .enter { top : 160%; transform: scale(1.5,1.5); opacity: 0; }
 .logo { left: 25%; top : 20%; }
 
 /* qantas */
@@ -125,7 +147,7 @@ a { color: white; }
 	.posM > #balloon { top: -150px; left: 350px; transform: scale(2); -moz-animation: hover 3s infinite; filter: blur(1px); }
 
 	
-	#one.posM > .logo { top : 25%; left: 48%; }
+	#one.posM > .logo { top : 45%; left: 48%;transform: scale(1.5); }
 	
 	
 
@@ -141,9 +163,9 @@ a { color: white; }
 
 /* taphouse */
 #three { }
-#three .logo { }
-	#three.posM > .logo { top : 35%; left: 45%; transform: scale(2);}
-	#three.posM > .enter { left: 55%; }
+#three .logo { transform: scale(0.6); top : -20%; left: 10%; }
+	#three.posM > .logo { top : -15%; left: 25%; transform: scale(1.5);}
+	#three.posM > .enter { left: 35%; }
 /* animations */
 #btn-floorplan { -moz-animation: hoverplan 15s infinite; position: absolute; left: 0px;  bottom: 50px; }
 
@@ -155,20 +177,28 @@ a { color: white; }
 	100% { margin-bottom: 0; }
 	}
 	
+
+.links { height: 500px; width: 500px; background: rgba(0, 255, 255, 0.0); position: absolute; z-index: 0; left:50%; top: 50%; transform: translate(-50%, -50%); }
+.links.selected { z-index: 9999; }
 </style>
 
 
 <div id="content-overlay"></div>
 <div id="content-nav">
 
+		<div class="hotspot" style="height: 15%; width: 200px;  z-index: 9000; position: absolute; border: 0px solid rgba(0, 255, 0, 0); background: rgba(0, 255, 0, 0.0);"></div>
+		<div id="link-holder" class="noselect" style="border: 1px solid rgba(0, 255, 255, 1); background: rgba(0, 255, 255, 0.3); padding: 20px; position: absolute; border: 0px solid white; color: white; z-index: 9000; display: none;" >
+	    <a href="index.html" id="homescreen" style="padding: 20px 40px; border: 0px solid white;">Home</a>
+		</div>
+		
+		
+		<a id="qantas"   class="links selected" href="../v-qantas/index.html" style=""></a>
+		<a id="simonds"  class="links" href="../v-simonds-prototype/index.html" style=""></a>
+		<a id="taphouse" class="links" href="../v-taphouse/index.html" style=""></a>
+
 </div>
 <div id="content-view">
-	<div id="header" style="position: absolute; left: 50%;">
-        <div id="headerlogo" >
-            <a href="#"></a>
-        </div><!-- headerlogo -->
-
-    </div>
+	
     <div id="demo-container">
 		<div id="one" class="demos posM" style="">
 			<div class="bg" style=""></div>
@@ -189,7 +219,7 @@ a { color: white; }
 		<div id="three" class="demos posL" style="">
 			<div class="bg" style=""></div>
 <!-- 			Tap House -->
-			<div class="particles logo"><img src="images/taphouse-logo.png" alt="taphouse-logo" width="229" height="161"></div>
+			<div class="particles logo"><img src="images/merivale-logo.png" height="400"></div>
 			<div class="particles enter"><a href="../v-taphouse/index.html">Explore</a></div>
 		</div>
     </div><!-- demo-container -->

@@ -191,6 +191,17 @@ $(function() {
 	}
 	
 	
+	
+	// home button
+	$('#navigation > .hotspot').on('swiperight', function() {
+		console.log('open');
+		$('#link-holder').fadeIn();
+	});
+	$('#navigation > .hotspot').on('swipeleft', function() {
+		$('#link-holder').fadeOut();
+		console.log('close');
+	});
+	
 });
 </script>
 
@@ -228,6 +239,12 @@ $(function() {
 	- Live mini floorplan
 	- Gallery Control
 	-->
+    
+    <div class="hotspot" style="height: 150px; width: 200px;  z-index: 9000; position: absolute; border: 0px solid rgba(0, 255, 0, 0); background: rgba(0, 255, 0, 0.0);"></div>
+	<div id="link-holder" class="noselect easein" style="border: 1px solid rgba(0, 255, 255, 1); background: rgba(0, 255, 255, 0.3); padding: 20px; position: absolute; border: 0px solid white; color: white; z-index: 9000; display: none;" >
+    <a href="../v-homescreen/index.html" id="homescreen" style="color: white; padding: 20px 40px; border: 0px solid white;">Home</a>
+	</div>
+
     
     <div id="main-nav">
 	    <div id="call-main-menu">
