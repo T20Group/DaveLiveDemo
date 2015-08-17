@@ -287,7 +287,7 @@ a { color: white; }
 				<div class="control-container easein posL" style="position: absolute; width: 5760px; border: 0px solid blue;">
 					
 			    <div class="controls" style="float: left; width: 1920px; text-align: center;">
-				    <a class="btn popup" data-action="show-arrival">ARRIVAL</a> &nbsp; &nbsp; <a class="btn popup" data-action="show-departure">DEPARTURE</a>
+				    <a class="btn popup" data-action="show-arrival">ARRIVALS</a> &nbsp; &nbsp; <a class="btn popup" data-action="show-departure">DEPARTURES</a>
 				    <p class="title" style="text-align: center; color: white; padding-top: 30px; font-size: 50px;">SCHEDULE</p>
 			    </div>
 			    
@@ -316,7 +316,7 @@ a { color: white; }
 		    
 		    <div style="border: 0px solid white; top: 15%; left: 48%; height: 300px; width: 900px; position: absolute; ">
 			    <div id="show-arrival" class="schedules">
-				    <h1>SYDNEY ARRIVAL</h1>
+				    <h1>SYDNEY ARRIVALS</h1>
 				    <img src="images/arrival.png" width="937" height="720">
 <!--
 				    <div class="schedule-container">
@@ -364,7 +364,7 @@ a { color: white; }
 			    </div> <!-- /arrival -->
 			    
 			    <div id="show-departure" class="schedules">
-				    <h1>SYDNEY DEPARTURE</h1>
+				    <h1>SYDNEY DEPARTURES</h1>
 				    <img src="images/depart.png" width="937" height="720">
 			    </div>
 			    
@@ -588,8 +588,6 @@ $(function() {
 		    <img src="images/amex-bg2.png" width="1920" height="1080" class="noselect" style="position: absolute; left: 0; ">
 		    
 			<img id="amex-back" class="particles " style="top: 30px; left: 1530px;" src="images/amex-back.png">
-
-		    
 	    </div>
 	    
 	    
@@ -600,7 +598,10 @@ $(function() {
     </div>
     
     <div id="lesmis" class="easein page">
-	    <img src="images/miserable.jpg" width="1920" height="1080">
+    	<video width="1920" height="1080" loop autoplay muted>
+          <source src="assets/lesmis.mp4" type="video/mp4">
+        </video>
+	   <!-- <img src="images/miserable.jpg" width="1920" height="1080">-->
 	    <div class="particles" style="position: absolute; left: 12.5%; top: 50%; background: #e34250; padding: 20px 40px; color: white;">Book Now</div>
     </div>
 
