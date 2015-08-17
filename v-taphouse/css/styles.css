@@ -1012,7 +1012,7 @@ input[type="submit"] {
   opacity: 1 !important;
 }
 
-#back {
+#back, #admin {
   position: absolute;
   right: 25px;
   top: 70px;
