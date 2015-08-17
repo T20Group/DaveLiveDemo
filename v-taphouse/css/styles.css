@@ -74,9 +74,9 @@ input[type="submit"] {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5000;
+  width: 1920px;
+  height: 1080px;
+  z-index: 3000;
 }
 .loaded #loader-overlay {
   display: none;
@@ -101,7 +101,7 @@ input[type="submit"] {
 	height:133px;
 	background:url(../images/top-bar.jpg);
 	text-align:center;
-	z-index:1000;
+	z-index:3001;
 	position:relative;
 }
 
@@ -1031,6 +1031,12 @@ input[type="submit"] {
   padding: 8px 40px;
   text-align: center;
   display: block;
+}
+#admin {
+	right: auto;
+	left: 1440px;
+	transform: translateX(-50%);
+	opacity: 0.1;
 }
 
 #map-focus {
