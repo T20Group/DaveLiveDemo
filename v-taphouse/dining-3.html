@@ -32,6 +32,9 @@
 
 <script type="text/javascript">
 $(function() {
+  setTimeout(function(){
+      $('body').addClass('loaded');
+  }, 5000);
   $('a.tapstart').on('tapstart', function() {
   	window.location.href = $(this).attr('href');
   	//a++;
@@ -109,6 +112,9 @@ $(function() {
 
 });
 </script>
+<div id="loader-overlay">
+  <div id="loader">FINDING YOU A TABLE NOW...</div>
+</div>
 <div id="content-overlay"></div>
 <div id="content-nav" style="">
 
