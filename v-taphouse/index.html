@@ -33,8 +33,10 @@
 <script type="text/javascript">
 $(function() {
 
-$('a.tapstart').on('tapstart', function() {
+$('a.tapstart').on('tapstart', function( event ) {
+	alert($(this).attr('href'));
 	window.location.href = $(this).attr('href');
+	event.preventDefault();
 	//a++;
 	//console.log(a);
 });
@@ -119,12 +121,12 @@ var tid = setInterval(slideAnim, timer);
                     	<div class="panel"><h1>Restaurants</h1></div>
                     </div></a>
                 </li>
-                <li class="menu3"><a class="tapstart" href="#"><img src="images/main_ent.jpg" />
+                <li class="menu3"><a class="" href="#"><img src="images/main_ent.jpg" />
                     <div class="panel-border">
                     	<div class="panel"><h1>Entertainment</h1></div>
                     </div></a>
                 </li>
-                <li class="menu4"><a class="tapstart" href="#"><img src="images/main_loyalty.jpg" />
+                <li class="menu4"><a class="" href="#"><img src="images/main_loyalty.jpg" />
                     <div class="panel-border">
                     	<div class="panel"><h1>Loyalty Club</h1></div>
                     </div></a>
