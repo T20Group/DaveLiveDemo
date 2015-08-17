@@ -77,6 +77,11 @@ $(function() {
     $('#dining-col3 #col3-overlay .overlay, #dining-col3 #col3-overlay .specials, #dining-col3 #col3-overlay .map').addClass('hidden');
     $('#dining-col3 #col3-overlay .confirm').removeClass('hidden');
   });
+  $('.b_booknow').on('tapstart', function() {
+    $('#venue-list li .button-fill').removeClass('active');
+    $('#venue-list li.active .b_book').addClass('active');
+    $('#dining-col3 #col3-overlay').addClass('hidden');
+  });
   $('#dining-col3 .arrow-up').on('tapstart', function() {
     $(this).parent().prev('.big-number').text(parseInt($(this).parent().prev('.big-number').text()) + 1);
   });
@@ -232,7 +237,7 @@ $(function() {
               <p>Indulge in a two course weekday dinner for only $50.</p>
             </div>
           </div>
-          <a href="#" class="button-fill b_confirm">Book now</a>
+          <a href="#" class="button-fill b_booknow">Book now</a>
         </div>
         <div class="map hidden">
           <h1 class="hidden">Map</h1>
