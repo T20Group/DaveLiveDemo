@@ -139,6 +139,10 @@ $(function() {
 		console.log('close');
 	});
 
+  $('#taphouse-diningmenu .diningmenu5 .tapstart').on('tapstart', function() {
+    var table = $('#count_adults').text();
+    localStorage.setItem("set", table);
+  });
 });
 </script>
 
