@@ -41,7 +41,8 @@ $('a').on('tapstart', function() {
 */
 
 
-$('.links').on('tapstart', function() {
+$('a.links').bind('tapstart', function() {
+	console.log($(this).attr('href'));
 	
 /*
 	alert( $(this).attr('href') );
