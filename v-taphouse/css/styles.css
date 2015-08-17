@@ -1036,7 +1036,7 @@ input[type="submit"] {
 	right: auto;
 	left: 1440px;
 	transform: translateX(-50%);
-	opacity: 0.1;
+	opacity: 0;
 }
 
 #map-focus {
