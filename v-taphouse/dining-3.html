@@ -36,9 +36,9 @@ $(function() {
       $('body').addClass('loaded');
   }, 3000);
   $('a.tapstart').on('touchstart click', function( event ) {
-	window.location.href = $(this).attr('href');
-	event.preventDefault();
-});
+	//window.location.href = $(this).attr('href');
+	//event.preventDefault();
+	});
 
   var get = localStorage.getItem("set");
   $('#book-div #count_adults').text(get);
