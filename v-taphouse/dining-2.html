@@ -32,11 +32,10 @@
 
 <script type="text/javascript">
 $(function() {
-  $('a.tapstart').on('tapstart', function() {
-  	window.location.href = $(this).attr('href');
-  	//a++;
-  	//console.log(a);
-  });
+  $('a.tapstart').on('touchstart click', function( event ) {
+	window.location.href = $(this).attr('href');
+	event.preventDefault();
+});
   $('.b_specials').on('tapstart', function() {
     if(!$(this).parents('li').hasClass('active')) {
       $('#venue-list li').removeClass('active');

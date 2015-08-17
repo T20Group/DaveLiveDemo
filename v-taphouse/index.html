@@ -34,11 +34,8 @@
 $(function() {
 
 $('a.tapstart').on('touchstart click', function( event ) {
-	alert($(this).attr('href'));
 	window.location.href = $(this).attr('href');
 	event.preventDefault();
-	//a++;
-	//console.log(a);
 });
 
 

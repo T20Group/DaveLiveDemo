@@ -35,11 +35,10 @@ $(function() {
   setTimeout(function(){
       $('body').addClass('loaded');
   }, 3000);
-  $('a.tapstart').on('tapstart', function() {
-  	window.location.href = $(this).attr('href');
-  	//a++;
-  	//console.log(a);
-  });
+  $('a.tapstart').on('touchstart click', function( event ) {
+	window.location.href = $(this).attr('href');
+	event.preventDefault();
+});
 
   var get = localStorage.getItem("set");
   $('#book-div #count_adults').text(get);
