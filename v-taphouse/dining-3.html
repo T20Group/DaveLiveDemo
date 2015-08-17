@@ -40,6 +40,10 @@ $(function() {
   	//a++;
   	//console.log(a);
   });
+
+  var get = localStorage.getItem("set");
+  $('#book-div #count_adults').text(get);
+
   $('.b_specials').on('tapstart', function() {
     if(!$(this).parents('li').hasClass('active')) {
       $('#venue-list li').removeClass('active');
@@ -61,6 +65,7 @@ $(function() {
     $('#dining-col3 #col3-overlay').removeClass('hidden');
     $('#dining-col3 #col3-overlay .overlay, #dining-col3 #col3-overlay .specials').addClass('hidden');
     $('#dining-col3 #col3-overlay .map').removeClass('hidden');
+    $('#book-div #count_adults').text('2');
   });
   $('.b_book').on('tapstart', function() {
     if(!$(this).parents('li').hasClass('active')) {
