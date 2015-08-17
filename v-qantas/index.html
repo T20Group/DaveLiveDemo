@@ -455,6 +455,17 @@ $(function() {
 		
 		$('.control-container').removeClass('posL posM posR').addClass(action);
 	});
+	
+	
+	// home button
+	$('.hotspot').on('swiperight', function() {
+		console.log('open');
+		$('#link-holder').fadeIn();
+	});
+	$('.hotspot').on('swipeleft', function() {
+		$('#link-holder').fadeOut();
+		console.log('close');
+	});
 		
 });
 </script>
@@ -472,7 +483,15 @@ $(function() {
 </style>
 
 
+<div class="hotspot" style="height: 150px; width: 200px;  z-index: 9000; position: absolute; border: 0px solid rgba(0, 255, 0, 0); background: rgba(0, 255, 0, 0.0);"></div>
+<div id="link-holder" class="" style="position: absolute; border: 1px solid rgba(0, 255, 255, 1); background: rgba(0, 255, 255, 0.3); padding: 20px; position: absolute; border: 0px solid white; color: white; z-index: 9000; display: none;" >
+<a href="../v-homescreen/index.html" id="homescreen" style="padding: 20px 40px; border: 0px solid white;">Home</a>
+</div>
+
 <div id="content-nav">
+	
+
+	
 	<a id="right" class="nav" href="#"><img src="images/arrowR.png" width="110" height="213"></a>
 	<a id="left"  class="nav" href="#"><img src="images/arrowL.png" width="109" height="213"></a>
 </div>
