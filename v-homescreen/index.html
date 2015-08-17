@@ -78,8 +78,18 @@ $('#three').on('tapstart', function() {
 	$('#three-bg').addClass('show');
 
 });
-
-
+	
+	
+	// home button
+	$('#content-nav > .hotspot').on('swiperight', function() {
+		console.log('open');
+		$('#link-holder').fadeIn();
+	});
+	$('#content-nav > .hotspot').on('swipeleft', function() {
+		$('#link-holder').fadeOut();
+		console.log('close');
+	});
+	
 
 
 
@@ -160,6 +170,11 @@ a { color: white; }
 
 <div id="content-overlay"></div>
 <div id="content-nav">
+
+		<div class="hotspot" style="height: 15%; width: 200px;  z-index: 9000; position: absolute; border: 0px solid rgba(0, 255, 0, 0); background: rgba(0, 255, 0, 0.0);"></div>
+		<div id="link-holder" class="noselect" style="border: 1px solid rgba(0, 255, 255, 1); background: rgba(0, 255, 255, 0.3); padding: 20px; position: absolute; border: 0px solid white; color: white; z-index: 9000; display: none;" >
+	    <a href="index.html" id="homescreen" style="padding: 20px 40px; border: 0px solid white;">Home</a>
+		</div>
 
 </div>
 <div id="content-view">

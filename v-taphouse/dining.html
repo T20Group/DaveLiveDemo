@@ -128,6 +128,17 @@ $(function() {
 
     e.preventDefault();
   });
+  
+  	// home button
+	$('#content-nav > .hotspot').on('swiperight', function() {
+		console.log('open');
+		$('#link-holder').fadeIn();
+	});
+	$('#content-nav > .hotspot').on('swipeleft', function() {
+		$('#link-holder').fadeOut();
+		console.log('close');
+	});
+
 });
 </script>
 
@@ -137,7 +148,12 @@ $(function() {
 .easein {transition: all 0.6s ease-in-out;}
 </style>
 <div id="content-overlay"></div>
-<div id="content-nav" style="position: absolute; top: 20%; right: 10%; background: rgba(255, 255, 255, 0.5);">
+<div id="content-nav" style="">
+
+	<div class="hotspot" style="height: 150px; width: 200px;  z-index: 9000; position: absolute; border: 0px solid rgba(0, 255, 0, 0); background: rgba(0, 255, 0, 0.0);"></div>
+	<div id="link-holder" class="noselect" style="border: 1px solid rgba(0, 255, 255, 1); background: rgba(0, 255, 255, 0.3); padding: 20px; position: absolute; border: 0px solid white; color: white; z-index: 9000; display: none;" >
+    <a href="../v-homescreen/index.html" id="homescreen" style="color: white; padding: 20px 40px; border: 0px solid white;">Home</a>
+	</div>
 
 </div>
 <div id="content-view">
