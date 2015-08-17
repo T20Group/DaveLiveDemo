@@ -34,7 +34,7 @@
 $(function() {
   setTimeout(function(){
       $('body').addClass('loaded');
-  }, 5000);
+  }, 3000);
   $('a.tapstart').on('tapstart', function() {
   	window.location.href = $(this).attr('href');
   	//a++;
@@ -112,9 +112,6 @@ $(function() {
 
 });
 </script>
-<div id="loader-overlay">
-  <div id="loader"><div id="loader-image"><img src="images/ajax-loader.gif" alt="loader image"></div>FINDING YOU A TABLE NOW</div>
-</div>
 <div id="content-overlay"></div>
 <div id="content-nav" style="">
 
@@ -317,5 +314,17 @@ $(function() {
   </div><!-- taphouse-container -->
 </div>
 </div> <!-- /#main-container -->
+
+
+<div id="loader-overlay">
+  <div id="header">
+    <div id="headerlogo">
+        <a class="tapstart" href="index.html"><img src="images/taphouse-logo.png"></a>
+    </div><!-- headerlogo -->
+    <a id="back" class="tapstart" href="dining.html">BACK</a>
+  </div>
+  <div id="loader"><div id="loader-image"><img src="images/ajax-loader.gif" alt="loader image"></div>FINDING YOU A TABLE NOW</div>
+</div>
+
 </body>
 </html>
