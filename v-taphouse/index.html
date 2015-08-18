@@ -34,9 +34,9 @@
 $(function() {
 
 $('a.tapstart').on('tapstart', function( event ) {
-	window.location.href = $(this).attr('href');
-	$(this).trigger('touchend');
-	//event.preventDefault();
+	window.location.replace($(this).attr('href'));
+	//$(this).trigger('touchend');
+	event.preventDefault();
 });
 
 
