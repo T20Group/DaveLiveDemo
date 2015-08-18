@@ -1,7 +1,7 @@
 {
   "name": "Dave Live Demo",
   "description": "My elevator pitch goes here",
-  "launch_path": "/index.html",
+  "launch_path": "/v-homescreen/index.html",
   "icons": {
     "512": "/img/icon-512.png",
     "128": "/img/icon-128.png"
