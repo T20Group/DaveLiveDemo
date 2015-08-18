@@ -37,9 +37,10 @@
 
 <script type="text/javascript">
 $(function() {
- 	 $('a.tapstart').on('touchstart click', function( event ) {
-		//window.location.href = $(this).attr('href');
-		//event.preventDefault();
+	$('a.tapstart').on('tapstart', function( event ) {
+		window.location.replace($(this).attr('href'));
+		//$(this).trigger('touchend');
+		event.preventDefault();
 	});
 
   function slideAnim() {
